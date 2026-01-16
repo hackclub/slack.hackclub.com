@@ -218,12 +218,6 @@ const SlackPage = () => {
             isOpen={openGuide === 1}
             onToggle={() => handleGuideToggle(1)}
           >
-            <p>
-              <strong>When you join, you and other new users will be put in a special channel dedicated to helping you.</strong> Each
-              channel is overseen by our Gardeners, teen hackers who enjoy helping new users. Don&apos;t be shy: ask them a question! It&apos;s also a
-              good place to make friends with other new users, and do fun things
-              organized by the Special Activities Division.
-            </p>
             <p>Other than your welcome channel, here are some core channels:</p>
             <p>
               <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0710J7F4U9">#ysws</ChannelName> - At Hack Club, the
@@ -275,34 +269,6 @@ const SlackPage = () => {
                 the Slack. &quot;General discussion&quot; does not mean spam or bullying.
               </li>
             </ul>
-            <p>
-              As a new user, we will automatically add you to these channels,
-              except <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0710J7F4U9">#ysws</ChannelName> which you should join on
-              your own.
-            </p>
-          </GuideItem>
-
-          <GuideItem
-            title="Getting help"
-            isOpen={openGuide === 2}
-            onToggle={() => handleGuideToggle(2)}
-          >
-            <p>
-              Asking for help is good. Hack Club is full of people who love it,
-              want to share it, and enjoy helping new users exactly like you.
-            </p>
-            <p>
-              Your welcome channel is a great place to start. Ask in the channel
-              and one of the Gardeners will give you a hand.
-            </p>
-            <p>
-              Type <code style={{ fontSize: 'inherit', fontFamily: 'monospace' }}>/help</code> followed by any question, and it will automatically go
-              to our helpline. You can also email{' '}
-              <ThemeLink href="mailto:help@hackclub.com">
-                help@hackclub.com
-              </ThemeLink>
-              .
-            </p>
           </GuideItem>
 
           <GuideItem

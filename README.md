@@ -1,6 +1,9 @@
-## slack.hackclub.com
-
-The Hack Club Slack's new community landing page.
+<p align="center">
+    <img width="192" alt="Hack Club logo" src="https://assets.hackclub.com/flag-standalone.svg">
+</p>
+<h1 align="center">
+    The new <a href="https://hackclub.com/">Hack Club Slack Landing Page!</a>!
+</h1>
 
 ## Development
 

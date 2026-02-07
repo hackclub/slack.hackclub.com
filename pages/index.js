@@ -202,21 +202,20 @@ const SlackPage = () => {
               help you.
             </p>
             <p>
-              <strong>Channels:</strong> Channels are to Slack what food is to a
-              restaurant. The whole point! When you want to talk about
+              <strong>Channels:</strong> Channels are places to chat with others and make friends. When you want to talk about
               something, you find the channel with other people who want to talk
-              about it, or if that channel doesn&apos;t exist, you make your own.
+              about it, or if that channel doesn&apos;t exist, you make your own!
             </p>
             <p>
               <strong>DMs:</strong> You can also DM individual users or groups
-              of users.
+              of users. This is another way to connect to members of our community
             </p>
             <p>
               <strong>Search:</strong> The search bar at the top of your Slack
               is how you find channels to join, find people to DM, and look up
-              messages. It has a lot of hidden functions; for example you can
-              search in a specific channel for a specific message on a specific
-              day.
+              messages. It has so many hidden functions; for example you can
+              search in a specific channel or DM for a specific message on a specific
+              day!
             </p>
             <p>
               <strong>The Sidebar:</strong> Once you join a channel or start a

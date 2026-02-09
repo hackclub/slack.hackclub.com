@@ -202,21 +202,20 @@ const SlackPage = () => {
               help you.
             </p>
             <p>
-              <strong>Channels:</strong> Channels are to Slack what food is to a
-              restaurant. The whole point! When you want to talk about
+              <strong>Channels:</strong> Channels are places to chat with others and make friends. When you want to talk about
               something, you find the channel with other people who want to talk
-              about it, or if that channel doesn&apos;t exist, you make your own.
+              about it, or if that channel doesn&apos;t exist, you make your own!
             </p>
             <p>
               <strong>DMs:</strong> You can also DM individual users or groups
-              of users.
+              of users. This is another way to connect to members of our community
             </p>
             <p>
               <strong>Search:</strong> The search bar at the top of your Slack
               is how you find channels to join, find people to DM, and look up
-              messages. It has a lot of hidden functions; for example you can
-              search in a specific channel for a specific message on a specific
-              day.
+              messages. It has so many hidden functions; for example you can
+              search in a specific channel or DM for a specific message on a specific
+              day!
             </p>
             <p>
               <strong>The Sidebar:</strong> Once you join a channel or start a
@@ -239,7 +238,7 @@ const SlackPage = () => {
             <p>
               <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0710J7F4U9">#ysws</ChannelName> - At Hack Club, the
               #1 activity is making things! &quot;You Ship, We Ship&quot; is a challenge
-              where you make something and you get a prize in return. Make what?
+              where you make something and you get a prize in return! (sounds fun right). Make what?
               Get what? There are lots of different YSWS, offering different
               prizes for different kinds of projects. Browse{' '}
               <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0710J7F4U9">#ysws</ChannelName> to find a challenge
@@ -295,7 +294,7 @@ const SlackPage = () => {
           >
             <p>
               Hack Club is special, because we insist on making it that way. We
-              will hold you to higher standards than most online spaces.
+              will hold you to higher standards than most other online spaces.
             </p>
             <p>
               Our{' '}

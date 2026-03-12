@@ -331,10 +331,24 @@ const SlackPage = () => {
               sx={{ pl: '1rem', borderLeft: '3px solid', borderColor: 'primary' }}
             >
               <Text sx={{ fontWeight: 700, color: 'primary', fontSize: '0.9rem' }}>
+                v1.2.0
+              </Text>
+              <Text sx={{ fontSize: '0.8rem', color: 'muted', ml: '0.5rem' }}>
+                March 10 2026
+              </Text>
+              <Text sx={{ ml: '0.5rem', fontSize: '1.15rem', color: 'slate' }}>
+                <a href="https://news.hackclub.com">Slacker News</a> and Prometheus launched
+              </Text>
+            </Box>
+            <Box
+              as="article"
+              sx={{ pl: '1rem', borderLeft: '3px solid', borderColor: 'primary' }}
+            >
+              <Text sx={{ fontWeight: 700, color: 'primary', fontSize: '0.9rem' }}>
                 v1.1.0
               </Text>
               <Text sx={{ fontSize: '0.8rem', color: 'muted', ml: '0.5rem' }}>
-                January 27 2025
+                January 27 2026
               </Text>
               <Text sx={{ ml: '0.5rem', fontSize: '1.15rem', color: 'slate' }}>
                 slides added to onboarding flow
@@ -348,7 +362,7 @@ const SlackPage = () => {
                 v1.0.0
               </Text>
               <Text sx={{ fontSize: '0.8rem', color: 'muted', ml: '0.5rem' }}>
-                January 16 2025
+                January 16 2026
               </Text>
               <Text sx={{ ml: '0.5rem', fontSize: '1.15rem', color: 'slate' }}>
                 slack.hackclub.com launched

@@ -268,6 +268,8 @@ const SlackPage = () => {
               DM, it lives in your sidebar. You can play around and reorganize
               it in the way that makes sense to you.
             </p>
+
+            <p>Want more information about the Slack? Read <a href="https://readme.hackclub.com/slack">readme</a>!</p>
           </GuideItem>
 
           <GuideItem
@@ -363,6 +365,8 @@ const SlackPage = () => {
                 discussion&quot; does not mean spam or bullying.
               </li>
             </ul>
+
+            <p>Want to learn more about Hack Club? Read <a href="https://readme.hackclub.com">readme</a>!</p>
           </GuideItem>
 
           <GuideItem

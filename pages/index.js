@@ -44,7 +44,7 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
     onToggle()
   }
 
-  const handleTransitionEnd = useCallback(() => { }, [])
+  const handleTransitionEnd = useCallback(() => {}, [])
 
   return (
     <Box
@@ -184,7 +184,7 @@ const SlackPage = () => {
           }
         }
       })
-      .catch(() => { })
+      .catch(() => {})
       .finally(() => setGeoLoading(false))
   }
 
@@ -269,9 +269,13 @@ const SlackPage = () => {
               it in the way that makes sense to you.
             </p>
 
-            <p>Want more information about the Slack? Read <ThemeLink href="https://readme.hackclub.com/slack">
-              readme
-            </ThemeLink>!</p>
+            <p>
+              Want more information about Slack? Read the{' '}
+              <ThemeLink href="https://readme.hackclub.com/slack">
+                readme
+              </ThemeLink>
+              !
+            </p>
           </GuideItem>
 
           <GuideItem
@@ -455,7 +459,7 @@ const SlackPage = () => {
                 'Looking up…'
               ) : (
                 <>
-                  Find Your regional channel
+                  Find your regional channel
                   <br />
                   (shares your IP with geolocation service)
                 </>

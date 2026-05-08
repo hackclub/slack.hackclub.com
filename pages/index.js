@@ -586,7 +586,7 @@ const SlackPage = () => {
                   <>
                     Find your regional channel
                     <br />
-                    (shares your IP with geolocation service)
+                    (shares your IP with our server to determine your location)
                   </>
                 )}
               </Text>

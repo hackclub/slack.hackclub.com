@@ -4,7 +4,15 @@ import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 
 const Content = ({ onJoinClick }) => (
-  <Grid gap={3} pt={[5, '100px']} pb={[3, 4]}>
+  <Grid
+    gap={3}
+    pt={[5, '100px']}
+    pb={[3, 4]}
+    sx={{
+      backgroundImage:
+        'radial-gradient( ellipse farthest-corner at top left, #ff8c37, #ec3750)'
+    }}
+  >
     <Box
       sx={{
         position: 'relative',
@@ -92,8 +100,7 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: (t) => t.util.gx('cyan', 'purple'),
-      opacity: 0.625,
+      backgroundImage: (t) => t.util.gx('#ff8c37', '#ec3750'),
       zIndex: 1
     }}
   />
@@ -128,39 +135,39 @@ const Slack = ({ onJoinClick }) => {
         id="slack"
         sx={{ overflow: 'hidden', position: 'relative' }}
       >
-        <Box
-          as="video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
-          duration={2000}
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '100%',
-            zIndex: -1,
-            width: '100vw',
-            objectFit: 'cover'
-          }}
-        >
-          <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658"
-            type="video/mp4; codecs=hevc"
-          />
-          <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834"
-            type="video/webm; codecs=vp9,opus"
-          />
-          <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
-            type="video/quicktime"
-          />
-        </Box>
+        {/* <Box */}
+        {/*   as="video" */}
+        {/*   autoPlay */}
+        {/*   muted */}
+        {/*   loop */}
+        {/*   playsInline */}
+        {/*   poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png" */}
+        {/*   duration={2000} */}
+        {/*   sx={{ */}
+        {/*     position: 'absolute', */}
+        {/*     bottom: 0, */}
+        {/*     top: 0, */}
+        {/*     left: 0, */}
+        {/*     right: 0, */}
+        {/*     height: '100%', */}
+        {/*     zIndex: -1, */}
+        {/*     width: '100vw', */}
+        {/*     objectFit: 'cover' */}
+        {/*   }} */}
+        {/* > */}
+        {/*   <source */}
+        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658" */}
+        {/*     type="video/mp4; codecs=hevc" */}
+        {/*   /> */}
+        {/*   <source */}
+        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834" */}
+        {/*     type="video/webm; codecs=vp9,opus" */}
+        {/*   /> */}
+        {/*   <source */}
+        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717" */}
+        {/*     type="video/quicktime" */}
+        {/*   /> */}
+        {/* </Box> */}
         <Cover />
         <Content onJoinClick={onJoinClick} />
       </Box>

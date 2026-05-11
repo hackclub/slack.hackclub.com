@@ -268,7 +268,6 @@ const SlackPage = () => {
               DM, it lives in your sidebar. You can play around and reorganize
               it in the way that makes sense to you.
             </p>
-
           </GuideItem>
 
           <GuideItem
@@ -359,10 +358,22 @@ const SlackPage = () => {
                 <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0266FRGV">
                   #lounge
                 </ChannelName>{' '}
-                - A channel for general discussion. Remember to follow the code
-                of conduct everywhere in the Slack.
+                - A channel for general discussion.{' '}
+              </li>
+            </ul>{' '}
+            <p>Honorable mention:</p>
+            <ul>
+              <li>
+                <ChannelName href="https://hackclub.enterprise.slack.com/archives/C01270P3XFV">
+                  #out-of-context
+                </ChannelName>{' '}
+                - It reminds you to be careful when you talk, or someone mioght
+                take what you say and put it here without context as to what you
+                were talking about and make you look crazy! Fun to look through
+                though.
               </li>
             </ul>
+            Remember to follow the code of conduct everywhere in the Slack.
             <p>
               Want more information about Slack? Read the{' '}
               <ThemeLink href="https://readme.hackclub.com/slack">

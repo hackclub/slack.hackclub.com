@@ -80,7 +80,7 @@ const Content = ({ onJoinClick }) => (
               ':hover': {
                 transform: 'scale(1.05)',
                 backgroundImage:
-                  'radial-gradient(ellipse farthest-corner at bottom right, #ff8c37, #ec3750)'
+                  'radial-gradient(ellipse farthest-corner at bottom right, #ff8c373f, #ec37503f)'
               }
             }}
           >
@@ -96,12 +96,16 @@ const Cover = () => (
   <Box
     sx={{
       position: 'absolute',
-      bottom: 0,
-      top: 0,
-      left: 0,
+      bottom: '-20%',
+      height: '100%',
+      aspectRatio: '1/1',
       right: 0,
-      backgroundImage: (t) => t.util.gx('#ff8c37', '#ec3750'),
-      zIndex: 1
+      backgroundImage: 'url(slack-logo.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100%',
+      opacity: 0.75,
+      zIndex: 0,
+      filter: 'saturate(0.9) grayscale(0.2)'
     }}
   />
 )

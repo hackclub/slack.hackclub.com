@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Heading, Text, Link as ThemeLink } from 'theme-ui'
@@ -143,6 +144,32 @@ const Card = ({ children, sx, ...props }) => (
   </Box>
 )
 
+const MakeFigure = (props) => {
+  const imgUrl = props.imgUrl
+  const imgDesc = props.imgDesc
+  return (
+    <figure
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '0.5rem'
+      }}
+    >
+      <img
+        src={imgUrl}
+        alt={imgDesc}
+        loading="lazy"
+        sx={{
+          height: '22.5rem'
+        }}
+      />
+      <figcaption>{imgDesc}</figcaption>
+    </figure>
+  )
+}
+
 const SlackPage = () => {
   const nameInputRef = useRef(null)
   const [openGuide, setOpenGuide] = useState(null)
@@ -244,30 +271,80 @@ const SlackPage = () => {
               there is so much happening. We care about you, and wrote this
               guide to help you.
             </p>
-            <p>
-              <strong>Channels:</strong>The best place to meet new people and
-              have interesting conversations. When you want to talk about
-              something, you find the channel with other people who want to talk
-              about it, or if that channel doesn&apos;t exist, you make your
-              own!
-            </p>
-            <p>
-              <strong>DMs:</strong> You can also DM individual users or groups
-              of users. This is another way to connect with members of our
-              community!
-            </p>
-            <p>
-              <strong>Search:</strong> The search bar at the top of your Slack
-              is how you find channels to join, find people to DM, and look up
-              messages. It has so many hidden functions; for example you can
-              search in a specific channel or DM for a specific message on a
-              specific day!
-            </p>
-            <p>
-              <strong>The Sidebar:</strong> Once you join a channel or start a
-              DM, it lives in your sidebar. You can play around and reorganize
-              it in the way that makes sense to you.
-            </p>
+            <div>
+              <Heading as="h3">Channels</Heading>
+              <p>
+                The best place to meet new people and have interesting
+                conversations. When you want to talk about something, you find
+                the channel with other people who want to talk about it, or if
+                that channel doesn&apos;t exist, you make your own!
+              </p>
+              <MakeFigure
+                imgUrl="slack-channel.gif"
+                imgDesc="A GIF showing channels in Slack"
+              />
+            </div>
+            <div>
+              <Heading as="h3">DMs</Heading>
+              <p>
+                You can also DM individual users or groups of users. This is
+                another way to connect with members of our community!
+              </p>
+              <MakeFigure
+                imgUrl="slack-dms.gif"
+                imgDesc="A GIF showing how the DMs section looks like in Slack"
+              />
+            </div>
+            <div>
+              <Heading as="h3">Search</Heading>
+              <p>
+                The search bar at the top of your Slack is how you find channels
+                to join, find people to DM, and look up messages. It has so many
+                hidden functions; for example you can search in a specific
+                channel or DM for a specific message on a specific day!
+              </p>
+              <MakeFigure
+                imgUrl="slack-search.gif"
+                imgDesc="A GIF showing the search bar in Slack"
+              />
+            </div>
+            <div>
+              <Heading as="h3">The Sidebar</Heading>
+              <p>
+                Once you join a channel or start a DM, it lives in your sidebar.
+                You can play around and reorganize it in the way that makes
+                sense to you.
+              </p>
+              <div
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap'
+                }}
+              >
+                <MakeFigure
+                  imgUrl="default-slack-sidebar.png"
+                  imgDesc="How the Slack sidebar looks by default"
+                />
+                <MakeFigure
+                  imgUrl="slack-sidebar-small-icons.png"
+                  imgDesc="Slack sidebar with small icons enabled"
+                />
+                <MakeFigure
+                  imgUrl="slack-sidebar-all-items-enabled.png"
+                  imgDesc="Slack sidebar with all icons enabled"
+                />
+                <MakeFigure
+                  imgUrl="slack-sidebar-all-items-disabled.png"
+                  imgDesc="Slack sidebar with most icons disabled"
+                />
+                <MakeFigure
+                  imgUrl="slack-sidebar-preferences.png"
+                  imgDesc="Options for the slack sidebar"
+                />
+              </div>
+            </div>
           </GuideItem>
 
           <GuideItem

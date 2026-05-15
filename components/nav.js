@@ -5,6 +5,9 @@ import { Box, Container, Flex, Link } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
+import ScrollLock from 'react-scrolllock'
+import NextLink from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 const rgbaBgColor = (props, opacity) =>
   `rgba(
@@ -14,23 +17,34 @@ const rgbaBgColor = (props, opacity) =>
     ${opacity}
   )`
 
-const fixed = (props) =>
+// const bg = (props) =>
+//   props.dark
+//     ? css`
+//         -webkit-backdrop-filter: saturate(90%) blur(20px);
+//         backdrop-filter: saturate(90%) blur(20px);
+//       `
+//     : css`
+//         -webkit-backdrop-filter: saturate(180%) blur(20px);
+//         backdrop-filter: saturate(180%) blur(20px);
+//       `
+const fixed = props =>
   (props.scrolled || props.toggled || props.fixed) &&
   css`
     background-color: ${rgbaBgColor(props, 0.96875)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
+      ? 'transparent'
+      : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
+      /* {bg}; to support dark mode later */
     }
   `
 
 const Root = styled(Box, {
-  shouldForwardProp: (prop) =>
-    !['bgColor', 'scrolled', 'toggled'].includes(prop)
+  shouldForwardProp: prop =>
+    !['bgColor', 'scrolled', 'toggled', 'fixed', 'dark'].includes(prop)
 })`
   position: fixed;
   top: 0;
@@ -42,6 +56,8 @@ const Root = styled(Box, {
   }
 `
 
+const RootAny = Root
+
 export const Content = styled(Container)`
   display: flex;
   align-items: center;
@@ -50,12 +66,12 @@ export const Content = styled(Container)`
   z-index: 2;
 `
 
-const hoverColor = (name) =>
+const hoverColor = name =>
   ({
     white: 'smoke',
     smoke: 'muted',
     muted: 'slate',
-    slate: 'white',
+    slate: 'black',
     black: 'slate',
     primary: 'error'
   })[name] || 'black'
@@ -65,7 +81,7 @@ const slide = keyframes({
   to: { transform: 'translateY(0)', opacity: 1 }
 })
 
-const layout = (props) =>
+const layout = props =>
   props.isMobile
     ? css`
         display: ${props.toggled ? 'flex' : 'none'};
@@ -99,12 +115,13 @@ const layout = (props) =>
         a {
           font-size: 18px;
           &:hover {
+            text-decoration: underline;
             color: ${theme.colors[hoverColor(props.color)]};
           }
         }
       `
 const NavBar = styled(Box, {
-  shouldForwardProp: (prop) => !['isMobile', 'toggled'].includes(prop)
+  shouldForwardProp: prop => !['isMobile', 'toggled'].includes(prop)
 })`
   display: none;
   ${layout};
@@ -112,23 +129,29 @@ const NavBar = styled(Box, {
     margin-left: ${theme.space[1]}px;
     padding: ${theme.space[3]}px;
     text-decoration: none;
-    color: ${(props) =>
-      props.scrolled ? theme.colors.slate : theme.colors.white};
-    transition: color 0.2s ease;
-  }
-  a:hover {
-    color: #ec3750;
+    @media (min-width: 56em) {
+      color: ${props => theme.colors[props.color] || props.color};
+    }
   }
 `
 
-const Navigation = (props) => (
+const Navigation = props => (
+  // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
-    <Link href="https://hackclub.com/clubs">Clubs</Link>
-    <Link href="https://hackclub.com/hcb">Fiscal Sponsorship</Link>
-    <Link href="https://hackclub.com/hackathons">Hackathons</Link>
-    <Link href="/">Join</Link>
+    <Link as={NextLink} href="/clubs">
+      Clubs
+    </Link>
+    <Link as={NextLink} href="/fiscal-sponsorship">
+      Fiscal&nbsp;Sponsorship
+    </Link>
+    <Link as={NextLink} href="/hackathons">
+      Hackathons
+    </Link>
+    <Link as={NextLink} href="/slack">Join</Link>
     <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
-    <Link href="https://hackclub.com/philanthropy">Donors</Link>
+    <Link as={NextLink} href="/philanthropy">
+      Donors
+    </Link>
   </NavBar>
 )
 
@@ -145,10 +168,19 @@ const ToggleContainer = styled(Flex)`
   }
 `
 
-function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
+export default function Header({
+  unfixed = false,
+  color = 'white',
+  bgColor,
+  dark = false,
+  fixed = false,
+  ...props
+}) {
   const [scrolled, setScrolled] = useState(false)
   const [toggled, setToggled] = useState(false)
   const [mobile, setMobile] = useState(false)
+  const searchParams = useSearchParams()
+  const isKawaii = searchParams.get('uwu') != null
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
@@ -157,7 +189,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   }
 
   const handleToggleMenu = () => {
-    setToggled((t) => !t)
+    setToggled(t => !t)
   }
 
   useEffect(() => {
@@ -190,7 +222,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       : color
 
   return (
-    <Root
+    <RootAny
       {...props}
       fixed={fixed}
       scrolled={scrolled}
@@ -200,13 +232,12 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       as="header"
     >
       <Content>
-        <Flag scrolled={scrolled || fixed} />
+        <Flag scrolled={scrolled || fixed} uwu={isKawaii} />
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
           color={baseColor}
           dark={dark}
-          scrolled={scrolled}
         />
         <ToggleContainer color={toggleColor} onClick={handleToggleMenu}>
           <Icon glyph={toggled ? 'view-close' : 'menu'} />
@@ -219,15 +250,8 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
         toggled={toggled}
         color={baseColor}
         dark={dark}
-        scrolled={scrolled}
       />
-      {toggled && <style>{`body { overflow: hidden; }`}</style>}
-    </Root>
+      {toggled && <ScrollLock />}
+    </RootAny>
   )
 }
-
-Header.defaultProps = {
-  color: 'white'
-}
-
-export default Header

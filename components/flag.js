@@ -1,6 +1,7 @@
 import theme from '../lib/theme'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
+import Link from 'next/link'
 
 const waveFlag = keyframes`
   from {
@@ -20,19 +21,23 @@ const waveFlagScaled = keyframes`
   }
 `
 
-const scrolled = (props) =>
-  props.scrolled &&
-  css`
-    transform: scale(0.875);
-    height: 56px;
-    &:hover,
-    &:focus {
-      animation: ${waveFlagScaled} 0.5s linear infinite alternate;
-    }
-  `
+const scrolled = props =>
+  props.scrolled
+    ? css`
+        transform: scale(0.875);
+        height: 56px;
+        &:hover,
+        &:focus {
+          animation: ${waveFlagScaled} 0.5s linear infinite alternate;
+        }
+      `
+    : undefined
 
-const Base = styled('a')`
-  background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
+const Base = styled(Link)`
+  background-image: ${props =>
+    props.uwu
+      ? 'url(https://hackclub.com/stickers/hack-club-anime.png)'
+      : 'url(https://assets.hackclub.com/flag-orpheus-top.svg)'};
   background-repeat: no-repeat;
   background-position: top left;
   background-size: contain;
@@ -56,8 +61,6 @@ const Base = styled('a')`
   ${scrolled};
 `
 
-const Flag = (props) => (
-  <Base href="https://hackclub.com" title="Hack Club Homepage" {...props} />
-)
+const Flag = props => <Base href="/" title="Homepage" {...props} />
 
 export default Flag

@@ -56,7 +56,7 @@ const Root = styled(Box, {
   }
 `
 
-const RootAny = Root
+const RootAny = Root as any
 
 export const Content = styled(Container)`
   display: flex;
@@ -168,6 +168,14 @@ const ToggleContainer = styled(Flex)`
   }
 `
 
+type HeaderProps = {
+  unfixed?: boolean
+  color?: string
+  fixed?: boolean
+  dark?: boolean
+  bgColor?: string | number[]
+}
+
 export default function Header({
   unfixed = false,
   color = 'white',
@@ -175,7 +183,7 @@ export default function Header({
   dark = false,
   fixed = false,
   ...props
-}) {
+}: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [toggled, setToggled] = useState(false)
   const [mobile, setMobile] = useState(false)

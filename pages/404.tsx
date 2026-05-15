@@ -1,6 +1,8 @@
+import React from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
 import { Heading, Container, Button, Text, Image } from 'theme-ui'
+import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import theme from '../lib/theme'
@@ -9,6 +11,7 @@ import Nav from '../components/nav'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 
+// Credit for animation from https://codepen.io/igli/pen/mPMqGz?html-preprocessor=none
 const animation1 = keyframes`
   0% {
     clip: rect(62px, 9999px, 68px, 0);
@@ -146,7 +149,7 @@ const Blinking = styled(Heading)`
   line-height: 1;
   &:before,
   &:after {
-    content: '${(props) => props.children}';
+    content: '404!';
     position: absolute;
     top: 0;
     color: ${theme.colors.smoke};
@@ -180,6 +183,10 @@ const Spinning = styled(Image)`
   animation-duration: 10000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+
   aspect-ratio: 1;
 `
 
@@ -204,12 +211,14 @@ const NotFoundPage = () => (
         variant="lead"
         sx={{ display: 'block' }}
       >
-        We&nbsp;couldn&apos;t&nbsp;find&nbsp;that&nbsp;page.
+        We&nbsp;couldn’t&nbsp;find&nbsp;that&nbsp;page.
       </Text>
-      <Button as="a" href="/" variant="cta">
-        <Icon glyph="home" size={32} />
-        Go Home
-      </Button>
+      <NextLink href="/">
+        <Button variant="cta">
+          <Icon glyph="home" size={32} />
+          Go Home
+        </Button>
+      </NextLink>
     </Container>
     <Footer dark />
   </>

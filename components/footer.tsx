@@ -4,11 +4,12 @@ import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 
-const Base = styled(Box, { shouldForwardProp: (prop) => prop !== 'dark' })`
-  background: ${(props) =>
-    props.dark
-      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
-      : `${theme.colors.snow} url('/pattern.svg') repeat`};
+const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' }) <{
+  dark?: boolean
+}>`background: ${(props) =>
+  props.dark
+    ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
+    : `${theme.colors.snow} url('/pattern.svg') repeat`};
   ${(props) =>
     props.dark &&
     `

@@ -33,10 +33,10 @@ const scrolled = props =>
       `
     : undefined
 
-const Base = styled(Link)`
+const Base = styled(Link) <{ uwu?: boolean }>`
   background-image: ${props =>
     props.uwu
-      ? 'url(https://hackclub.com/stickers/hack-club-anime.png)'
+      ? 'url(/stickers/hack-club-anime.png)'
       : 'url(https://assets.hackclub.com/flag-orpheus-top.svg)'};
   background-repeat: no-repeat;
   background-position: top left;

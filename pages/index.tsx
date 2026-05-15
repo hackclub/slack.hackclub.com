@@ -50,7 +50,7 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
     onToggle()
   }
 
-  const handleTransitionEnd = useCallback(() => {}, [])
+  const handleTransitionEnd = useCallback(() => { }, [])
 
   return (
     <Box

@@ -1,5 +1,4 @@
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
-import SlideUp from '../slide-up'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 
@@ -34,7 +33,7 @@ const Content = ({ onJoinClick }) => (
         Hack Club Slack
       </Heading>
     </Box>
-    <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       <Card
         sx={{
           variant: 'cards.translucent',
@@ -73,12 +72,13 @@ const Content = ({ onJoinClick }) => (
               display: 'inline-block',
               position: 'relative',
               overflow: 'hidden',
-              transition: 'transform 0.125s ease-in-out',
-              border: 'none',
+              transition: 'all 0.125s ease-in-out',
+              border: '2px solid white',
               cursor: 'pointer',
               fontFamily: 'inherit',
               ':hover': {
                 transform: 'scale(1.05)',
+                boxShadow: '0 0 0 2px white',
                 backgroundImage:
                   'radial-gradient(ellipse farthest-corner at bottom right, #ff8c373f, #ec37503f)'
               }
@@ -88,7 +88,7 @@ const Content = ({ onJoinClick }) => (
           </Text>
         </Box>
       </Card>
-    </SlideUp>
+    </Box>
   </Grid>
 )
 
@@ -139,39 +139,6 @@ const Slack = ({ onJoinClick }) => {
         id="slack"
         sx={{ overflow: 'hidden', position: 'relative' }}
       >
-        {/* <Box */}
-        {/*   as="video" */}
-        {/*   autoPlay */}
-        {/*   muted */}
-        {/*   loop */}
-        {/*   playsInline */}
-        {/*   poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png" */}
-        {/*   duration={2000} */}
-        {/*   sx={{ */}
-        {/*     position: 'absolute', */}
-        {/*     bottom: 0, */}
-        {/*     top: 0, */}
-        {/*     left: 0, */}
-        {/*     right: 0, */}
-        {/*     height: '100%', */}
-        {/*     zIndex: -1, */}
-        {/*     width: '100vw', */}
-        {/*     objectFit: 'cover' */}
-        {/*   }} */}
-        {/* > */}
-        {/*   <source */}
-        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658" */}
-        {/*     type="video/mp4; codecs=hevc" */}
-        {/*   /> */}
-        {/*   <source */}
-        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834" */}
-        {/*     type="video/webm; codecs=vp9,opus" */}
-        {/*   /> */}
-        {/*   <source */}
-        {/*     src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717" */}
-        {/*     type="video/quicktime" */}
-        {/*   /> */}
-        {/* </Box> */}
         <Cover />
         <Content onJoinClick={onJoinClick} />
       </Box>

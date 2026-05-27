@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react"
+import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button } from 'theme-ui'
 import NavFooterThing from "../../components/slack/footerNav"
 
 export default function Page() {
+    const [email, setEmail] = useState("")
+    useEffect(() => {
+        setEmail(getEmailQueryParam())
+    })
+
     return (
         <>
             <Box sx={{
@@ -30,34 +37,20 @@ export default function Page() {
                         sx={{
                             color: 'black',
                             position: 'relative',
-                            display: 'block',
-                            alignSelf: "center"
+                            display: 'block'
                         }}
                         as="h1"
-                    >Hack Club slang</Text>
-                    <Text
-                        sx={{
-                            color: 'black',
-                            position: 'relative',
-                            display: 'block',
-                            alignSelf: "center"
-                        }}
-                        as="h2"
-                    >The community uses words or abbreviations that you may not understand.
-                        Here are the important ones and their definitions</Text>
+                    >Some words you might not understand...</Text>
+
+                    <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center" }}>
+                        The community uses words or abbreviations that you may not understand.
+                        Here are the important ones and their definitions
+                    </Text>
 
                     <Box sx={{
                         display: "grid",
-                        gridTemplateColumns: "1fr 1fr 1fr",
+                        gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr 1fr 1fr"],
                         gap: "2rem",
-                        // gridTemplateColumns: {
-                        //     _: "1fr 1fr 1fr",
-                        //     tablet: "1fr"
-                        // },
-                        // gridTemplateRows: {
-                        //     _: "1fr",
-                        //     tablet: "1fr 1fr 1fr"
-                        // },
                         textAlign: "center",
                         padding: "4rem"
                     }}>
@@ -80,7 +73,7 @@ export default function Page() {
                                     alignSelf: "center"
                                 }}
                                 as="h2"
-                            >to host a finished so other people can use it and test it</Text>
+                            >to host a finished project so other people can use it and test it</Text>
                         </Box>
 
                         <Box>
@@ -125,34 +118,37 @@ export default function Page() {
                                     alignSelf: "center"
                                 }}
                                 as="h2"
-                            >a virtual Visa card given by YSWS programs that you can only spend on specific things like a domain or filament for your 3d printer
+                            >a virtual Visa card given by YSWS programs to be spent on specific things like domains or filament for 3d printers
                             </Text>
                         </Box>
                     </Box>
 
                     <Button
                         as="a"
-                        {...({ href: '/slides/4' } as any)}
+                        {...({ href: `/slides/4${(email !== null ? "?email=" + email : "")}` } as any)}
 
                         sx={{
                             position: "relative",
                             display: "flex",
-                            alignSelf: "center",
-
-                            width: "100%",
-                            maxWidth: "600px",
 
                             whiteSpace: 'nowrap',
                             borderRadius: "12px",
                             background: "#ec3750",
                             transition: "none !important",
-                            transform: "none !important"
+                            transform: "none !important",
+
+                            textTransform: "initial",
+                            width: "fit-content",
+                            paddingRight: "2rem",
+                            paddingLeft: "2rem",
+                            alignSelf: "center",
+                            minWidth: "600px"
                         }}
                     >
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Next &rarr;
+                            Wait, I can get prizes from YSWS? Tell me more!
                         </Text>
                     </Button>
                 </Box>

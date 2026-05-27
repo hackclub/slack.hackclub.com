@@ -1,11 +1,25 @@
-import { Box, Text, Button, Link, Image } from 'theme-ui'
+import { useEffect, useState } from "react"
+import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
+import { Box, Text, Button, Image, Link } from 'theme-ui'
+
+import a1mini from "../../public/slides/4/a1-mini.png";
+import macbook from "../../public/slides/4/macbook.png"
+
 import NavFooterThing from "../../components/slack/footerNav"
+
 export default function Page() {
+    const [email, setEmail] = useState("")
+    useEffect(() => {
+        setEmail(getEmailQueryParam())
+    })
+
     return (
         <>
             <Box sx={{
                 display: "flex",
-                justifyContent: "space-between",
+                flexDirection: "column",
+                justifyContent: "center",
+
                 backgroundImage: "radial-gradient(rgb(250, 250, 250) 12%, transparent 12%), radial-gradient(rgb(255, 255, 255) 12%, transparent 12%)",
                 backgroundPosition: "0px 0px, 24px 24px",
                 backgroundSize: "48px 48px",
@@ -16,7 +30,6 @@ export default function Page() {
                 <Box as="main" sx={{
                     position: "relative",
                     display: "flex",
-                    justifyContent: "center",
                     flexDirection: "column",
                     gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
 
@@ -28,86 +41,84 @@ export default function Page() {
                         sx={{
                             color: 'black',
                             position: 'relative',
-                            display: 'block',
-                            alignSelf: "center"
+                            display: 'block'
                         }}
                         as="h1"
-                    >Want to learn more about Hack Club?</Text>
+                    >That's right!</Text>
+
+                    <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center" }}>
+                        Hack Club hosts <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship programs</Link> where teens are rewarded for shipping cool projects with prizes like...
+                    </Text>
 
                     <Box sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center"
-                    }}>
-                        <Text
-                            sx={{
-                                color: 'black',
-                                position: 'relative',
-                                display: 'block',
-                                alignSelf: "center"
-                            }}
-                            as="h1"
-                        >Read <Link href="https://readme.hackclub.com/slack">
-                                readme
-                            </Link> - a detailed explainer to Hack Club</Text>
+                        display: "grid",
+                        gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
+                        gridTemplateRows: ["1fr 1fr", "1fr 1fr", "1fr"],
+                        gap: "2rem",
+                        placeItems: "center",
 
-                        <Text
-                            sx={{
-                                color: 'black',
-                                position: 'relative',
-                                display: 'block',
-                                alignSelf: "center"
+                        paddingTop: "4rem",
+                        height: "100%"
+                    }}>
+                        <Text sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center"
+                        }}>
+                            the A1 Mini 3d printer from Bambu Lab
+                            <Image
+                                sx={{
+                                    height: "480px"
+                                }}
+                                src={a1mini.src}
+                            />
+                        </Text>
+
+                        <Text sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center"
+                        }}>
+                            the Macbook Neo
+                            <Image sx={{
+                                height: "480px"
                             }}
-                            as="p"
-                        >The expandable sections do not work in the iframe to the right</Text>
+                                src={macbook.src} />
+                        </Text>
                     </Box>
 
                     <Button
                         as="a"
-                        {...({ href: '/slides/5' } as any)}
+                        {...({ href: `/slides/5${(email !== null ? "?email=" + email : "")}` } as any)}
 
                         sx={{
                             position: "relative",
                             display: "flex",
-                            alignSelf: "center",
-
-                            width: "100%",
-                            maxWidth: "600px",
 
                             whiteSpace: 'nowrap',
                             borderRadius: "12px",
                             background: "#ec3750",
                             transition: "none !important",
-                            transform: "none !important"
+                            transform: "none !important",
+
+                            textTransform: "initial",
+                            width: "fit-content",
+                            paddingRight: "2rem",
+                            paddingLeft: "2rem",
+                            alignSelf: "center",
+                            minWidth: "600px"
                         }}
                     >
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Next &rarr;
+                            Hehe - awesome!
                         </Text>
                     </Button>
                 </Box>
 
-                <aside className="aside-thing">
-                    <iframe style={{
-                        height: "100vh",
-                        width: "30vw",
-                        minWidth: "500px"
-                    }} src="https://readme.hackclub.com/"></iframe>
-                </aside>
-
                 <NavFooterThing />
             </Box>
-
-            <style>
-                {`.aside-thing {
-                    position: relative;
-                    height: 100vh;
-                    right: 0;
-                    @media only screen and (max-width: 1000px) { display: none; }
-                }`}
-            </style>
         </>
     )
 }

@@ -1,9 +1,14 @@
-import { Box, Heading, Text, Button, Link, Image } from 'theme-ui'
+import { useEffect, useState } from "react"
+import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
+import { Box, Text, Button } from 'theme-ui'
 
 import NavFooterThing from "../../components/slack/footerNav"
-import slack from "../../public/slides/1/slack.png"
 
 export default function Page() {
+    const [email, setEmail] = useState("")
+    useEffect(() => {
+        setEmail(getEmailQueryParam())
+    })
 
     return (
         <>
@@ -43,9 +48,8 @@ export default function Page() {
                             as="h1"
                         >Hack Club uses Slack</Text>
 
-                        <Text sx={{ fontSize: '2rem', fontWeight: "800", color: 'slate' }}>
-                            <Text sx={{ color: 'red' }}>Slack</Text> is a messaging platform a lot like <Text sx={{ color: '#5865f2' }}>Discord</Text>.
-                            It has channels and emoji's and voice chats and bots.
+                        <Text sx={{ fontSize: '2rem', fontWeight: "800" }}>
+                            Slack is a messaging platform a lot like Discord. It's where the Hack Club community hangs out and where friendships are made and where projects are organized.
                         </Text>
                     </Box>
 
@@ -53,9 +57,11 @@ export default function Page() {
                         display: "flex",
                         flexDirection: "column",
 
+                        alignItems: "center",
+
                         backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
                     }}>
-                        <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate' }}>
+                        <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center" }}>
                             Completely new to Slack? Watch this quick 2 minute introduction
                         </Text>
                         <iframe width="864" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -64,7 +70,7 @@ export default function Page() {
                     <Button
                         variant="ctaLg"
                         as="a"
-                        {...({ href: '/slides/2' } as any)}
+                        {...({ href: `/slides/2${(email !== null ? "?email=" + email : "")}` } as any)}
 
                         sx={{
                             position: "relative",
@@ -73,23 +79,23 @@ export default function Page() {
                             borderRadius: "12px",
                             background: "#ec3750",
                             transition: "none !important",
-                            transform: "none !important"
+                            transform: "none !important",
+
+                            textTransform: "initial",
+                            width: "fit-content",
+                            paddingRight: "2rem",
+                            paddingLeft: "2rem",
+                            alignSelf: "center",
+                            minWidth: "600px"
                         }}
                     >
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Next &rarr;
+                            Next
                         </Text>
                     </Button>
                 </Box>
-
-                {
-                    //TODO: only show the aside of the screen is larger than like 996px and switch to this new layout or whatever
-                }
-                <aside>
-                    <Image src={slack.src} />
-                </aside>
             </Box>
 
             <NavFooterThing />

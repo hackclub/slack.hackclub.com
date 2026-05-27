@@ -1,20 +1,18 @@
+import { useEffect, useState } from "react"
+import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Link } from 'theme-ui'
-import { useState } from "react"
 import NavFooterThing from "../../components/slack/footerNav"
-
 export default function Page() {
-    const [iAmAChild, setIAmAChild] = useState(false)
-    const [agreeToCoc, setAgreeToCoc] = useState(false)
-
-    const [attemptedClickBeforeAgreeing, setAttemptedClickBeforeAgreeing] = useState(false)
+    const [email, setEmail] = useState("")
+    useEffect(() => {
+        setEmail(getEmailQueryParam())
+    })
 
     return (
         <>
             <Box sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-
+                justifyContent: "space-between",
                 backgroundImage: "radial-gradient(rgb(250, 250, 250) 12%, transparent 12%), radial-gradient(rgb(255, 255, 255) 12%, transparent 12%)",
                 backgroundPosition: "0px 0px, 24px 24px",
                 backgroundSize: "48px 48px",
@@ -25,6 +23,7 @@ export default function Page() {
                 <Box as="main" sx={{
                     position: "relative",
                     display: "flex",
+                    justifyContent: "center",
                     flexDirection: "column",
                     gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
 
@@ -40,131 +39,86 @@ export default function Page() {
                             alignSelf: "center"
                         }}
                         as="h1"
-                    >One more thing...</Text>
-
-
-                    <Box sx={{
-                        position: "relative",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "2rem",
-
-                        padding: "4rem"
-                    }}>
-                        <Box sx={{
-                            position: "relative",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center"
-                        }}>
-                            <label htmlFor="im-a-child"
-                                style={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'block',
-                                    alignSelf: "center",
-                                    fontSize: "2rem",
-                                    fontWeight: "700"
-                                }}
-                            >Hack Club is for teenagers</label>
-                            <Box sx={{
-                                display: "flex",
-                                flexDirection: "row",
-                                gap: "12px"
-                            }}>
-                                <input name="im-a-child" type="checkbox" checked={iAmAChild} onChange={() => setIAmAChild(!iAmAChild)} />
-                                <label htmlFor="im-a-child"
-                                    style={{
-                                        fontSize: "1.5rem",
-                                        fontWeight: "700"
-                                    }}
-                                >I am 13 - 18 years old</label>
-                            </Box>
-                        </Box>
-
-                        <Box sx={{
-                            position: "relative",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "center"
-                        }}>
-                            <label htmlFor="im-a-child"
-                                style={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'block',
-                                    alignSelf: "center",
-                                    fontSize: "2rem",
-                                    fontWeight: "700"
-                                }}
-                            >Hack Club expects respect in its community</label>
-                            <Box sx={{
-                                display: "flex",
-                                flexDirection: "row",
-                                gap: "12px"
-                            }}>
-                                <input name="im-a-child" type="checkbox" checked={agreeToCoc} onChange={() => setAgreeToCoc(!agreeToCoc)} />
-                                <label htmlFor="im-a-child"
-                                    style={{
-                                        fontSize: "1.5rem",
-                                        fontWeight: "700"
-                                    }}
-                                >I've read the <Link href="https://hackclub.com/conduct/" target='_blank'>Code of Conduct</Link></label>
-                            </Box>
-                        </Box>
-                    </Box>
+                    >Want to learn more about Hack Club?</Text>
 
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "0.5rem"
+                        justifyContent: "center"
                     }}>
-                        <Text sx={{
-                            fontWeight: "600",
-                            color: `${(attemptedClickBeforeAgreeing) ? "black" : "transparent"}`
-                        }}>You must agree to both provisions before continuing</Text>
-
-                        <Button
-                            onClick={() => {
-                                if (!(iAmAChild && agreeToCoc)) {
-                                    setAttemptedClickBeforeAgreeing(true)
-                                    return
-                                }
-                                window.location.href = 'https://auth.hackclub.com/slack'
-                            }}
-
+                        <Text
                             sx={{
-                                position: "relative",
-                                display: "flex",
+                                color: 'black',
+                                position: 'relative',
+                                display: 'block',
                                 alignSelf: "center",
-
-                                width: "100%",
-                                maxWidth: "600px",
-
-                                whiteSpace: 'nowrap',
-                                borderRadius: "12px",
-                                background: "#ec3750",
-                                transition: "none !important",
-                                transform: "none !important"
-                            }}
-                        >
-                            <Text sx={{
                                 fontSize: "2rem"
-                            }}>
-                                Join Hack Club
-                            </Text>
-                        </Button>
+                            }}
+                            as="h1"
+                        >Read <Link href="https://readme.hackclub.com/slack">
+                                readme
+                            </Link> - a detailed explainer to Hack Club</Text>
+
+                        <Text
+                            sx={{
+                                color: 'black',
+                                position: 'relative',
+                                display: 'block',
+                                alignSelf: "center"
+                            }}
+                            as="p"
+                        >The expandable sections do not work in the iframe to the right</Text>
                     </Box>
+
+                    <Button
+                        as="a"
+                        {...({ href: `/slides/6${(email !== null ? "?email=" + email : "")}` } as any)}
+
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+
+                            whiteSpace: 'nowrap',
+                            borderRadius: "12px",
+                            background: "#ec3750",
+                            transition: "none !important",
+                            transform: "none !important",
+
+                            textTransform: "initial",
+                            width: "fit-content",
+                            paddingRight: "2rem",
+                            paddingLeft: "2rem",
+                            alignSelf: "center",
+                            minWidth: "600px"
+                        }}
+                    >
+                        <Text sx={{
+                            fontSize: "2rem"
+                        }}>
+                            Next
+                        </Text>
+                    </Button>
                 </Box>
 
+                <aside className="aside-thing">
+                    <iframe style={{
+                        height: "100vh",
+                        width: "30vw",
+                        minWidth: "500px"
+                    }} src="https://readme.hackclub.com/"></iframe>
+                </aside>
+
                 <NavFooterThing />
-            </Box >
+            </Box>
+
+            <style>
+                {`.aside-thing {
+                    position: relative;
+                    height: 100vh;
+                    right: 0;
+                    @media only screen and (max-width: 1024px) { display: none; }
+                }`}
+            </style>
         </>
     )
 }

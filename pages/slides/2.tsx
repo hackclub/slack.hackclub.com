@@ -1,4 +1,6 @@
-import { Box, Text, Button, Image, a } from 'theme-ui'
+import { useEffect, useState } from "react"
+import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
+import { Box, Text, Button, Image } from 'theme-ui'
 
 import spacesLogo from "../../public/slides/2/spaces.svg"
 import nestLogo from "../../public/slides/2/nest.png"
@@ -6,6 +8,10 @@ import nestLogo from "../../public/slides/2/nest.png"
 import NavFooterThing from "../../components/slack/footerNav"
 
 export default function Page() {
+    const [email, setEmail] = useState("")
+    useEffect(() => {
+        setEmail(getEmailQueryParam())
+    })
 
     return (
         <>
@@ -38,22 +44,11 @@ export default function Page() {
                             display: 'block'
                         }}
                         as="h1"
-                    >Aside from a large community, Hack Club has...</Text>
-
-                    <Text
-                        variant="title"
-                        sx={{
-                            position: 'relative',
-                            display: 'block',
-                            alignSelf: "center",
-                            color: "#ec3750"
-                        }}
-                        as="h1"
-                    >Developer tools!</Text>
+                    >Hack Club gives tools to empower teens like...</Text>
 
                     <Box sx={{
                         display: "grid",
-                        gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr", "1fr 1fr 1fr"],
+                        gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr 1fr 1fr"],
                         gap: "2rem",
 
                         paddingTop: "4rem"
@@ -166,7 +161,7 @@ export default function Page() {
 
                                 <Text sx={{
                                     color: "#aeaeb2"
-                                }}>Access to 400+ LLMs for Hack Clubbers. Limited to $4 a day</Text>
+                                }}>Access to 400+ LLMs for Hack Clubbers. Limited to $3 a day</Text>
                             </Box>
                         </Box>
 
@@ -235,27 +230,30 @@ export default function Page() {
 
                     <Button
                         as="a"
-                        {...({ href: '/slides/3' } as any)}
+                        {...({ href: `/slides/3${(email !== null ? "?email=" + email : "")}` } as any)}
 
                         sx={{
                             position: "relative",
                             display: "flex",
-                            alignSelf: "center",
-
-                            width: "100%",
-                            maxWidth: "600px",
 
                             whiteSpace: 'nowrap',
                             borderRadius: "12px",
                             background: "#ec3750",
                             transition: "none !important",
-                            transform: "none !important"
+                            transform: "none !important",
+
+                            textTransform: "initial",
+                            width: "fit-content",
+                            paddingRight: "2rem",
+                            paddingLeft: "2rem",
+                            alignSelf: "center",
+                            minWidth: "600px"
                         }}
                     >
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Next &rarr;
+                            Next
                         </Text>
                     </Button>
                 </Box>

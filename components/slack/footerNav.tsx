@@ -18,12 +18,13 @@ export default function nav() {
                 <a className={(slide == 3) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/3" aria-label="Click me to get directed to the third slide"></a>
                 <a className={(slide == 4) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/4" aria-label="Click me to get directed to the fourth slide"></a>
                 <a className={(slide == 5) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/5" aria-label="Click me to get directed to the fifth slide"></a>
+                <a className={(slide == 6) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/6" aria-label="Click me to get directed to the sixth slide"></a>
             </nav>
 
             <style>
                 {`
                     .nav-footer-idk-what-im-doing {
-                        position: absolute;
+                        position: fixed;
                         bottom: 1rem;
                         left: 50%;
                         transform: translate(-50%, -50%);

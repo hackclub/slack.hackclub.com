@@ -1,6 +1,112 @@
+/** @jsxImportSource theme-ui */
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
+
+const HeroGraphic = () => (
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      overflow: 'hidden',
+      zIndex: 0,
+      pointerEvents: 'none'
+    }}
+  >
+   
+    <Box sx={{
+      position: 'absolute', top: '10%', left: '5%',
+      width: ['60px', '90px'], height: ['60px', '90px'],
+      borderRadius: '50%', bg: 'rgba(255,255,255,0.15)',
+      animation: 'float1 6s ease-in-out infinite'
+    }} />
+    <Box sx={{
+      position: 'absolute', top: '60%', left: '2%',
+      width: ['30px', '50px'], height: ['30px', '50px'],
+      borderRadius: '50%', bg: 'rgba(255,255,255,0.1)',
+      animation: 'float2 8s ease-in-out infinite'
+    }} />
+    <Box sx={{
+      position: 'absolute', top: '20%', right: ['80px', '200px'],
+      width: ['40px', '70px'], height: ['40px', '70px'],
+      borderRadius: '50%', bg: 'rgba(255,255,255,0.12)',
+      animation: 'float3 7s ease-in-out infinite'
+    }} />
+    {/* Slack hash symbol decoration */}
+    <Box sx={{
+      position: 'absolute',
+      bottom: '-10px',
+      left: ['10px', '40px'],
+      fontSize: ['80px', '140px'],
+      fontWeight: 800,
+      color: 'rgba(255,255,255,0.08)',
+      lineHeight: 1,
+      fontFamily: 'inherit',
+      userSelect: 'none'
+    }}>
+      #
+    </Box>
+    <Box sx={{
+      position: 'absolute',
+      top: '5px',
+      right: ['80px', '220px'],
+      fontSize: ['60px', '100px'],
+      fontWeight: 800,
+      color: 'rgba(255,255,255,0.06)',
+      lineHeight: 1,
+      fontFamily: 'inherit',
+      userSelect: 'none'
+    }}>
+      #
+    </Box>
+    <style>{`
+      @keyframes float1 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-18px); }
+      }
+      @keyframes float2 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+      @keyframes float3 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+    `}</style>
+  </Box>
+)
+
+const MemberBadge = () => (
+  <Box sx={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 2,
+    bg: 'rgba(255,255,255,0.15)',
+    border: '1px solid rgba(255,255,255,0.3)',
+    borderRadius: '999px',
+    px: 3,
+    py: 1,
+    mb: 3,
+    backdropFilter: 'blur(8px)'
+  }}>
+    <Box sx={{
+      width: '8px', height: '8px',
+      borderRadius: '50%', bg: '#2eb67d',
+      boxShadow: '0 0 6px #2eb67d',
+      animation: 'pulse 2s ease-in-out infinite',
+      '@keyframes pulse': {
+        '0%, 100%': { opacity: 1 },
+        '50%': { opacity: 0.4 }
+      }
+    }} />
+    <Text sx={{ color: 'white', fontSize: 1, fontWeight: 600, letterSpacing: '0.03em' }}>
+      27,000+ hackers online
+    </Text>
+  </Box>
+)
 
 const Content = ({ onJoinClick }) => (
   <Grid
@@ -9,9 +115,11 @@ const Content = ({ onJoinClick }) => (
     pb={[3, 4]}
     sx={{
       backgroundImage:
-        'radial-gradient( ellipse farthest-corner at top left, #ff8c37, #ec3750)'
+        'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)',
+      position: 'relative'
     }}
   >
+    <HeroGraphic />
     <Box
       sx={{
         position: 'relative',
@@ -20,6 +128,7 @@ const Content = ({ onJoinClick }) => (
         textAlign: ['center', 'center']
       }}
     >
+      <MemberBadge />
       <Heading
         as="h1"
         variant="title"
@@ -33,7 +142,7 @@ const Content = ({ onJoinClick }) => (
         Hack Club Slack
       </Heading>
     </Box>
-    <Box sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
+    <Box sx={{ zIndex: 5, display: 'flex', alignItems: 'center', position: 'relative' }}>
       <Card
         sx={{
           variant: 'cards.translucent',
@@ -79,8 +188,9 @@ const Content = ({ onJoinClick }) => (
               ':hover': {
                 transform: 'scale(1.05)',
                 boxShadow: '0 0 0 2px white',
+                // Fixed: was nearly transparent (#ff8c373f, #ec37503f)
                 backgroundImage:
-                  'radial-gradient(ellipse farthest-corner at bottom right, #ff8c373f, #ec37503f)'
+                  'radial-gradient(ellipse farthest-corner at bottom right, #ff8c37, #ec3750)'
               }
             }}
           >

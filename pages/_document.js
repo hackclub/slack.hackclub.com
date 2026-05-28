@@ -11,7 +11,7 @@ const org = {
     'https://github.com/hackclub',
     'https://www.instagram.com/starthackclub',
     'https://www.facebook.com/Hack-Club-741805665870458',
-    'https://www.youtube.com/channel/UCQzO0jpcRkP-9eWKMpJyB0w'
+    'https://www.youtube.com/c/HackClubHQ'
   ],
   contactPoint: [
     {

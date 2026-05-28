@@ -1,43 +1,51 @@
 /** @jsxImportSource theme-ui */
+import { useState, useEffect } from 'react'
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
-import{keyframes}from '@emotion/react'
-import usePrefersMotion from '../../lib/use-prefers-motion'
-import useHasMounted from '../../lib/use-has-mounted'
+import { keyframes } from '@emotion/react'
+import { getLiveCount, formatted as defaultFormatted } from '../../lib/members'
+
+const float1 = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+`
+const float2 = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+`
+const float3 = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+`
 
 const HeroGraphic = () => (
   <Box
     sx={{
       position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
+      top: 0, left: 0, right: 0, bottom: 0,
       overflow: 'hidden',
       zIndex: 0,
       pointerEvents: 'none'
     }}
   >
-   
     <Box sx={{
       position: 'absolute', top: '10%', left: '5%',
       width: ['60px', '90px'], height: ['60px', '90px'],
       borderRadius: '50%', bg: 'rgba(255,255,255,0.15)',
-      animation: 'float1 6s ease-in-out infinite'
+      animation: `${float1} 6s ease-in-out infinite`
     }} />
     <Box sx={{
       position: 'absolute', top: '60%', left: '2%',
       width: ['30px', '50px'], height: ['30px', '50px'],
       borderRadius: '50%', bg: 'rgba(255,255,255,0.1)',
-      animation: 'float2 8s ease-in-out infinite'
+      animation: `${float2} 8s ease-in-out infinite`
     }} />
     <Box sx={{
       position: 'absolute', top: '20%', right: ['80px', '200px'],
       width: ['40px', '70px'], height: ['40px', '70px'],
       borderRadius: '50%', bg: 'rgba(255,255,255,0.12)',
-      animation: 'float3 7s ease-in-out infinite'
+      animation: `${float3} 7s ease-in-out infinite`
     }} />
-    {/* Slack hash symbol decoration */}
-    <Box sx={{
+    <Box aria-hidden="true" sx={{
       position: 'absolute',
       bottom: '-10px',
       left: ['10px', '40px'],
@@ -50,7 +58,7 @@ const HeroGraphic = () => (
     }}>
       #
     </Box>
-    <Box sx={{
+    <Box aria-hidden="true" sx={{
       position: 'absolute',
       top: '5px',
       right: ['80px', '220px'],
@@ -63,51 +71,52 @@ const HeroGraphic = () => (
     }}>
       #
     </Box>
-    <style>{`
-      @keyframes float1 {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-18px); }
-      }
-      @keyframes float2 {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-      }
-      @keyframes float3 {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-    `}</style>
   </Box>
 )
 
-const MemberBadge = () => (
-  <Box sx={{
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: 2,
-    bg: 'rgba(255,255,255,0.15)',
-    border: '1px solid rgba(255,255,255,0.3)',
-    borderRadius: '999px',
-    px: 3,
-    py: 1,
-    mb: 3,
-    backdropFilter: 'blur(8px)'
-  }}>
+const MemberBadge = () => {
+  const [count, setCount] = useState(defaultFormatted)
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 3000)
+    getLiveCount()
+      .then(data => setCount(data.formatted))
+      .catch(() => {})
+      .finally(() => clearTimeout(timeout))
+    return () => {
+      controller.abort()
+      clearTimeout(timeout)
+    }
+  }, [])
+
+  return (
     <Box sx={{
-      width: '8px', height: '8px',
-      borderRadius: '50%', bg: '#2eb67d',
-      boxShadow: '0 0 6px #2eb67d',
-      animation: 'pulse 2s ease-in-out infinite',
-      '@keyframes pulse': {
-        '0%, 100%': { opacity: 1 },
-        '50%': { opacity: 0.4 }
-      }
-    }} />
-    <Text sx={{ color: 'white', fontSize: 1, fontWeight: 600, letterSpacing: '0.03em' }}>
-      27,000+ hackers online
-    </Text>
-  </Box>
-)
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 2,
+      bg: 'rgba(255,255,255,0.15)',
+      border: '1px solid rgba(255,255,255,0.3)',
+      borderRadius: '999px',
+      px: 3, py: 1, mb: 3,
+      backdropFilter: 'blur(8px)'
+    }}>
+      <Box sx={{
+        width: '8px', height: '8px',
+        borderRadius: '50%', bg: '#2eb67d',
+        boxShadow: '0 0 6px #2eb67d',
+        animation: 'pulse 2s ease-in-out infinite',
+        '@keyframes pulse': {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.4 }
+        }
+      }} />
+      <Text sx={{ color: 'white', fontSize: 1, fontWeight: 600, letterSpacing: '0.03em' }}>
+        {count} hackers online
+      </Text>
+    </Box>
+  )
+}
 
 const Content = ({ onJoinClick }) => (
   <Grid
@@ -121,24 +130,12 @@ const Content = ({ onJoinClick }) => (
     }}
   >
     <HeroGraphic />
-    <Box
-      sx={{
-        position: 'relative',
-        zIndex: 1,
-        textShadow: 'text',
-        textAlign: ['center', 'center']
-      }}
-    >
+    <Box sx={{ position: 'relative', zIndex: 1, textShadow: 'text', textAlign: ['center', 'center'] }}>
       <MemberBadge />
       <Heading
         as="h1"
         variant="title"
-        sx={{
-          color: 'white',
-          fontSize: [5, 6, 7],
-          lineHeight: 'limit',
-          mb: [2, 3]
-        }}
+        sx={{ color: 'white', fontSize: [5, 6, 7], lineHeight: 'limit', mb: [2, 3] }}
       >
         Hack Club Slack
       </Heading>
@@ -157,14 +154,7 @@ const Content = ({ onJoinClick }) => (
           <br />
           Join up to make friends, find projects, and have fun.
         </Text>
-        <Box
-          sx={{
-            display: 'flex',
-            gap: 3,
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}
-        >
+        <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Text
             as="button"
             onClick={onJoinClick}
@@ -174,8 +164,7 @@ const Content = ({ onJoinClick }) => (
                 'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)',
               color: 'white',
               fontSize: [2, 3],
-              px: 5,
-              py: 3,
+              px: 5, py: 3,
               borderRadius: 'extra',
               fontWeight: 'bold',
               textDecoration: 'none',
@@ -189,7 +178,6 @@ const Content = ({ onJoinClick }) => (
               ':hover': {
                 transform: 'scale(1.05)',
                 boxShadow: '0 0 0 2px white',
-                // Fixed: was nearly transparent (#ff8c373f, #ec37503f)
                 backgroundImage:
                   'radial-gradient(ellipse farthest-corner at bottom right, #ff8c37, #ec3750)'
               }
@@ -240,23 +228,8 @@ const Static = ({
   </Box>
 )
 
-const Slack = ({ onJoinClick }) => {
-  const hasMounted = useHasMounted()
-  const prefersMotion = usePrefersMotion()
-  if (hasMounted && prefersMotion) {
-    return (
-      <Box
-        as="section"
-        id="slack"
-        sx={{ overflow: 'hidden', position: 'relative' }}
-      >
-        <Cover />
-        <Content onJoinClick={onJoinClick} />
-      </Box>
-    )
-  } else {
-    return <Static onJoinClick={onJoinClick} />
-  }
-}
+const Slack = ({ onJoinClick }) => (
+  <Static onJoinClick={onJoinClick} />
+)
 
 export default Slack

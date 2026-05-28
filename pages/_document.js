@@ -10,7 +10,6 @@ const org = {
     'https://twitter.com/hackclub',
     'https://github.com/hackclub',
     'https://www.instagram.com/starthackclub',
-    'https://www.facebook.com/Hack-Club-741805665870458',
     'https://www.youtube.com/c/HackClubHQ'
   ],
   contactPoint: [

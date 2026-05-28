@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
+import{keyframes}from '@emotion/react'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 

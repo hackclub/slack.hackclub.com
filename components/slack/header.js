@@ -80,7 +80,7 @@ const MemberBadge = () => {
   useEffect(() => {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 3000)
-    getLiveCount()
+    getLiveCount(controller.signal)
       .then(data => setCount(data.formatted))
       .catch(() => {})
       .finally(() => clearTimeout(timeout))
@@ -209,27 +209,18 @@ const Cover = () => (
   />
 )
 
-const Static = ({
-  img = 'https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png',
-  onJoinClick
-}) => (
-  <Box
-    as="section"
-    id="slack"
-    sx={{
-      position: 'relative',
-      overflow: 'hidden',
-      backgroundImage: `url(${img})`,
-      backgroundSize: 'cover'
-    }}
+
+const Slack=({onJoinClick})=>(
+  <Box 
+  as="section"
+  id="slack"
+  sx={{
+    position:'relative',
+    overflow:'hidden'
+  }}
   >
-    <Cover />
-    <Content onJoinClick={onJoinClick} />
+    <Cover/>
+    <Content onJoinClick={onJoinClick}/>
   </Box>
 )
-
-const Slack = ({ onJoinClick }) => (
-  <Static onJoinClick={onJoinClick} />
-)
-
 export default Slack

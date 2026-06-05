@@ -6,20 +6,60 @@ import { getLiveCount, formatted as defaultFormatted } from '../../lib/members'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 
-const float1 = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-18px); }
-`
-const float2 = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-`
-const float3 = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+const floatWorkspace = keyframes`
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-3deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(-2deg); }
 `
 
-const HeroGraphic = () => (
+const floatThread = keyframes`
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(4deg); }
+  50% { transform: translate3d(0, 12px, 0) rotate(3deg); }
+`
+
+const slideMessage = keyframes`
+  0%, 100% { transform: translateX(0); opacity: 0.72; }
+  50% { transform: translateX(10px); opacity: 1; }
+`
+
+const ChannelPill = ({ children, sx }) => (
+  <Box
+    sx={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 2,
+      color: 'rgba(255,255,255,0.92)',
+      bg: 'rgba(255,255,255,0.14)',
+      border: '1px solid rgba(255,255,255,0.24)',
+      borderRadius: '10px',
+      px: 3,
+      py: 2,
+      fontSize: [1, 2],
+      fontWeight: 700,
+      lineHeight: 1,
+      boxShadow: '0 12px 36px rgba(61, 37, 44, 0.14)',
+      backdropFilter: 'blur(10px)',
+      ...sx
+    }}
+  >
+    <Text aria-hidden="true" sx={{ opacity: 0.72 }}>
+      #
+    </Text>
+    {children}
+  </Box>
+)
+
+const MessageLine = ({ width = '70%', color = 'rgba(255,255,255,0.72)' }) => (
+  <Box
+    sx={{
+      height: '8px',
+      width,
+      borderRadius: '999px',
+      bg: color
+    }}
+  />
+)
+
+const HeroGraphic = ({ prefersMotion }) => (
   <Box
     sx={{
       position: 'absolute',
@@ -29,50 +69,139 @@ const HeroGraphic = () => (
       pointerEvents: 'none'
     }}
   >
-    <Box sx={{
-      position: 'absolute', top: '10%', left: '5%',
-      width: ['60px', '90px'], height: ['60px', '90px'],
-      borderRadius: '50%', bg: 'rgba(255,255,255,0.15)',
-      animation: `${float1} 6s ease-in-out infinite`
-    }} />
-    <Box sx={{
-      position: 'absolute', top: '60%', left: '2%',
-      width: ['30px', '50px'], height: ['30px', '50px'],
-      borderRadius: '50%', bg: 'rgba(255,255,255,0.1)',
-      animation: `${float2} 8s ease-in-out infinite`
-    }} />
-    <Box sx={{
-      position: 'absolute', top: '20%', right: ['80px', '200px'],
-      width: ['40px', '70px'], height: ['40px', '70px'],
-      borderRadius: '50%', bg: 'rgba(255,255,255,0.12)',
-      animation: `${float3} 7s ease-in-out infinite`
-    }} />
-    <Box aria-hidden="true" sx={{
-      position: 'absolute',
-      bottom: '-10px',
-      left: ['10px', '40px'],
-      fontSize: ['80px', '140px'],
-      fontWeight: 800,
-      color: 'rgba(255,255,255,0.08)',
-      lineHeight: 1,
-      fontFamily: 'inherit',
-      userSelect: 'none'
-    }}>
-      #
+    <Box
+      aria-hidden="true"
+      sx={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage:
+          'linear-gradient(115deg, rgba(74,21,75,0.2) 0%, rgba(255,255,255,0) 42%), radial-gradient(ellipse at 80% 10%, rgba(54,197,240,0.22), transparent 34%), radial-gradient(ellipse at 16% 82%, rgba(46,182,125,0.24), transparent 30%)'
+      }}
+    />
+
+    <Box
+      aria-hidden="true"
+      sx={{
+        position: 'absolute',
+        top: ['12%', '16%'],
+        left: ['-42px', '5%'],
+        width: ['180px', '260px'],
+        transform: 'rotate(-3deg)',
+        animation: prefersMotion
+          ? `${floatWorkspace} 8s ease-in-out infinite`
+          : undefined,
+        display: ['none', 'block']
+      }}
+    >
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: '54px 1fr',
+          minHeight: '168px',
+          borderRadius: '18px',
+          overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.26)',
+          bg: 'rgba(74,21,75,0.54)',
+          boxShadow: '0 28px 72px rgba(61, 37, 44, 0.3)',
+          backdropFilter: 'blur(14px)'
+        }}
+      >
+        <Box
+          sx={{
+            bg: 'rgba(74,21,75,0.68)',
+            display: 'grid',
+            alignContent: 'start',
+            gap: 2,
+            p: 3
+          }}
+        >
+          {['#36c5f0', '#2eb67d', '#ecb22e', '#e01e5a'].map((color) => (
+            <Box
+              key={color}
+              sx={{
+                width: '18px',
+                height: '18px',
+                borderRadius: '6px',
+                bg: color,
+                boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.25)'
+              }}
+            />
+          ))}
+        </Box>
+        <Box sx={{ p: 3, display: 'grid', gap: 3, alignContent: 'center' }}>
+          <MessageLine width="46%" color="rgba(255,255,255,0.88)" />
+          <MessageLine width="78%" />
+          <MessageLine width="64%" />
+          <Box
+            sx={{
+              height: '28px',
+              width: '74%',
+              borderRadius: '9px',
+              bg: 'rgba(255,255,255,0.16)',
+              border: '1px solid rgba(255,255,255,0.18)'
+            }}
+          />
+        </Box>
+      </Box>
     </Box>
-    <Box aria-hidden="true" sx={{
-      position: 'absolute',
-      top: '5px',
-      right: ['80px', '220px'],
-      fontSize: ['60px', '100px'],
-      fontWeight: 800,
-      color: 'rgba(255,255,255,0.06)',
-      lineHeight: 1,
-      fontFamily: 'inherit',
-      userSelect: 'none'
-    }}>
-      #
+
+    <Box
+      aria-hidden="true"
+      sx={{
+        position: 'absolute',
+        right: ['-72px', '5%'],
+        top: ['14%', '18%'],
+        width: ['210px', '300px'],
+        transform: 'rotate(4deg)',
+        animation: prefersMotion
+          ? `${floatThread} 9s ease-in-out infinite`
+          : undefined
+      }}
+    >
+      <Box
+        sx={{
+          borderRadius: '18px',
+          border: '1px solid rgba(255,255,255,0.26)',
+          bg: 'rgba(255,255,255,0.18)',
+          boxShadow: '0 28px 72px rgba(61, 37, 44, 0.24)',
+          backdropFilter: 'blur(14px)',
+          p: 3,
+          display: 'grid',
+          gap: 3
+        }}
+      >
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+          <Box sx={{ width: 22, height: 22, borderRadius: '7px', bg: '#36c5f0' }} />
+          <MessageLine width="42%" color="rgba(255,255,255,0.88)" />
+        </Box>
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 2,
+            animation: prefersMotion
+              ? `${slideMessage} 6s ease-in-out infinite`
+              : undefined
+          }}
+        >
+          <MessageLine width="86%" />
+          <MessageLine width="68%" />
+        </Box>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+          <Box sx={{ width: 22, height: 22, borderRadius: '7px', bg: '#2eb67d' }} />
+          <MessageLine width="58%" color="rgba(255,255,255,0.8)" />
+        </Box>
+      </Box>
     </Box>
+
+    <ChannelPill sx={{ position: 'absolute', bottom: ['20%', '18%'], left: ['8%', '12%'] }}>
+      code
+    </ChannelPill>
+    <ChannelPill sx={{ position: 'absolute', bottom: ['12%', '26%'], right: ['8%', '18%'] }}>
+      scrapbook
+    </ChannelPill>
+    <ChannelPill sx={{ position: 'absolute', top: ['10%', '12%'], left: ['10%', '38%'] }}>
+      lounge
+    </ChannelPill>
   </Box>
 )
 
@@ -120,7 +249,14 @@ const MemberBadge = () => {
   )
 }
 
-const Content = ({ onJoinClick, headingRef, btnRef, onBtnMouseMove, onBtnMouseLeave }) => (
+const Content = ({
+  onJoinClick,
+  headingRef,
+  btnRef,
+  onBtnMouseMove,
+  onBtnMouseLeave,
+  prefersMotion
+}) => (
   <Grid
     gap={3}
     pt={[5, '100px']}
@@ -131,7 +267,7 @@ const Content = ({ onJoinClick, headingRef, btnRef, onBtnMouseMove, onBtnMouseLe
       position: 'relative'
     }}
   >
-    <HeroGraphic />
+    <HeroGraphic prefersMotion={prefersMotion} />
     <Box
       ref={headingRef}
       sx={{
@@ -204,27 +340,6 @@ const Content = ({ onJoinClick, headingRef, btnRef, onBtnMouseMove, onBtnMouseLe
   </Grid>
 )
 
-const Cover = React.forwardRef((props, ref) => (
-  <Box
-    ref={ref}
-    sx={{
-      position: 'absolute',
-      bottom: '-20%',
-      height: '100%',
-      aspectRatio: '1/1',
-      right: 0,
-      backgroundImage: 'url(slack-logo.svg)',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100%',
-      opacity: 0.75,
-      zIndex: 0,
-      filter: 'saturate(0.9) grayscale(0.2)',
-      willChange: 'transform'
-    }}
-  />
-))
-Cover.displayName = 'Cover'
-
 const Static = ({
   img = 'https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png',
   onJoinClick
@@ -239,15 +354,13 @@ const Static = ({
       backgroundSize: 'cover'
     }}
   >
-    <Cover />
-    <Content onJoinClick={onJoinClick} />
+    <Content onJoinClick={onJoinClick} prefersMotion={false} />
   </Box>
 )
 
 const Slack = ({ onJoinClick }) => {
   const hasMounted = useHasMounted()
   const prefersMotion = usePrefersMotion()
-  const coverRef = useRef(null)
   const headingRef = useRef(null)
   const btnRef = useRef(null)
   const scrollRafRef = useRef(null)
@@ -262,8 +375,6 @@ const Slack = ({ onJoinClick }) => {
       if (!scrollRafRef.current) {
         scrollRafRef.current = requestAnimationFrame(() => {
           const y = scrollYRef.current
-          if (coverRef.current)
-            coverRef.current.style.transform = `translateY(${y * 0.25}px)`
           if (headingRef.current)
             headingRef.current.style.transform = `translateY(${y * -0.08}px)`
           scrollRafRef.current = null
@@ -312,13 +423,13 @@ const Slack = ({ onJoinClick }) => {
         id="slack"
         sx={{ overflow: 'hidden', position: 'relative' }}
       >
-        <Cover ref={coverRef} />
         <Content
           onJoinClick={onJoinClick}
           headingRef={headingRef}
           btnRef={btnRef}
           onBtnMouseMove={handleBtnMouseMove}
           onBtnMouseLeave={handleBtnMouseLeave}
+          prefersMotion={prefersMotion}
         />
       </Box>
     )

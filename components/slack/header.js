@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Box, Card, Grid, Heading, Text } from 'theme-ui'
 import { keyframes } from '@emotion/react'
+import { motion } from 'motion/react'
 import { getLiveCount, formatted as defaultFormatted } from '../../lib/members'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
@@ -252,9 +253,6 @@ const MemberBadge = () => {
 const Content = ({
   onJoinClick,
   headingRef,
-  btnRef,
-  onBtnMouseMove,
-  onBtnMouseLeave,
   prefersMotion
 }) => (
   <Grid
@@ -302,12 +300,12 @@ const Content = ({
           Join up to make friends, find projects, and have fun.
         </Text>
         <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Text
-            ref={btnRef}
-            as="button"
+          <Box
+            as={motion.button}
             onClick={onJoinClick}
-            onMouseMove={onBtnMouseMove}
-            onMouseLeave={onBtnMouseLeave}
+            whileHover={prefersMotion ? { y: -3, scale: 1.03 } : undefined}
+            whileTap={prefersMotion ? { y: 0, scale: 0.98 } : undefined}
+            transition={{ type: 'spring', stiffness: 420, damping: 28 }}
             sx={{
               bg: 'red',
               backgroundImage:
@@ -324,16 +322,22 @@ const Content = ({
               border: '2px solid white',
               cursor: 'pointer',
               fontFamily: 'inherit',
-              willChange: 'transform',
+              boxShadow: '0 10px 24px rgba(236, 55, 80, 0.2)',
+              transition: 'box-shadow 0.16s ease, background-image 0.16s ease',
               ':hover': {
                 boxShadow: '0 0 0 2px white',
                 backgroundImage:
                   'radial-gradient(ellipse farthest-corner at bottom right, #ff8c37, #ec3750)'
+              },
+              ':focus-visible': {
+                outline: '3px solid rgba(255,255,255,0.92)',
+                outlineOffset: '4px',
+                boxShadow: '0 0 0 2px rgba(236,55,80,0.42)'
               }
             }}
           >
             Join Hack Club
-          </Text>
+          </Box>
         </Box>
       </Card>
     </Box>
@@ -362,11 +366,8 @@ const Slack = ({ onJoinClick }) => {
   const hasMounted = useHasMounted()
   const prefersMotion = usePrefersMotion()
   const headingRef = useRef(null)
-  const btnRef = useRef(null)
   const scrollRafRef = useRef(null)
   const scrollYRef = useRef(0)
-  const btnRafRef = useRef(null)
-  const btnPendingRef = useRef(null)
 
   useEffect(() => {
     if (!prefersMotion) return
@@ -385,37 +386,6 @@ const Slack = ({ onJoinClick }) => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [prefersMotion])
 
-  const handleBtnMouseMove = prefersMotion
-    ? (e) => {
-        const el = btnRef.current
-        if (!el) return
-        const rect = el.getBoundingClientRect()
-        const dx = Math.max(-8, Math.min(8, (e.clientX - (rect.left + rect.width / 2)) * 0.4))
-        const dy = Math.max(-8, Math.min(8, (e.clientY - (rect.top + rect.height / 2)) * 0.4))
-        btnPendingRef.current = { dx, dy }
-        if (!btnRafRef.current) {
-          btnRafRef.current = requestAnimationFrame(() => {
-            const pending = btnPendingRef.current
-            const btn = btnRef.current
-            if (btn && pending) {
-              btn.style.transition = 'transform 0.1s ease-out, box-shadow 0.125s ease-in-out'
-              btn.style.transform = `translate(${pending.dx}px, ${pending.dy}px) scale(1.05)`
-            }
-            btnRafRef.current = null
-          })
-        }
-      }
-    : undefined
-
-  const handleBtnMouseLeave = prefersMotion
-    ? () => {
-        const el = btnRef.current
-        if (!el) return
-        el.style.transition = 'transform 0.4s ease, box-shadow 0.125s ease-in-out'
-        el.style.transform = ''
-      }
-    : undefined
-
   if (hasMounted && prefersMotion) {
     return (
       <Box
@@ -426,9 +396,6 @@ const Slack = ({ onJoinClick }) => {
         <Content
           onJoinClick={onJoinClick}
           headingRef={headingRef}
-          btnRef={btnRef}
-          onBtnMouseMove={handleBtnMouseMove}
-          onBtnMouseLeave={handleBtnMouseLeave}
           prefersMotion={prefersMotion}
         />
       </Box>

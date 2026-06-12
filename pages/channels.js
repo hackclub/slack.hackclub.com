@@ -13,6 +13,7 @@ const formatName = (str) =>
 
 const getTypeLabel = (type) => {
   if (type === 'us-state') return 'US State'
+  if (type === 'india-state') return 'Indian State'
   if (type === 'island') return 'Island'
   return 'Country'
 }
@@ -111,18 +112,19 @@ const ChannelsPage = () => {
         filter === 'all' ||
         (filter === 'country' && c.type === 'country') ||
         (filter === 'us-state' && c.type === 'us-state') ||
-        (filter === 'island' && c.type === 'island')
+        (filter === 'island' && c.type === 'island') ||
+         (filter === 'india-state' && c.type === 'india-state')
       return matchesSearch && matchesFilter
     })
   }, [search, filter])
 
-  const counts = useMemo(() => ({
-    all: channels.length,
-    country: channels.filter((c) => c.type === 'country').length,
-    'us-state': channels.filter((c) => c.type === 'us-state').length,
-    island: channels.filter((c) => c.type === 'island').length
-  }), [])
-
+const counts = useMemo(() => ({
+  all: channels.length,
+  country: channels.filter((c) => c.type === 'country').length,
+  'us-state': channels.filter((c) => c.type === 'us-state').length,
+  island: channels.filter((c) => c.type === 'island').length,
+  'india-state': channels.filter((c) => c.type === 'india-state').length
+}), [])
   return (
     <Box
       sx={{
@@ -180,7 +182,7 @@ const ChannelsPage = () => {
             opacity: 0.75
           }}
         >
-          {channels.length} channels across {counts.country} countries &amp; {counts['us-state']} US states
+          {channels.length} channels across {counts.country} countries, {counts['us-state']} US states & {counts['india-state']} Indian states
         </Text>
       </Box>
 
@@ -236,6 +238,12 @@ const ChannelsPage = () => {
             <FilterButton active={filter === 'island'} onClick={() => setFilter('island')}>
               Islands ({counts.island})
             </FilterButton>
+          <FilterButton
+  active={filter === 'india-state'}
+  onClick={() => setFilter('india-state')}
+>
+  Indian States ({counts['india-state']})
+</FilterButton>
           </Box>
         </Box>
 

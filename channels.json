@@ -411,5 +411,19 @@
     "type": "island",
     "url": "https://app.slack.com/client/E09V59WQY1E/C0B7H73EU7L",
     "id": "C0B7H73EU7L"
-  }
+  },
+{
+  "channel": "tamil-nadu",
+  "match": "tamil-nadu",
+  "type": "india-state",
+  "url": "https://app.slack.com/client/E09V59WQY1E/C0AU3ELADMK",
+  "id": "C0AU3ELADMK"
+},
+{
+  "channel": "kerala-hackclub",
+  "match": "kerala",
+  "type": "india-state",
+  "url": "https://app.slack.com/client/E09V59WQY1E/C08D8B0STPE",
+  "id": "C08D8B0STPE"
+}
 ]

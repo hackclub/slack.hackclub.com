@@ -13,7 +13,10 @@ const formatName = (str) =>
 
 const getTypeLabel = (type) => {
   if (type === 'us-state') return 'US State'
+
   if (type === 'india-state') return 'Indian State'
+
+
   if (type === 'island') return 'Island'
   return 'Country'
 }
@@ -112,11 +115,16 @@ const ChannelsPage = () => {
         filter === 'all' ||
         (filter === 'country' && c.type === 'country') ||
         (filter === 'us-state' && c.type === 'us-state') ||
+
         (filter === 'island' && c.type === 'island') ||
          (filter === 'india-state' && c.type === 'india-state')
+
+        (filter === 'island' && c.type === 'island')
+
       return matchesSearch && matchesFilter
     })
   }, [search, filter])
+
 
 const counts = useMemo(() => ({
   all: channels.length,
@@ -125,6 +133,15 @@ const counts = useMemo(() => ({
   island: channels.filter((c) => c.type === 'island').length,
   'india-state': channels.filter((c) => c.type === 'india-state').length
 }), [])
+=======
+  const counts = useMemo(() => ({
+    all: channels.length,
+    country: channels.filter((c) => c.type === 'country').length,
+    'us-state': channels.filter((c) => c.type === 'us-state').length,
+    island: channels.filter((c) => c.type === 'island').length
+  }), [])
+
+
   return (
     <Box
       sx={{
@@ -182,7 +199,11 @@ const counts = useMemo(() => ({
             opacity: 0.75
           }}
         >
+
           {channels.length} channels across {counts.country} countries, {counts['us-state']} US states & {counts['india-state']} Indian states
+
+          {channels.length} channels across {counts.country} countries &amp; {counts['us-state']} US states
+
         </Text>
       </Box>
 
@@ -238,12 +259,15 @@ const counts = useMemo(() => ({
             <FilterButton active={filter === 'island'} onClick={() => setFilter('island')}>
               Islands ({counts.island})
             </FilterButton>
+
           <FilterButton
   active={filter === 'india-state'}
   onClick={() => setFilter('india-state')}
 >
   Indian States ({counts['india-state']})
 </FilterButton>
+
+
           </Box>
         </Box>
 

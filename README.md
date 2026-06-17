@@ -37,3 +37,6 @@ I guess a positive of this approach is being transparent so that the user can se
 
 And it's too late to go back now and change the approach. I just spent 45 minutes implementing the "pass along the email" way hahaha
 Anywayyyyyy
+
+# Wait, where did the pokadots come from?
+Credit to https://screenspan.net/polka/ for the pokadots yeahhhhhhhhh whoooo

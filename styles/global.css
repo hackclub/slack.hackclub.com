@@ -1,0 +1,9 @@
+:root {
+    --foreground: #fff;
+
+    --color-red: #ec3750;
+}
+
+* {
+    font-family: var(--font-phantom-src);
+}

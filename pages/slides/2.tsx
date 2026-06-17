@@ -1,11 +1,172 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Image } from 'theme-ui'
+import { Box, Text, Button, Image, Link } from 'theme-ui'
 
-import spacesLogo from "../../public/slides/2/spaces.svg"
-import nestLogo from "../../public/slides/2/nest.png"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import { Navigation, Pagination } from "swiper/modules"
 
 import NavFooterThing from "../../components/slack/footerNav"
+import UserMention from "../../components/userMention"
+
+import angelKeyboard from "../../public/slides/2/angel-keyboard-b850d653.png"
+import crookedRails from "../../public/slides/2/CrookedRails.png"
+import qwave from "../../public/slides/2/qwave.png"
+
+import bambuLabA1 from "../../public/slides/2/bambu-a1-mini-a09036ea.png"
+import ipad from "../../public/slides/2/ipad.png"
+import framework from "../../public/slides/2/framework-laptop-238e3c83.png"
+import blahaj from "../../public/slides/2/blahaj.png"
+import sandFalling from "../../public/slides/2/sandFalling.png"
+import vertSh from "../../public/slides/2/vertsh.png"
+import hackatimeHeatmap from "../../public/slides/2/hackatimeHeatmap.png"
+import lightBound from "../../public/slides/2/lightbound.png"
+import stash from "../../public/slides/2/stash.png"
+import luma from "../../public/slides/2/luma.jpg"
+import hexecute from "../../public/slides/2/hexecute.png"
+import bobTheGun from "../../public/slides/2/bob_the_gun.png"
+
+import { BtnArrow } from "./../../components/btn-arrow";
+
+import style from "../../styles/3.module.css"
+
+const coolProjects: {
+    name: string,
+    description: string,
+    demoURL: string,
+    repo: string,
+    imageSrc: string,
+    creators: {
+        name: string,
+        id: string
+    }[]
+}[] = [
+        {
+            name: "Biblically Accurate Angel Keyboard",
+            description: "This is a custom, 3d-printed keyboard made to resemble a biblically accurate angel, powered by a Raspberry Pi Pico RP2040.",
+            repo: "https://github.com/geg-tech/biblicallyaccuratekeyboard",
+            demoURL: "https://www.youtube.com/watch?v=EbvpPsTKe3c",
+            imageSrc: angelKeyboard.src,
+            creators: [{
+                name: "egg_splats",
+                id: "U081WN0MA56"
+            }]
+        },
+        {
+            name: "Crooked Rails",
+            description: "Crooked Rails is a multiplayer game where you work for a suspicious company. Defend your cargo from monsters and complete jobs between stations",
+            repo: "https://github.com/AllInTw0/CrookedRailsPrototypeHDRP",
+            demoURL: "https://github.com/AllInTw0/CrookedRailsPrototypeHDRP/releases/",
+            imageSrc: crookedRails.src,
+            creators: [{
+                name: "Raivo",
+                id: "U0A5PH25V70"
+            }]
+        },
+        {
+            name: "qWave",
+            demoURL: "idk yet",
+            description: "qWave is a locally hosted media server designed for music!",
+            repo: "https://github.com/qwikster/qwave",
+            imageSrc: qwave.src,
+            creators: [{
+                name: "qwik",
+                id: "U091JJ2JF8E"
+            }]
+        },
+        {
+            name: "Satisfying sand falling thingy :)",
+            description: "One of those cool looking gravtiy sand things built in C and raylib",
+            repo: "https://github.com/nikoi008/Falling-sand-sim/",
+            demoURL: "https://nikoi008.github.io/Falling-sand-sim/",
+            imageSrc: sandFalling.src,
+            creators: [{
+                name: "nmsoukmandjiev007",
+                id: "U0A71TWUM7D"
+            }]
+        },
+        {
+            name: "Hackatime Heatmap",
+            description: "Generate a GitHub-style contribution heatmap for your Hackatime activity!",
+            repo: "https://github.com/ImShyMike/hackatime-heatmap",
+            demoURL: "https://hackatime-heatmap.shymike.dev",
+            imageSrc: hackatimeHeatmap.src,
+            creators: [{
+                name: "miggy",
+                id: "U07VC9705D4"
+            }]
+        },
+        {
+            name: "VERT.sh ",
+            description: "Convert images, audio, and documents to various file formats - all on-device and locally!",
+            repo: "https://github.com/VERT-sh/VERT",
+            demoURL: "https://vert.sh",
+            imageSrc: vertSh.src,
+            creators: [{
+                name: "maya",
+                id: "U0826R42R98"
+            },
+            {
+                name: "nullptr",
+                id: "U08N3DUA47L"
+            }]
+        },
+        {
+            name: "LIGHT//BOUND",
+            description: "A 2D stage-based rhythm game where the players movements are bound to the light.",
+            repo: "https://github.com/FireEntity1/lightbound-demo",
+            demoURL: "https://fire-entity.itch.io/lightbound",
+            imageSrc: lightBound.src,
+            creators: [{
+                name: "fireentity",
+                id: "U07A0D5K3T2"
+            }]
+        },
+        {
+            name: "Stash",
+            description: "Share files quickly with encryption!",
+            repo: "https://github.com/rip-super/stash",
+            demoURL: "https://stash.sahildash.dev/",
+            imageSrc: stash.src,
+            creators: [{
+                name: "rip_super",
+                id: "U0A3584269Z"
+            }]
+        },
+        {
+            name: "Luma",
+            description: "A Minecraft inspired lantern with bluetooth!",
+            repo: "https://github.com/notaroomba/luma",
+            demoURL: "https://github.com/notaroomba/luma",
+            imageSrc: luma.src,
+            creators: [{
+                name: "NotARoomba",
+                id: "U05EZRFKRV4"
+            }]
+        },
+        {
+            name: "Hexecute",
+            description: "A gesture-based launcher for Wayland. Launch apps by casting spells!",
+            repo: "https://github.com/m31-galaxy/Hexecute",
+            demoURL: "https://github.com/m31-galaxy/Hexecute/releases",
+            imageSrc: hexecute.src,
+            creators: [{
+                name: "andromeda",
+                id: "U074K2VPP62"
+            }]
+        },
+        {
+            name: "Bob the Gun",
+            description: "An automatic turret inspired by Engineer's sentry gun from TF2. It detects and shoots threats.",
+            repo: "https://github.com/takshcpatel/automatic-turret",
+            demoURL: "https://github.com/takshcpatel/automatic-turret",
+            imageSrc: bobTheGun.src,
+            creators: [{
+                name: "Crazy Taxi",
+                id: "U0A7QRVE0EB"
+            }]
+        }
+    ]
 
 export default function Page() {
     const [email, setEmail] = useState("")
@@ -17,16 +178,16 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
 
-                backgroundImage: "radial-gradient(rgb(250, 250, 250) 12%, transparent 12%), radial-gradient(rgb(255, 255, 255) 12%, transparent 12%)",
-                backgroundPosition: "0px 0px, 24px 24px",
-                backgroundSize: "48px 48px",
-                backgroundColor: "rgb(255, 255, 255)",
+                backgroundImage:
+                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
+                backgroundPosition: "0px 0px, 32px 32px",
+                backgroundSize: "64px 64px",
+                backgroundColor: "rgb(23, 23, 29)",
 
                 minHeight: '100vh'
             }}>
+
                 <Box as="main" sx={{
                     position: "relative",
                     display: "flex",
@@ -36,211 +197,300 @@ export default function Page() {
                     height: "fit-content",
                     backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
                 }}>
-                    <Text
-                        variant="title"
-                        sx={{
-                            color: 'black',
-                            position: 'relative',
-                            display: 'block'
-                        }}
-                        as="h1"
-                    >Hack Club gives tools to empower teens like...</Text>
-
                     <Box sx={{
-                        display: "grid",
-                        gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr 1fr 1fr"],
+                        display: "flex",
+                        flexDirection: "column",
                         gap: "2rem",
 
-                        paddingTop: "4rem"
+                        background: "transparent"
                     }}>
+                        <Text
+                            variant="title"
+                            sx={{
+                                position: 'relative',
+                                display: 'block',
+
+                                color: "var(--foreground)",
+                                fontFamily: "var(--font-zarathustra-src)"
+                            }}
+                            as="h1"
+                        >I'm glad you asked!</Text>
+
                         <Box sx={{
                             display: "flex",
                             flexDirection: "column",
-                            alignItems: "center",
-                            gap: "2rem",
-
-                            width: "100%",
-                            padding: "2rem",
-
-                            borderRadius: "12px",
-                            backgroundColor: "#03001c"
+                            gap: "2rem"
                         }}>
-                            <header>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-
-                                        width: "6rem",
-                                        height: "6rem",
-
-                                        borderRadius: "2rem",
-                                        background: "transparent"
-                                    }}>
-                                    <a href="https://hackclub.app" target="_blank">
-                                        <Image sx={{
-                                            height: "100%",
-                                            width: "100%",
-                                        }} src={nestLogo.src} /></a>
-                                </Box>
-                            </header>
-
                             <Box sx={{
                                 display: "flex",
                                 flexDirection: "column"
                             }}>
-                                <Text
-                                    variant="title"
-                                    sx={{
-                                        color: 'white',
-                                        position: 'relative',
-                                        display: 'block',
-                                        fontSize: "48px !important",
-                                        alignSelf: "center"
-                                    }}
-                                    as="h1"
-                                ><a href="https://hackclub.app" target="_blank">Nest</a></Text>
+                                <Text sx={{ fontSize: '24px', alignSelf: "center", paddingBottom: "2rem", color: "var(--foreground)" }}>
+                                    <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship</Link> (YSWS) is a family of programs ran by Hack Club where you ship (create) anything you want (hardware or software) like...
+                                </Text>
 
-                                <Text sx={{
-                                    color: "#aeaeb2"
-                                }}>Host Discord bots, apps, websites, try out basic computer networking and more!</Text>
+                                <div style={{
+                                    position: "relative"
+                                }}>
+                                    <Button className="prev-button" sx={{
+                                        position: "absolute",
+                                        left: "-20px",
+                                        top: "50%",
+                                        transform: "translateY(-50%)",
+                                        zIndex: "555",
+
+                                        "&:hover": {
+                                            transform: "translateY(-50%)",
+                                        },
+                                    }}>&lt;</Button>
+
+                                    <Swiper modules={[Navigation, Pagination]} navigation={{
+                                        nextEl: '.next-button',
+                                        prevEl: '.prev-button',
+                                    }} pagination={{ clickable: true }} slidesPerView="auto" spaceBetween={50}>
+                                        {
+                                            coolProjects.map(project => (
+                                                <SwiperSlide style={{
+                                                    width: "290px",
+                                                    height: "auto",
+                                                    display: "flex",
+
+                                                    boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
+                                                }}>
+                                                    <div style={{
+                                                        display: "flex",
+                                                        flexDirection: "column",
+                                                        height: "100%",
+
+                                                        textDecoration: "none",
+                                                        color: "black"
+                                                    }}>
+                                                        <Image sx={{
+                                                            display: "block",
+                                                            aspectRatio: "3 / 2",
+                                                            objectFit: "cover",
+
+                                                            width: "290px",
+                                                            height: "200px",
+                                                            borderRadius: "16px 16px 0px 0px"
+                                                        }} src={project.imageSrc} />
+
+                                                        <div style={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            height: "100%",
+                                                            gap: "0.5rem",
+
+                                                            backgroundColor: "#1f1f27",
+                                                            padding: "16px 18px 18px",
+                                                            borderRadius: "0px 0px 16px 16px"
+                                                        }}>
+                                                            <div style={{
+                                                                display: "flex",
+                                                                flexDirection: "column",
+                                                            }}>
+                                                                <span style={{
+                                                                    alignSelf: "center",
+                                                                    color: "var(--foreground)",
+                                                                    fontWeight: "800"
+                                                                }}>{project.name}</span>
+                                                                <span style={{
+                                                                    alignSelf: "center",
+                                                                    color: "var(--foreground)"
+                                                                }}>                                                            Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
+                                                                    <><UserMention key={creator.id} username={creator.name} slackId={creator.id} />{" "}<span style={{
+                                                                        color: "var(--foreground)"
+                                                                    }}>{index == (project.creators.length - 1) ? "" : "and "}</span></>
+                                                                )) : project.creators.map(creator => (
+                                                                    <UserMention key={creator.id} username={creator.name} slackId={creator.id} />
+                                                                ))}</span>
+                                                            </div>
+                                                            <span style={{
+                                                                color: "var(--foreground)",
+                                                                height: "100%"
+                                                            }}>
+                                                                {project.description}
+                                                            </span>
+
+                                                            <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
+                                                                <a
+                                                                    href={project.demoURL}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className={style.ctaBtn}
+                                                                    style={{
+                                                                        fontSize: 20,
+                                                                        color: "var(--color-red)",
+                                                                        textDecoration: "none",
+                                                                        fontFamily: "var(--font-phantom)",
+                                                                        display: "inline-flex",
+                                                                        alignItems: "center",
+                                                                        fontWeight: 600,
+                                                                    }}
+                                                                >
+                                                                    Check out the demo <BtnArrow />
+                                                                </a>
+
+                                                                <a
+                                                                    href={project.repo}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    aria-label="View source code"
+                                                                    title="View source code"
+                                                                    style={{
+                                                                        color: "var(--foreground)",
+                                                                        textDecoration: "none",
+                                                                        display: "inline-flex",
+                                                                        alignItems: "center",
+                                                                        justifyContent: "center",
+                                                                        marginLeft: "auto",
+                                                                    }}
+                                                                >
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                        <path
+                                                                            fill="currentColor"
+                                                                            d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82"
+                                                                        />
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </SwiperSlide>
+                                            ))
+                                        }
+                                    </Swiper>
+                                    <Button className="next-button" sx={{
+                                        position: "absolute",
+                                        right: "-20px",
+
+                                        top: "50%",
+                                        zIndex: "555",
+                                        transform: "translateY(-50%)",
+
+                                        "&:hover": {
+                                            transform: "translateY(-50%)",
+                                        },
+                                    }}>&gt;</Button>
+                                </div>
+
                             </Box>
-                        </Box>
-
-                        <Box sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "2rem",
-
-                            width: "100%",
-                            padding: "2rem",
-
-                            borderRadius: "12px",
-                            backgroundColor: "#03001c"
-                        }}>
-                            <header>
-                                <Box
-                                    sx={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-
-                                        color: "white",
-                                        width: "6rem",
-                                        height: "6rem",
-
-                                        fontWeight: "700",
-                                        fontSize: "3rem",
-
-                                        borderRadius: "2rem",
-                                        background: "#ec3750"
-                                    }}>
-                                    <a href="https://ai.hackclub.com" target='_blank'>
-                                        h
-                                    </a>
-                                </Box>
-                            </header>
-
                             <Box sx={{
                                 display: "flex",
                                 flexDirection: "column"
                             }}>
-                                <Text
-                                    variant="title"
-                                    sx={{
-                                        color: 'white',
-                                        position: 'relative',
-                                        display: 'block',
-                                        fontSize: "48px !important",
-                                        alignSelf: "center"
-                                    }}
-                                    as="h1"
-                                ><a href="https://ai.hackclub.com" target='_blank'>Hack Club AI</a></Text>
+                                <Text sx={{ fontSize: '24px', alignSelf: "center", color: "var(--foreground)" }}>
+                                    and we physically ship you prizes like...
+                                </Text>
+                                <Box sx={{
+                                    display: "flex",
+                                    flexDirection: "row",
 
-                                <Text sx={{
-                                    color: "#aeaeb2"
-                                }}>Access to 400+ LLMs for Hack Clubbers. Limited to $3 a day</Text>
-                            </Box>
-                        </Box>
+                                    alignItems: "flex-end",
+                                    padding: "0.5rem 0",
 
-                        <Box sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "2rem",
-
-                            width: "100%",
-                            padding: "2rem",
-
-                            borderRadius: "12px",
-                            backgroundColor: "#03001c"
-                        }}>
-                            <header>
-                                <Box
-                                    sx={{
+                                    width: "fit-content",
+                                    margin: "auto"
+                                }}>
+                                    <Box sx={{
                                         display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
+                                        gap: "0.25rem",
+                                        flexDirection: "column",
 
-                                        color: "white",
-                                        width: "6rem",
-                                        height: "6rem",
-
-                                        fontWeight: "700",
-                                        fontSize: "3rem",
-
-                                        background: "transparent"
+                                        alignItems: "center"
                                     }}>
-                                    <a href="https://spaces.hackclub.com" target="_blank">
                                         <Image sx={{
-                                            filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
-                                            height: "64px",
-                                            width: "64px",
+                                            height: "230px",
+                                            width: "auto",
+                                            objectFit: "contain"
                                         }}
-                                            src={spacesLogo.src} />
-                                    </a>
+                                            src={bambuLabA1.src} />
+
+                                        <span style={{
+                                            color: "var(--foreground)"
+                                        }}>
+                                            Bambu A1 Mini
+                                        </span>
+                                    </Box>
+
+                                    <Box sx={{
+                                        display: "flex",
+                                        gap: "0.25rem",
+                                        flexDirection: "column",
+
+                                        alignItems: "center",
+                                    }}>
+                                        <Image sx={{
+                                            height: "180px",
+                                            width: "auto",
+                                            objectFit: "contain"
+                                        }} src={ipad.src} />
+
+                                        <span style={{
+                                            color: "var(--foreground)"
+                                        }}>
+                                            Apple iPad
+                                        </span>
+                                    </Box>
+
+                                    <Box sx={{
+                                        display: "flex",
+                                        gap: "0.25rem",
+                                        flexDirection: "column",
+
+                                        alignItems: "center"
+                                    }}>
+                                        <Image sx={{
+                                            height: "180px",
+                                            width: "auto",
+                                            objectFit: "contain"
+                                        }} src={framework.src} />
+
+                                        <span style={{
+                                            color: "var(--foreground)"
+                                        }}>
+                                            Framework Laptop
+                                        </span>
+                                    </Box>
+
+                                    <Box sx={{
+                                        display: "flex",
+                                        gap: "0.25rem",
+                                        flexDirection: "column",
+
+                                        alignItems: "center"
+                                    }}>
+                                        <Image sx={{
+                                            height: "180px",
+                                            width: "auto",
+                                            objectFit: "contain"
+                                        }} src={blahaj.src} />
+
+                                        <span style={{
+                                            color: "var(--foreground)"
+                                        }}>
+                                            Blahaj
+                                        </span>
+                                    </Box>
                                 </Box>
-                            </header>
-
-                            <Box sx={{
-                                display: "flex",
-                                flexDirection: "column"
-                            }}>
-                                <Text
-                                    variant="title"
-                                    sx={{
-                                        color: 'white',
-                                        position: 'relative',
-                                        display: 'block',
-                                        fontSize: "48px !important",
-                                        alignSelf: "center",
-                                        whiteSpace: "nowrap"
-                                    }}
-                                    as="h1"
-                                ><a href="https://spaces.hackclub.com" target="_blank">Hack Club Spaces</a></Text>
-
-                                <Text sx={{
-                                    color: "#aeaeb2"
-                                }}>Virtual development environments for Hack Clubbers. VSCode, Blender, KiCad, and more, in the cloud.</Text>
                             </Box>
                         </Box>
                     </Box>
 
                     <Button
+                        variant="ctaLg"
                         as="a"
                         {...({ href: `/slides/3${(email !== null ? "?email=" + email : "")}` } as any)}
 
                         sx={{
                             position: "relative",
-                            display: "flex",
-
+                            transformOrigin: 'center center',
                             whiteSpace: 'nowrap',
                             borderRadius: "12px",
                             background: "#ec3750",
                             transition: "none !important",
                             transform: "none !important",
+                            marginTop: "1rem",
 
                             textTransform: "initial",
                             width: "fit-content",
@@ -253,20 +503,13 @@ export default function Page() {
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Next
+                            Oh! What else?
                         </Text>
                     </Button>
                 </Box>
+            </Box >
 
-                <NavFooterThing />
-            </Box>
-
-            <style>
-                {`a {
-                    text-decoration: none;
-                    color: inherit;
-                }`}
-            </style>
+            <NavFooterThing />
         </>
     )
 }

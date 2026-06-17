@@ -5,6 +5,9 @@ import theme from '../lib/theme'
 import { ThemeUIProvider } from 'theme-ui'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
 
+import { phantomSans, shantellSans, zarathustra } from "../lib/fonts"
+import "../styles/global.css"
+
 const App = ({ Component, pageProps }) => (
   <ThemeUIProvider theme={theme}>
     <Meta as={Head}>
@@ -14,7 +17,9 @@ const App = ({ Component, pageProps }) => (
       />
     </Meta>
     <BalancerProvider>
-      <Component {...pageProps} />
+      <main className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`}>
+        <Component {...pageProps} />
+      </main>
     </BalancerProvider>
   </ThemeUIProvider>
 )

@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Image, Link } from 'theme-ui'
-
-import a1mini from "../../public/slides/4/a1-mini.png";
-import macbook from "../../public/slides/4/macbook.png"
-
+import { Box, Text, Button, Link } from 'theme-ui'
 import NavFooterThing from "../../components/slack/footerNav"
-
 export default function Page() {
     const [email, setEmail] = useState("")
     useEffect(() => {
@@ -17,19 +12,20 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "space-between",
 
-                backgroundImage: "radial-gradient(rgb(250, 250, 250) 12%, transparent 12%), radial-gradient(rgb(255, 255, 255) 12%, transparent 12%)",
-                backgroundPosition: "0px 0px, 24px 24px",
-                backgroundSize: "48px 48px",
-                backgroundColor: "rgb(255, 255, 255)",
+                backgroundImage:
+                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
+                backgroundPosition: "0px 0px, 32px 32px",
+                backgroundSize: "64px 64px",
+                backgroundColor: "rgb(23, 23, 29)",
 
                 minHeight: '100vh'
             }}>
                 <Box as="main" sx={{
                     position: "relative",
                     display: "flex",
+                    justifyContent: "center",
                     flexDirection: "column",
                     gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
 
@@ -41,50 +37,39 @@ export default function Page() {
                         sx={{
                             color: 'black',
                             position: 'relative',
-                            display: 'block'
+                            display: 'block',
+                            alignSelf: "center"
                         }}
                         as="h1"
-                    >That's right!</Text>
-
-                    <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center" }}>
-                        Hack Club hosts <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship programs</Link> where teens are rewarded for shipping cool projects with prizes like...
-                    </Text>
+                    >Want to learn more about Hack Club?</Text>
 
                     <Box sx={{
-                        display: "grid",
-                        gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
-                        gridTemplateRows: ["1fr 1fr", "1fr 1fr", "1fr"],
-                        gap: "2rem",
-                        placeItems: "center",
-
-                        paddingTop: "4rem",
-                        height: "100%"
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center"
                     }}>
-                        <Text sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center"
-                        }}>
-                            the A1 Mini 3d printer from Bambu Lab
-                            <Image
-                                sx={{
-                                    height: "480px"
-                                }}
-                                src={a1mini.src}
-                            />
-                        </Text>
-
-                        <Text sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center"
-                        }}>
-                            the Macbook Neo
-                            <Image sx={{
-                                height: "480px"
+                        <Text
+                            sx={{
+                                color: 'black',
+                                position: 'relative',
+                                display: 'block',
+                                alignSelf: "center",
+                                fontSize: "2rem"
                             }}
-                                src={macbook.src} />
-                        </Text>
+                            as="h1"
+                        >Read <Link href="https://readme.hackclub.com/slack">
+                                readme
+                            </Link> - a detailed explainer to Hack Club</Text>
+
+                        <Text
+                            sx={{
+                                color: 'black',
+                                position: 'relative',
+                                display: 'block',
+                                alignSelf: "center"
+                            }}
+                            as="p"
+                        >The expandable sections do not work in the iframe to the right</Text>
                     </Box>
 
                     <Button
@@ -112,13 +97,30 @@ export default function Page() {
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Hehe - awesome!
+                            Next
                         </Text>
                     </Button>
                 </Box>
 
+                <aside className="aside-thing">
+                    <iframe style={{
+                        height: "100vh",
+                        width: "30vw",
+                        minWidth: "500px"
+                    }} src="https://readme.hackclub.com/"></iframe>
+                </aside>
+
                 <NavFooterThing />
             </Box>
+
+            <style>
+                {`.aside-thing {
+                    position: relative;
+                    height: 100vh;
+                    right: 0;
+                    @media only screen and (max-width: 1024px) { display: none; }
+                }`}
+            </style>
         </>
     )
 }

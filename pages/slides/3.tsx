@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button } from 'theme-ui'
+import { Box, Text, Button, Image } from 'theme-ui'
+
+import spacesLogo from "../../public/slides/3/spaces.svg"
+import nestLogo from "../../public/slides/3/nest.png"
+import cdnLogo from "../../public/slides/3/cdn.svg"
+
+import Marquee from "react-fast-marquee"
+
 import NavFooterThing from "../../components/slack/footerNav"
 
 export default function Page() {
@@ -16,10 +23,11 @@ export default function Page() {
                 flexDirection: "column",
                 justifyContent: "center",
 
-                backgroundImage: "radial-gradient(rgb(250, 250, 250) 12%, transparent 12%), radial-gradient(rgb(255, 255, 255) 12%, transparent 12%)",
-                backgroundPosition: "0px 0px, 24px 24px",
-                backgroundSize: "48px 48px",
-                backgroundColor: "rgb(255, 255, 255)",
+                backgroundImage:
+                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
+                backgroundPosition: "0px 0px, 32px 32px",
+                backgroundSize: "64px 64px",
+                backgroundColor: "rgb(23, 23, 29)",
 
                 minHeight: '100vh'
             }}>
@@ -35,93 +43,268 @@ export default function Page() {
                     <Text
                         variant="title"
                         sx={{
-                            color: 'black',
                             position: 'relative',
-                            display: 'block'
+                            display: 'block',
+                            color: "var(--foreground)"
                         }}
                         as="h1"
-                    >Some words you might not understand...</Text>
+                    >We have developer tools!</Text>
 
-                    <Text sx={{ fontSize: '1.5rem', fontWeight: "800", color: 'slate', textAlign: "center" }}>
-                        The community uses words or abbreviations that you may not understand.
-                        Here are the important ones and their definitions
-                    </Text>
+                    <Text sx={{ fontSize: '2rem', color: "var(--foreground)" }}>
+                        Not all teens will have access to the tools they need to create, so Hack Club offers developer tools and services for free!</Text>
 
-                    <Box sx={{
-                        display: "grid",
-                        gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr 1fr 1fr"],
-                        gap: "2rem",
-                        textAlign: "center",
-                        padding: "4rem"
+                    <Marquee style={{
+                        marginLeft: "-4rem",
+                        marginRight: "-4rem",
+                        width: "calc(100% + 8rem)"
+                    }}
+
+                        speed={40} pauseOnHover={true} gradient={false}>
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        borderRadius: "2rem",
+                                        background: "transparent"
+                                    }}>
+                                    <a href="https://hackclub.app" target="_blank">
+                                        <Image sx={{
+                                            height: "100%",
+                                            width: "100%",
+                                        }} src={nestLogo.src} /></a>
+                                </Box>
+                            </header>
+
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: "column"
+                            }}>
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center"
+                                    }}
+                                    as="h1"
+                                ><a href="https://hackclub.app" target="_blank">Nest</a></Text>
+
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>Host Discord bots, apps, websites, try out basic computer networking and more!</Text>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        color: "white",
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        fontWeight: "700",
+                                        fontSize: "3rem",
+
+                                        borderRadius: "2rem",
+                                        background: "#ec3750"
+                                    }}>
+                                    <a href="https://ai.hackclub.com" target='_blank'>
+                                        h
+                                    </a>
+                                </Box>
+                            </header>
+
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: "column"
+                            }}>
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center"
+                                    }}
+                                    as="h1"
+                                ><a href="https://ai.hackclub.com" target='_blank'>Hack Club AI</a></Text>
+
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>Access to 400+ LLMs for Hack Clubbers. Limited to $3 a day</Text>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        color: "white",
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        fontWeight: "700",
+                                        fontSize: "3rem",
+
+                                        background: "transparent"
+                                    }}>
+                                    <a href="https://cdn.hackclub.com" target="_blank">
+                                        <Image sx={{
+                                            filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
+                                            height: "64px",
+                                            width: "64px",
+                                        }}
+                                            src={spacesLogo.src} />
+                                    </a>
+                                </Box>
+                            </header>
+
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: "column"
+                            }}>
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center",
+                                        whiteSpace: "nowrap"
+                                    }}
+                                    as="h1"
+                                ><a href="https://cdn.hackclub.com" target="_blank">Spaces</a></Text>
+
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>Cloud dev environments for Hack Clubbers, with VSCode, Blender, KiCad, and more.</Text>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        color: "white",
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        fontWeight: "700",
+                                        fontSize: "3rem",
+
+                                        background: "transparent"
+                                    }}>
+                                    <a href="https://cdn.hackclub.com" target="_blank">
+                                        <Image sx={{
+                                            filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
+                                            height: "64px",
+                                            width: "64px",
+                                        }}
+                                            src={cdnLogo.src} />
+                                    </a>
+                                </Box>
+                            </header>
+
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: "column"
+                            }}>
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center",
+                                        whiteSpace: "nowrap"
+                                    }}
+                                    as="h1"
+                                ><a href="https://cdn.hackclub.com" target="_blank">CDN</a></Text>
+
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>50GB of free image and video hosting, with permanent links for your websites</Text>
+                            </Box>
+                        </Box>
+                    </Marquee>
+                    <Text sx={{
+                        color: "var(--foreground)"
                     }}>
-                        <Box>
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'flex',
-                                    justifyContent: "center",
-                                    fontSize: "6rem !important"
-                                }}
-                                as="h1"
-                            >Ship</Text>
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'block',
-                                    alignSelf: "center"
-                                }}
-                                as="h2"
-                            >to host a finished project so other people can use it and test it</Text>
-                        </Box>
-
-                        <Box>
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'flex',
-                                    justifyContent: "center",
-                                    fontSize: "6rem !important"
-                                }}
-                                as="h1"
-                            >YSWS</Text>
-
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'block',
-                                    alignSelf: "center"
-                                }}
-                                as="h2"
-                            >an abbreviation that means “you ship, we ship.” It refers to a family of programs hosted by Hack Club where you can get prizes for making cool projects</Text>
-                        </Box>
-
-                        <Box>
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'flex',
-                                    justifyContent: "center",
-                                    fontSize: "6rem !important"
-                                }}
-                                as="h1"
-                            >Grant</Text>
-                            <Text
-                                sx={{
-                                    color: 'black',
-                                    position: 'relative',
-                                    display: 'block',
-                                    alignSelf: "center"
-                                }}
-                                as="h2"
-                            >a virtual Visa card given by YSWS programs to be spent on specific things like domains or filament for 3d printers
-                            </Text>
-                        </Box>
-                    </Box>
+                        See the full list on Toolbox (add lnk later)
+                    </Text>
 
                     <Button
                         as="a"
@@ -148,13 +331,20 @@ export default function Page() {
                         <Text sx={{
                             fontSize: "2rem"
                         }}>
-                            Wait, I can get prizes from YSWS? Tell me more!
+                            oh wow! I can't wait to start!
                         </Text>
                     </Button>
                 </Box>
 
                 <NavFooterThing />
             </Box>
+
+            <style>
+                {`a {
+                    text-decoration: none;
+                    color: inherit;
+                }`}
+            </style>
         </>
     )
 }

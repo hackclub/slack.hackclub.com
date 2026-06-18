@@ -5,6 +5,7 @@ import { Box, Text, Button } from 'theme-ui'
 import NavFooterThing from "../../components/slack/footerNav"
 
 import Emoji from "../../components/emoji"
+import NextButton from "../../components/nextButton"
 
 export default function Page() {
     const [email, setEmail] = useState("")
@@ -65,6 +66,20 @@ export default function Page() {
 
                             Slack is a chat app like Discord, but better and trusted by thousands of businesses.
                         </Text>
+                    </Box>
+
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "column",
+
+                        alignItems: "center",
+
+                        backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
+                    }}>
+                        <Text sx={{ fontSize: '1.5rem', color: 'var(--foreground)', textAlign: "center" }}>
+                            Don't know how to use Slack? Watch this quick 2 minute video!
+                        </Text>
+                        <iframe width="864" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </Box>
 
                     <div style={{
@@ -159,91 +174,137 @@ export default function Page() {
                         width: "100%"
                     }}>
                         <div style={{
-                            height: "600px",
+                            display: "flex",
+                            flexDirection: "column",
+
+                            height: "500px",
                             width: "400px",
 
+                            borderRadius: "16px",
                             background: "#10141d"
-                        }}>Actvies! Multiple actves per month like game nights and AMAs with figures in tech and busness
-                            <Text sx={{
-                                fontSize: "1.25rem",
-                                fontWeight: "600",
+                        }}>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
 
-                                color: "var(--foreground)"
-                            }}>Activities!</Text>
+                                padding: "1rem"
+                            }}>
+                                <Text sx={{
+                                    fontSize: "1.25rem",
+                                    fontWeight: "600",
+
+                                    color: "var(--foreground)",
+                                    alignSelf: "center"
+                                }}>Game nights!</Text>
+
+                                <Text sx={{
+                                    color: "var(--foreground)"
+                                }}>
+                                    We host game nights where we play Minecraft, Gartic Phone, Monopoly, and other silly games :P
+                                </Text>
+                            </div>
                         </div>
 
                         <div style={{
-                            height: "600px",
+                            display: "flex",
+                            flexDirection: "column",
+
+                            height: "500px",
                             width: "400px",
 
+                            borderRadius: "16px",
                             background: "#10141d"
-                        }}><Text sx={{
-                            fontSize: "1.25rem",
-                            fontWeight: "600",
+                        }}>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
 
-                            color: "var(--foreground)"
-                        }}>Connect with other teens</Text>
+                                padding: "1rem"
+                            }}>
+                                <Text sx={{
+                                    fontSize: "1.25rem",
+                                    fontWeight: "600",
+
+                                    color: "var(--foreground)",
+                                    alignSelf: "center"
+                                }}>Interviews with influential figures!</Text>
+
+                                <Text sx={{
+                                    color: "var(--foreground)"
+                                }}>
+                                    We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others all the time!
+                                </Text>
+                            </div>
                         </div>
 
                         <div style={{
-                            height: "600px",
+                            display: "flex",
+                            flexDirection: "column",
+
+                            height: "500px",
                             width: "400px",
 
-                            background: "#10141d"
-                        }}></div>
+                            borderRadius: "16px",
+                            background: "#10141d",
+                        }}>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
+
+                                padding: "1rem"
+                            }}>
+                                <Text sx={{
+                                    fontSize: "1.25rem",
+                                    fontWeight: "600",
+
+                                    color: "var(--foreground)",
+                                    alignSelf: "center"
+                                }}>Participate in You Ship, We Ship programs!</Text>
+
+                                <Text sx={{
+                                    color: "var(--foreground)"
+                                }}>
+                                    Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!
+                                </Text>
+                            </div>
+                        </div>
 
                         <div style={{
-                            height: "600px",
+                            display: "flex",
+                            flexDirection: "column",
+
+                            height: "500px",
                             width: "400px",
 
+                            borderRadius: "16px",
                             background: "#10141d"
-                        }}></div>
+                        }}>
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
+
+                                padding: "1rem"
+                            }}>
+                                <Text sx={{
+                                    fontSize: "1.25rem",
+                                    fontWeight: "600",
+
+                                    color: "var(--foreground)",
+                                    alignSelf: "center"
+                                }}>Connect with other teens!</Text>
+
+                                <Text sx={{
+                                    color: "var(--foreground)"
+                                }}>
+                                    Meet other teens that like to code and blah blah blah
+                                </Text>
+                            </div>
+                        </div>
                     </div>
 
-                    <Box sx={{
-                        display: "flex",
-                        flexDirection: "column",
-
-                        alignItems: "center",
-
-                        backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
-                    }}>
-                        <Text sx={{ fontSize: '1.5rem', color: 'var(--foreground)', textAlign: "center" }}>
-                            Don't know how to use Slack? Watch this quick 2 minute video!
-                        </Text>
-                        <iframe width="864" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </Box>
-
-                    <Button
-                        variant="ctaLg"
-                        as="a"
-                        {...({ href: `/slides/2${(email !== null ? "?email=" + email : "")}` } as any)}
-
-                        sx={{
-                            position: "relative",
-                            transformOrigin: 'center center',
-                            whiteSpace: 'nowrap',
-                            borderRadius: "12px",
-                            background: "#ec3750",
-                            transition: "none !important",
-                            transform: "none !important",
-
-                            textTransform: "initial",
-                            width: "fit-content",
-                            paddingRight: "2rem",
-                            paddingLeft: "2rem",
-                            alignSelf: "center",
-                            minWidth: "600px"
-                        }}
-                    >
-                        <Text sx={{
-                            fontSize: "2rem"
-                        }}>
-                            Wait, what's you ship, we ship?
-                        </Text>
-                    </Button>
+                    <NextButton text="Wait, tell me more about You Ship, We Ship!" slide={2} email={email} />
                 </Box>
-            </Box>
+            </Box >
 
             <NavFooterThing />
         </>

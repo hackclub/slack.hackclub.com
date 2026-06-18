@@ -13,6 +13,8 @@ export default function Page() {
     useEffect(() => {
         setEmail(getEmailQueryParam())
     })
+    const [pressed, setPressed] = useState(false)
+
 
     return (
         <>
@@ -147,6 +149,10 @@ export default function Page() {
                                 window.location.href = `https://auth.hackclub.com/slack${(email !== null ? "?email=" + email : "")}`
                             }}
 
+                            onMouseDown={() => setPressed(true)}
+                            onMouseUp={() => setPressed(false)}
+                            onMouseLeave={() => setPressed(false)}
+
                             sx={{
                                 position: "relative",
                                 display: "flex",
@@ -155,14 +161,24 @@ export default function Page() {
                                 borderRadius: "12px",
                                 background: "#ec3750",
                                 transition: "none !important",
-                                transform: "none !important",
 
                                 textTransform: "initial",
                                 width: "fit-content",
                                 paddingRight: "2rem",
                                 paddingLeft: "2rem",
                                 alignSelf: "center",
-                                minWidth: "600px"
+                                minWidth: "600px",
+
+                                boxShadow: pressed ? "none" : "0 4px 0 #871026 !important",
+                                transform: pressed ? "translateY(4px) !important" : "none",
+
+                                "&:focus": {
+                                    transform: "none",
+                                },
+
+                                "&:hover": {
+                                    transform: "none",
+                                }
                             }}
                         >
                             <Text sx={{

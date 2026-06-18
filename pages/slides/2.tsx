@@ -27,6 +27,7 @@ import hexecute from "../../public/slides/2/hexecute.png"
 import bobTheGun from "../../public/slides/2/bob_the_gun.png"
 
 import { BtnArrow } from "./../../components/btn-arrow";
+import NextButton from "../../components/nextButton"
 
 import style from "../../styles/3.module.css"
 
@@ -477,35 +478,7 @@ export default function Page() {
                         </Box>
                     </Box>
 
-                    <Button
-                        variant="ctaLg"
-                        as="a"
-                        {...({ href: `/slides/3${(email !== null ? "?email=" + email : "")}` } as any)}
-
-                        sx={{
-                            position: "relative",
-                            transformOrigin: 'center center',
-                            whiteSpace: 'nowrap',
-                            borderRadius: "12px",
-                            background: "#ec3750",
-                            transition: "none !important",
-                            transform: "none !important",
-                            marginTop: "1rem",
-
-                            textTransform: "initial",
-                            width: "fit-content",
-                            paddingRight: "2rem",
-                            paddingLeft: "2rem",
-                            alignSelf: "center",
-                            minWidth: "600px"
-                        }}
-                    >
-                        <Text sx={{
-                            fontSize: "2rem"
-                        }}>
-                            Oh! What else?
-                        </Text>
-                    </Button>
+                    <NextButton text="Oh! What else?" slide={3} email={email} />
                 </Box>
             </Box >
 

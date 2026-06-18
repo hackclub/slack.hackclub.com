@@ -9,6 +9,8 @@ import cdnLogo from "../../public/slides/3/cdn.svg"
 import Marquee from "react-fast-marquee"
 
 import NavFooterThing from "../../components/slack/footerNav"
+import NextButton from "../../components/nextButton"
+
 
 export default function Page() {
     const [email, setEmail] = useState("")
@@ -306,34 +308,7 @@ export default function Page() {
                         See the full list on Toolbox (add lnk later)
                     </Text>
 
-                    <Button
-                        as="a"
-                        {...({ href: `/slides/4${(email !== null ? "?email=" + email : "")}` } as any)}
-
-                        sx={{
-                            position: "relative",
-                            display: "flex",
-
-                            whiteSpace: 'nowrap',
-                            borderRadius: "12px",
-                            background: "#ec3750",
-                            transition: "none !important",
-                            transform: "none !important",
-
-                            textTransform: "initial",
-                            width: "fit-content",
-                            paddingRight: "2rem",
-                            paddingLeft: "2rem",
-                            alignSelf: "center",
-                            minWidth: "600px"
-                        }}
-                    >
-                        <Text sx={{
-                            fontSize: "2rem"
-                        }}>
-                            oh wow! I can't wait to start!
-                        </Text>
-                    </Button>
+                    <NextButton text="oh wow! I can't wait to start!" slide={4} email={email} />
                 </Box>
 
                 <NavFooterThing />

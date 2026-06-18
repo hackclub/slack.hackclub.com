@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Link } from 'theme-ui'
 import NavFooterThing from "../../components/slack/footerNav"
+import NextButton from "../../components/nextButton"
+
+
 export default function Page() {
     const [email, setEmail] = useState("")
     useEffect(() => {
@@ -72,34 +75,7 @@ export default function Page() {
                         >The expandable sections do not work in the iframe to the right</Text>
                     </Box>
 
-                    <Button
-                        as="a"
-                        {...({ href: `/slides/5${(email !== null ? "?email=" + email : "")}` } as any)}
-
-                        sx={{
-                            position: "relative",
-                            display: "flex",
-
-                            whiteSpace: 'nowrap',
-                            borderRadius: "12px",
-                            background: "#ec3750",
-                            transition: "none !important",
-                            transform: "none !important",
-
-                            textTransform: "initial",
-                            width: "fit-content",
-                            paddingRight: "2rem",
-                            paddingLeft: "2rem",
-                            alignSelf: "center",
-                            minWidth: "600px"
-                        }}
-                    >
-                        <Text sx={{
-                            fontSize: "2rem"
-                        }}>
-                            Next
-                        </Text>
-                    </Button>
+                    <NextButton text="Next" slide={5} email={email} />
                 </Box>
 
                 <aside className="aside-thing">

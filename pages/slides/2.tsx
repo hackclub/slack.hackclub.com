@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useRef, useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Image, Link } from 'theme-ui'
 
@@ -187,6 +187,19 @@ export default function Page() {
         setEmail(getEmailQueryParam())
     })
 
+    const [slideWidthOrSomethingIdk, setSlideWidthOrSomethingIdk] = useState(290) //default value is 290px
+    const [slideGapOrSomethingIDKDontAskMeAAAAA, setSlideGapOrSomethingIDKDontAskMeAAAAA] = useState(50)
+    useEffect(() => {
+        const swiper = document.querySelector(".swiper")
+        const amountOfCardsVisible = swiper.querySelectorAll(".swiper-slide-visible").length
+
+        if (amountOfCardsVisible == 1) {
+            console.log(swiper.clientWidth)
+            setSlideWidthOrSomethingIdk(swiper.clientWidth)
+            setSlideGapOrSomethingIDKDontAskMeAAAAA(0)
+        }
+    })
+
     return (
         <>
             <Box sx={{
@@ -260,11 +273,11 @@ export default function Page() {
                                     <Swiper modules={[Navigation, Pagination]} navigation={{
                                         nextEl: '.next-button',
                                         prevEl: '.prev-button',
-                                    }} pagination={{ clickable: true }} slidesPerView="auto" spaceBetween={50}>
+                                    }} pagination={{ clickable: true }} slidesPerView="auto" spaceBetween={slideGapOrSomethingIDKDontAskMeAAAAA} watchSlidesProgress={true}>
                                         {
                                             coolProjects.map(project => (
                                                 <SwiperSlide style={{
-                                                    width: "290px",
+                                                    width: `${slideWidthOrSomethingIdk}px`,
                                                     height: "auto",
                                                     display: "flex",
 
@@ -399,8 +412,10 @@ export default function Page() {
                                     and we physically ship you prizes like...
                                 </Text>
                                 <Box sx={{
-                                    display: "flex",
-                                    flexDirection: "row",
+                                    display: "grid",
+                                    gap: ["1em", "0.5em"],
+
+                                    gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr"],
 
                                     alignItems: "flex-end",
                                     padding: "0.5rem 0",
@@ -416,7 +431,8 @@ export default function Page() {
                                         alignItems: "center"
                                     }}>
                                         <Image sx={{
-                                            height: "230px",
+                                            height: "auto",
+                                            maxHeight: "180px",
                                             width: "auto",
                                             objectFit: "contain"
                                         }}
@@ -437,7 +453,8 @@ export default function Page() {
                                         alignItems: "center",
                                     }}>
                                         <Image sx={{
-                                            height: "180px",
+                                            height: "auto",
+                                            maxHeight: "180px",
                                             width: "auto",
                                             objectFit: "contain"
                                         }} src={ipad.src} />
@@ -457,7 +474,8 @@ export default function Page() {
                                         alignItems: "center"
                                     }}>
                                         <Image sx={{
-                                            height: "180px",
+                                            height: "auto",
+                                            maxHeight: "180px",
                                             width: "auto",
                                             objectFit: "contain"
                                         }} src={framework.src} />
@@ -477,7 +495,8 @@ export default function Page() {
                                         alignItems: "center"
                                     }}>
                                         <Image sx={{
-                                            height: "180px",
+                                            height: "auto",
+                                            maxHeight: "180px",
                                             width: "auto",
                                             objectFit: "contain"
                                         }} src={blahaj.src} />

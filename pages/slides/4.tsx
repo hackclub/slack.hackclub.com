@@ -15,7 +15,8 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
-                justifyContent: "space-between",
+                flexDirection: "column",
+                justifyContent: "center",
 
                 backgroundImage:
                     "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
@@ -30,6 +31,7 @@ export default function Page() {
                     display: "flex",
                     justifyContent: "center",
                     flexDirection: "column",
+                    width: "100%",
                     gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
 
                     height: "fit-content",
@@ -38,7 +40,7 @@ export default function Page() {
                     <Text
                         variant="title"
                         sx={{
-                            color: 'black',
+                            color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
@@ -54,7 +56,7 @@ export default function Page() {
                     }}>
                         <Text
                             sx={{
-                                color: 'black',
+                                color: 'var(--foreground)',
                                 position: 'relative',
                                 display: 'block',
                                 alignSelf: "center",
@@ -64,40 +66,13 @@ export default function Page() {
                         >Read <Link href="https://readme.hackclub.com/slack">
                                 readme
                             </Link> - a detailed explainer to Hack Club</Text>
-
-                        <Text
-                            sx={{
-                                color: 'black',
-                                position: 'relative',
-                                display: 'block',
-                                alignSelf: "center"
-                            }}
-                            as="p"
-                        >The expandable sections do not work in the iframe to the right</Text>
                     </Box>
 
                     <NextButton text="Next" slide={5} email={email} />
                 </Box>
 
-                <aside className="aside-thing">
-                    <iframe style={{
-                        height: "100vh",
-                        width: "30vw",
-                        minWidth: "500px"
-                    }} src="https://readme.hackclub.com/"></iframe>
-                </aside>
-
                 <NavFooterThing />
             </Box>
-
-            <style>
-                {`.aside-thing {
-                    position: relative;
-                    height: 100vh;
-                    right: 0;
-                    @media only screen and (max-width: 1024px) { display: none; }
-                }`}
-            </style>
         </>
     )
 }

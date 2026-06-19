@@ -47,7 +47,8 @@ export default function Page() {
                         sx={{
                             position: 'relative',
                             display: 'block',
-                            color: "var(--foreground)"
+                            color: "var(--foreground)",
+                            fontFamily: "var(--font-zarathustra-src)"
                         }}
                         as="h1"
                     >We have developer tools!</Text>

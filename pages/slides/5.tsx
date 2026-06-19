@@ -46,7 +46,8 @@ export default function Page() {
                             color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
-                            alignSelf: "center"
+                            alignSelf: "center",
+                            fontFamily: "var(--font-zarathustra-src)"
                         }}
                         as="h1"
                     >One more thing...</Text>

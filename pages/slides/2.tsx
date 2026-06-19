@@ -25,6 +25,7 @@ import stash from "../../public/slides/2/stash.png"
 import luma from "../../public/slides/2/luma.jpg"
 import hexecute from "../../public/slides/2/hexecute.png"
 import bobTheGun from "../../public/slides/2/bob_the_gun.png"
+import catChef from "../../public/slides/2/cat_chef_restaurant.png"
 
 import { BtnArrow } from "./../../components/btn-arrow";
 import NextButton from "../../components/nextButton"
@@ -165,6 +166,17 @@ const coolProjects: {
             creators: [{
                 name: "Crazy Taxi",
                 id: "U0A7QRVE0EB"
+            }]
+        },
+        {
+            name: "Cat Chef Restaurant",
+            description: "A cozy game when you can just relax and serve customers",
+            repo: "https://github.com/Kajmix/Godot-Cat-Chef-Game",
+            demoURL: "https://kajmix.itch.io/cat-chef-restaurant",
+            imageSrc: catChef.src,
+            creators: [{
+                name: "Kajmix",
+                id: "U0A7ZD20DSL"
             }]
         }
     ]

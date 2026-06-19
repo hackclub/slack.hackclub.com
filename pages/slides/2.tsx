@@ -285,8 +285,11 @@ export default function Page() {
 
                                                             width: "290px",
                                                             height: "200px",
-                                                            borderRadius: "16px 16px 0px 0px"
-                                                        }} src={project.imageSrc} />
+                                                            borderRadius: "16px 16px 0px 0px",
+
+                                                            userSelect: "none",
+                                                            pointerEvents: "none"
+                                                        }} draggable={false} src={project.imageSrc} />
 
                                                         <div style={{
                                                             display: "flex",
@@ -310,7 +313,7 @@ export default function Page() {
                                                                 <span style={{
                                                                     alignSelf: "center",
                                                                     color: "var(--foreground)"
-                                                                }}>                                                            Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
+                                                                }}>Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
                                                                     <><UserMention key={creator.id} username={creator.name} slackId={creator.id} />{" "}<span style={{
                                                                         color: "var(--foreground)"
                                                                     }}>{index == (project.creators.length - 1) ? "" : "and "}</span></>

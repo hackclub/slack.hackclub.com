@@ -190,17 +190,20 @@ export default function Page() {
                                 padding: "1rem"
                             }}>
                                 <Text sx={{
-                                    fontSize: "1.25rem",
+                                    fontSize: "2rem",
                                     fontWeight: "600",
 
                                     color: "var(--foreground)",
-                                    alignSelf: "center"
+                                    alignSelf: "center",
+                                    textAlign: "center"
                                 }}>Game nights!</Text>
 
                                 <Text sx={{
-                                    color: "var(--foreground)"
+                                    fontSize: "1.25rem",
+                                    color: "var(--foreground)",
+                                    textAlign: "center"
                                 }}>
-                                    We host game nights where we play Minecraft, Gartic Phone, Monopoly, and other silly games :P
+                                    We host game nights where we play Minecraft, Among Us, Monopoly, and other silly games :P
                                 </Text>
                             </div>
                         </div>
@@ -222,17 +225,20 @@ export default function Page() {
                                 padding: "1rem"
                             }}>
                                 <Text sx={{
-                                    fontSize: "1.25rem",
+                                    fontSize: "2rem",
                                     fontWeight: "600",
 
                                     color: "var(--foreground)",
-                                    alignSelf: "center"
+                                    alignSelf: "center",
+                                    textAlign: "center"
                                 }}>Interviews with influential figures!</Text>
 
                                 <Text sx={{
-                                    color: "var(--foreground)"
+                                    fontSize: "1.25rem",
+                                    color: "var(--foreground)",
+                                    textAlign: "center"
                                 }}>
-                                    We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others all the time!
+                                    We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!
                                 </Text>
                             </div>
                         </div>
@@ -254,15 +260,18 @@ export default function Page() {
                                 padding: "1rem"
                             }}>
                                 <Text sx={{
-                                    fontSize: "1.25rem",
+                                    fontSize: "2rem",
                                     fontWeight: "600",
 
                                     color: "var(--foreground)",
-                                    alignSelf: "center"
+                                    alignSelf: "center",
+                                    textAlign: "center"
                                 }}>Participate in You Ship, We Ship programs!</Text>
 
                                 <Text sx={{
-                                    color: "var(--foreground)"
+                                    fontSize: "1.25rem",
+                                    color: "var(--foreground)",
+                                    textAlign: "center"
                                 }}>
                                     Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!
                                 </Text>
@@ -286,17 +295,20 @@ export default function Page() {
                                 padding: "1rem"
                             }}>
                                 <Text sx={{
-                                    fontSize: "1.25rem",
+                                    fontSize: "2rem",
                                     fontWeight: "600",
 
                                     color: "var(--foreground)",
-                                    alignSelf: "center"
+                                    alignSelf: "center",
+                                    textAlign: "center"
                                 }}>Connect with other teens!</Text>
 
                                 <Text sx={{
-                                    color: "var(--foreground)"
+                                    fontSize: "1.25rem",
+                                    color: "var(--foreground)",
+                                    textAlign: "center"
                                 }}>
-                                    Meet other teens that like to code and blah blah blah
+                                    Make friends and connect with other teens with the same interests!
                                 </Text>
                             </div>
                         </div>

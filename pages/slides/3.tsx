@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Image } from 'theme-ui'
+import { Box, Text, Link, Image } from 'theme-ui'
 
 import spacesLogo from "../../public/slides/3/spaces.svg"
 import nestLogo from "../../public/slides/3/nest.png"
@@ -306,7 +306,7 @@ export default function Page() {
                     <Text sx={{
                         color: "var(--foreground)"
                     }}>
-                        See the full list on Toolbox (add lnk later)
+                        See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
                     </Text>
 
                     <NextButton text="oh wow! I can't wait to start!" slide={4} email={email} />

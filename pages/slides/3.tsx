@@ -54,7 +54,7 @@ export default function Page() {
                     >We have developer tools!</Text>
 
                     <Text sx={{ fontSize: '2rem', color: "var(--foreground)" }}>
-                        Not all teens will have access to the tools they need to create, so Hack Club offers developer tools and services for free!</Text>
+                        Not all teens have access to the tools they need to create, so Hack Club offers developer tools and services for free!</Text>
 
                     <Marquee style={{
                         marginLeft: "-4rem",
@@ -304,7 +304,8 @@ export default function Page() {
                         </Box>
                     </Marquee>
                     <Text sx={{
-                        color: "var(--foreground)"
+                        color: "var(--foreground)",
+                        fontSize: "1.25rem"
                     }}>
                         See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
                     </Text>

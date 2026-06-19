@@ -138,7 +138,7 @@ export default function Page() {
                     }}>
                         <Text sx={{
                             fontWeight: "600",
-                            color: `${(attemptedClickBeforeAgreeing) ? "black" : "transparent"}`
+                            color: `${(attemptedClickBeforeAgreeing) ? "var(--foreground)" : "transparent"}`
                         }}>You must agree to both provisions before continuing</Text>
 
                         <Button

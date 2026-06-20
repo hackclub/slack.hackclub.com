@@ -8,6 +8,7 @@
     font-family: var(--font-phantom-src);
 }
 
+/*  Code stolen from hackclub/site */
 /* ── CTA button hover ─────────────────────────────────────────── */
 .cta-btn {
     transition:

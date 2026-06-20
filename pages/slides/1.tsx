@@ -7,6 +7,29 @@ import NavFooterThing from "../../components/slack/footerNav"
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
 
+const thingsToDoInTheSlackAndStuff: {
+    title: string,
+    description: string,
+    //TDOO: add imageSrc
+}[] = [
+        {
+            title: "Game Nights!",
+            description: "We host game nights where we play Minecraft, Among Us, Monopoly, and other silly games :P"
+        },
+        {
+            title: "Interviews with influential figures!",
+            description: "We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!"
+        },
+        {
+            title: "Participate in You Ship, We Ship programs!",
+            description: "Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!"
+        },
+        {
+            title: "Connect with other teens!",
+            description: "Make friends and connect with other teens with the same interests!"
+        }
+    ]
+
 export default function Page() {
     const [email, setEmail] = useState("")
     useEffect(() => {
@@ -164,155 +187,53 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
+                    <Box sx={{
+                        display: "grid",
+                        gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr"],
 
                         gap: "2rem",
 
                         width: "100%"
                     }}>
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-
-                            height: "500px",
-                            width: "400px",
-
-                            borderRadius: "16px",
-                            background: "#10141d"
-                        }}>
-                            <div style={{
+                        {thingsToDoInTheSlackAndStuff.map(item => {
+                            return (<div style={{
                                 display: "flex",
                                 flexDirection: "column",
 
-                                padding: "1rem"
+                                height: "500px",
+
+                                borderRadius: "16px",
+                                background: "#10141d",
+                                flex: "1 1 0",
                             }}>
-                                <Text sx={{
-                                    fontSize: "2rem",
-                                    fontWeight: "600",
+                                <div style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "0.5em",
 
-                                    color: "var(--foreground)",
-                                    alignSelf: "center",
-                                    textAlign: "center"
-                                }}>Game nights!</Text>
-
-                                <Text sx={{
-                                    fontSize: "1.25rem",
-                                    color: "var(--foreground)",
-                                    textAlign: "center"
+                                    padding: "1.5em"
                                 }}>
-                                    We host game nights where we play Minecraft, Among Us, Monopoly, and other silly games :P
-                                </Text>
+                                    <Text sx={{
+                                        fontSize: "2rem",
+                                        fontWeight: "600",
+
+                                        color: "var(--foreground)",
+                                        alignSelf: "center",
+                                        textAlign: "center"
+                                    }}>{item.title}</Text>
+
+                                    <Text sx={{
+                                        fontSize: "1.25rem",
+                                        color: "var(--foreground)",
+                                        textAlign: "center"
+                                    }}>
+                                        {item.description}
+                                    </Text>
+                                </div>
                             </div>
-                        </div>
-
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-
-                            height: "500px",
-                            width: "400px",
-
-                            borderRadius: "16px",
-                            background: "#10141d"
-                        }}>
-                            <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-
-                                padding: "1rem"
-                            }}>
-                                <Text sx={{
-                                    fontSize: "2rem",
-                                    fontWeight: "600",
-
-                                    color: "var(--foreground)",
-                                    alignSelf: "center",
-                                    textAlign: "center"
-                                }}>Interviews with influential figures!</Text>
-
-                                <Text sx={{
-                                    fontSize: "1.25rem",
-                                    color: "var(--foreground)",
-                                    textAlign: "center"
-                                }}>
-                                    We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!
-                                </Text>
-                            </div>
-                        </div>
-
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-
-                            height: "500px",
-                            width: "400px",
-
-                            borderRadius: "16px",
-                            background: "#10141d",
-                        }}>
-                            <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-
-                                padding: "1rem"
-                            }}>
-                                <Text sx={{
-                                    fontSize: "2rem",
-                                    fontWeight: "600",
-
-                                    color: "var(--foreground)",
-                                    alignSelf: "center",
-                                    textAlign: "center"
-                                }}>Participate in You Ship, We Ship programs!</Text>
-
-                                <Text sx={{
-                                    fontSize: "1.25rem",
-                                    color: "var(--foreground)",
-                                    textAlign: "center"
-                                }}>
-                                    Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!
-                                </Text>
-                            </div>
-                        </div>
-
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-
-                            height: "500px",
-                            width: "400px",
-
-                            borderRadius: "16px",
-                            background: "#10141d"
-                        }}>
-                            <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-
-                                padding: "1rem"
-                            }}>
-                                <Text sx={{
-                                    fontSize: "2rem",
-                                    fontWeight: "600",
-
-                                    color: "var(--foreground)",
-                                    alignSelf: "center",
-                                    textAlign: "center"
-                                }}>Connect with other teens!</Text>
-
-                                <Text sx={{
-                                    fontSize: "1.25rem",
-                                    color: "var(--foreground)",
-                                    textAlign: "center"
-                                }}>
-                                    Make friends and connect with other teens with the same interests!
-                                </Text>
-                            </div>
-                        </div>
-                    </div>
+                            )
+                        })}
+                    </Box>
 
                     <NextButton text="Wait, tell me more about You Ship, We Ship!" slide={2} email={email} />
                 </Box>

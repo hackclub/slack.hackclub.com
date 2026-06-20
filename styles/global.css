@@ -7,3 +7,30 @@
 * {
     font-family: var(--font-phantom-src);
 }
+
+/* ── CTA button hover ─────────────────────────────────────────── */
+.cta-btn {
+    transition:
+        background 0.4s ease,
+        color 0.4s ease;
+}
+
+.cta-btn:hover {
+    filter: brightness(1.15);
+}
+
+/* ── CTA button arrow animation ──────────────────────────────── */
+.cta-btn .btn-arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.cta-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}

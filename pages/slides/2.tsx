@@ -30,8 +30,6 @@ import catChef from "../../public/slides/2/cat_chef_restaurant.png"
 import { BtnArrow } from "./../../components/btn-arrow";
 import NextButton from "../../components/nextButton"
 
-import style from "../../styles/3.module.css"
-
 const coolProjects: {
     name: string,
     description: string,
@@ -346,7 +344,7 @@ export default function Page() {
                                                                     href={project.demoURL}
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
-                                                                    className={style.ctaBtn}
+                                                                    className="cta-btn"
                                                                     style={{
                                                                         fontSize: 20,
                                                                         color: "var(--color-red)",

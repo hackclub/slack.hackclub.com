@@ -1,9 +1,0 @@
-.cta-btn .btn-arrow {
-    display: inline-block;
-    margin-left: 6px;
-    transition: transform 0.2s ease;
-}
-
-.cta-btn:hover .btn-arrow {
-    transform: translateX(5px);
-}

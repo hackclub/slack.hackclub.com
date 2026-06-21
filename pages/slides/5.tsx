@@ -75,7 +75,6 @@ export default function Page() {
                                     position: 'relative',
                                     display: 'block',
                                     alignSelf: "center",
-                                    fontWeight: "700",
                                     //@ts-ignore oh hush, TypeScript. This is for the .fluid class stuff defined in global.css
                                     "--font-level": 3
                                 }}
@@ -90,7 +89,6 @@ export default function Page() {
                                 <label htmlFor="im-a-child"
                                     style={{
                                         fontSize: "1.5rem",
-                                        fontWeight: "700",
                                         color: 'var(--foreground)',
                                     }}
                                 >I am 13 - 18 years old</label>
@@ -111,7 +109,6 @@ export default function Page() {
                                     display: 'block',
                                     alignSelf: "center",
 
-                                    fontWeight: "700",
                                     "--font-level": 3
                                 }}
                                 className="fluid"
@@ -125,7 +122,6 @@ export default function Page() {
                                 <label htmlFor="im-a-child"
                                     style={{
                                         fontSize: "1.5rem",
-                                        fontWeight: "700",
                                         color: 'var(--foreground)',
                                     }}
                                 >I've read the <Link href="https://hackclub.com/conduct/" target='_blank'>Code of Conduct</Link></label>

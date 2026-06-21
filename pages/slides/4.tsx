@@ -51,7 +51,7 @@ export default function Page() {
                         className="fluid"
 
                         as="h1"
-                    >Want to learn more about Hack Club?</Text>
+                    >Want to learn more about Hack&nbsp;Club?</Text>
 
                     <Box sx={{
                         display: "flex",
@@ -66,7 +66,6 @@ export default function Page() {
                                 alignSelf: "center",
                                 fontSize: "2rem"
                             }}
-                            as="h1"
                         >Read <Link href="https://readme.hackclub.com/slack">
                                 readme
                             </Link> - a detailed explainer to Hack Club</Text>

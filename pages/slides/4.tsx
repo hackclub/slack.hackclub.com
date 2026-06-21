@@ -43,7 +43,6 @@ export default function Page() {
                             color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
-                            fontSize: ["36px", "48px"],
                             alignSelf: "center",
                             fontFamily: "var(--font-zarathustra-src)",
 

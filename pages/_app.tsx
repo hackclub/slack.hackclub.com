@@ -15,6 +15,8 @@ const App = ({ Component, pageProps }) => (
         name="google-site-verification"
         content="7zE7h5foPaxIcnv5Frq6BkcUb9-3UzVc8q3P_cexf9I"
       />
+      {/* Look. This fixes whatever the heck I was dealing with. I don't know why NextJS didn't add this to begin with but I'm just happy it's over */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Meta>
     <BalancerProvider>
       <main className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`}>

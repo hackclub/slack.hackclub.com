@@ -25,14 +25,16 @@ export default function NextButton({ slide, email, text }) {
                 transition: "none !important",
 
                 textTransform: "initial",
-                width: "fit-content",
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
+                paddingRight: "16px",
+                paddingLeft: "16px",
                 alignSelf: "center",
-                minWidth: "600px",
 
                 boxShadow: pressed ? "none" : "0 4px 0 #871026 !important",
                 transform: pressed ? "translateY(4px) !important" : "none",
+
+                marginTop: "2rem", //I don't like using margin but I'm lazy
+                textWrap: "balance",
+                minWidth: "30vw",
 
                 "&:focus": {
                     transform: "none",
@@ -44,7 +46,7 @@ export default function NextButton({ slide, email, text }) {
             }}
         >
             <Text sx={{
-                fontSize: "2rem"
+                fontSize: "clamp(16px, 7vw, 36px)"
             }}>{text}</Text>
         </Button >
     )

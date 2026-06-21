@@ -43,8 +43,11 @@ export default function Page() {
                             color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
+                            fontSize: ["36px", "48px"],
                             alignSelf: "center",
-                            fontFamily: "var(--font-zarathustra-src)"
+                            fontFamily: "var(--font-zarathustra-src)",
+
+                            textWrap: "balance"
                         }}
                         as="h1"
                     >Want to learn more about Hack Club?</Text>

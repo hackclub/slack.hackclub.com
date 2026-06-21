@@ -47,7 +47,9 @@ export default function Page() {
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
-                            fontFamily: "var(--font-zarathustra-src)"
+                            fontFamily: "var(--font-zarathustra-src)",
+
+                            fontSize: ["36px", "48px"],
                         }}
                         as="h1"
                     >One more thing...</Text>
@@ -58,9 +60,7 @@ export default function Page() {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        gap: "2rem",
-
-                        padding: "4rem"
+                        gap: "2rem"
                     }}>
                         <Box sx={{
                             position: "relative",
@@ -75,9 +75,11 @@ export default function Page() {
                                     position: 'relative',
                                     display: 'block',
                                     alignSelf: "center",
-                                    fontSize: "2rem",
-                                    fontWeight: "700"
+                                    fontWeight: "700",
+                                    //@ts-ignore oh hush, TypeScript. This is for the .fluid class stuff defined in global.css
+                                    "--font-level": 3
                                 }}
+                                className="fluid"
                             >Hack Club is for teenagers</label>
                             <Box sx={{
                                 display: "flex",
@@ -108,9 +110,11 @@ export default function Page() {
                                     position: 'relative',
                                     display: 'block',
                                     alignSelf: "center",
-                                    fontSize: "2rem",
-                                    fontWeight: "700"
+
+                                    fontWeight: "700",
+                                    "--font-level": 3
                                 }}
+                                className="fluid"
                             >Hack Club expects respect in its community</label>
                             <Box sx={{
                                 display: "flex",
@@ -156,22 +160,23 @@ export default function Page() {
 
                             sx={{
                                 position: "relative",
-                                display: "flex",
-
+                                transformOrigin: 'center center',
                                 whiteSpace: 'nowrap',
                                 borderRadius: "12px",
                                 background: "#ec3750",
                                 transition: "none !important",
 
                                 textTransform: "initial",
-                                width: "fit-content",
-                                paddingRight: "2rem",
-                                paddingLeft: "2rem",
+                                paddingRight: "16px",
+                                paddingLeft: "16px",
                                 alignSelf: "center",
-                                minWidth: "600px",
 
                                 boxShadow: pressed ? "none" : "0 4px 0 #871026 !important",
                                 transform: pressed ? "translateY(4px) !important" : "none",
+
+                                marginTop: "2rem", //I don't like using margin but I'm lazy
+                                textWrap: "balance",
+                                minWidth: "30vw",
 
                                 "&:focus": {
                                     transform: "none",
@@ -179,11 +184,11 @@ export default function Page() {
 
                                 "&:hover": {
                                     transform: "none",
-                                }
+                                },
                             }}
                         >
                             <Text sx={{
-                                fontSize: "2rem"
+                                fontSize: "clamp(12px, 20vw, 24px)"
                             }}>
                                 Hack Club, here I come!
                             </Text>

@@ -47,7 +47,8 @@ export default function Page() {
                 backgroundSize: "64px 64px",
                 backgroundColor: "rgb(23, 23, 29)",
 
-                minHeight: '100vh'
+                minHeight: '100vh',
+                width: "100vw"
             }}>
 
                 <Box as="main" sx={{
@@ -76,13 +77,13 @@ export default function Page() {
                                 display: 'block',
 
                                 lineHeight: "1",
-                                fontFamily: "var(--font-zarathustra-src)"
+                                fontFamily: "var(--font-zarathustra-src)",
+
+                                "--font-level": 4
                             }}
+                            className="fluid"
                             as="h1"
-                        >The community is on Slack <Emoji name="slack" style={{
-                            position: "relative",
-                            bottom: "0.15em"
-                        }} /></Text>
+                        >The community is on Slack</Text>
 
                         <Text sx={{ fontSize: '24px', color: 'var(--foreground)' }}>
                             Hack Club hosts its community on Slack!

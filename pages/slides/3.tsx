@@ -22,8 +22,6 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
 
                 backgroundImage:
                     "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
@@ -40,6 +38,7 @@ export default function Page() {
                     gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
 
                     height: "fit-content",
+                    width: "100%",
                     backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
                 }}>
                     <Text
@@ -48,8 +47,10 @@ export default function Page() {
                             position: 'relative',
                             display: 'block',
                             color: "var(--foreground)",
-                            fontFamily: "var(--font-zarathustra-src)"
+                            fontFamily: "var(--font-zarathustra-src)",
+                            "--font-level": 4
                         }}
+                        className="fluid"
                         as="h1"
                     >We have developer tools!</Text>
 

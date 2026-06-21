@@ -85,8 +85,8 @@ export default function Page() {
                                 flexDirection: "row",
                                 gap: "12px"
                             }}>
-                                <input name="im-a-child" type="checkbox" checked={iAmAChild} onChange={() => setIAmAChild(!iAmAChild)} />
-                                <label htmlFor="im-a-child"
+                                <input id="child" type="checkbox" checked={iAmAChild} onChange={() => setIAmAChild(!iAmAChild)} />
+                                <label htmlFor="child"
                                     style={{
                                         fontSize: "1.5rem",
                                         color: 'var(--foreground)',
@@ -118,8 +118,8 @@ export default function Page() {
                                 flexDirection: "row",
                                 gap: "12px"
                             }}>
-                                <input name="im-a-child" type="checkbox" checked={agreeToCoc} onChange={() => setAgreeToCoc(!agreeToCoc)} />
-                                <label htmlFor="im-a-child"
+                                <input id="read" type="checkbox" checked={agreeToCoc} onChange={() => setAgreeToCoc(!agreeToCoc)} />
+                                <label htmlFor="read"
                                     style={{
                                         fontSize: "1.5rem",
                                         color: 'var(--foreground)',

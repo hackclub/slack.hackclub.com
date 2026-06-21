@@ -47,8 +47,10 @@ export default function Page() {
                             alignSelf: "center",
                             fontFamily: "var(--font-zarathustra-src)",
 
-                            textWrap: "balance"
+                            "--font-level": 4
                         }}
+                        className="fluid"
+
                         as="h1"
                     >Want to learn more about Hack Club?</Text>
 
@@ -75,7 +77,7 @@ export default function Page() {
                 </Box>
 
                 <NavFooterThing />
-            </Box>
+            </Box >
         </>
     )
 }

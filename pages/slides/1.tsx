@@ -7,6 +7,8 @@ import NavFooterThing from "../../components/slack/footerNav"
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
 
+import { YouTubeEmbed } from "../../components/YouTubeEmbed";
+
 const thingsToDoInTheSlackAndStuff: {
     title: string,
     description: string,
@@ -103,7 +105,19 @@ export default function Page() {
                         <Text sx={{ fontSize: '1.5rem', color: 'var(--foreground)', textAlign: "center" }}>
                             Don't know how to use Slack? Watch this quick 2 minute video!
                         </Text>
-                        <iframe width="864" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        <div
+                            style={{
+                                width: "min(520px, calc(100vw - 96px))",
+                                borderRadius: 12,
+                                overflow: "hidden",
+                                aspectRatio: "16 / 9",
+                                background: "rgba(0,0,0,0.3)",
+                                marginBottom: 32,
+                            }}
+                        >
+                            <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" />
+                        </div>
                     </Box>
 
                     <div style={{

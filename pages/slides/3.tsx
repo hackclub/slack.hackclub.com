@@ -208,7 +208,7 @@ export default function Page() {
 
                                         background: "transparent"
                                     }}>
-                                    <a href="https://cdn.hackclub.com" target="_blank">
+                                    <a href="https://spaces.hackclub.com" target="_blank">
                                         <Image sx={{
                                             filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
                                             height: "64px",
@@ -234,7 +234,7 @@ export default function Page() {
                                         whiteSpace: "nowrap"
                                     }}
                                     as="h1"
-                                ><a href="https://cdn.hackclub.com" target="_blank">Spaces</a></Text>
+                                ><a href="https://spaces.hackclub.com" target="_blank">Spaces</a></Text>
 
                                 <Text sx={{
                                     color: "#aeaeb2"

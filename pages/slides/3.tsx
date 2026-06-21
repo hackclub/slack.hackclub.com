@@ -5,6 +5,7 @@ import { Box, Text, Link, Image } from 'theme-ui'
 import spacesLogo from "../../public/slides/3/spaces.svg"
 import nestLogo from "../../public/slides/3/nest.png"
 import cdnLogo from "../../public/slides/3/cdn.svg"
+import lapseLogo from "../../public/slides/3/lapse.png"
 
 import Marquee from "react-fast-marquee"
 
@@ -301,6 +302,69 @@ export default function Page() {
                                 <Text sx={{
                                     color: "#aeaeb2"
                                 }}>50GB of free image and video hosting, with permanent links for your websites</Text>
+                            </Box>
+                        </Box>
+
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        color: "white",
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        fontWeight: "700",
+                                        fontSize: "3rem",
+
+                                        background: "transparent"
+                                    }}>
+                                    <a href="https://lapse.hackclub.com/" target="_blank">
+                                        <Image sx={{
+                                            filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
+                                            height: "64px",
+                                            width: "64px",
+                                        }}
+                                            src={lapseLogo.src} />
+                                    </a>
+                                </Box>
+                            </header>
+
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: "column"
+                            }}>
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center",
+                                        whiteSpace: "nowrap"
+                                    }}
+                                    as="h1"
+                                ><a href="https://lapse.hackclub.com/" target="_blank">Lapse</a></Text>
+
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>Record time spent on hardware, art, or anything else Hackatime can't track.</Text>
                             </Box>
                         </Box>
                     </Marquee>

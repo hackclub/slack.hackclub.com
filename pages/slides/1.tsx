@@ -57,7 +57,7 @@ export default function Page() {
                     position: "relative",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
+                    gap: "2rem", bg: 'white', color: 'black', padding: "3rem",
 
                     height: "fit-content",
                     width: "100%",
@@ -164,9 +164,12 @@ export default function Page() {
 
                             color: "var(--color-red)",
                             fontSize: "36px",
-                            fontFamily: "var(--font-shantell-src)"
-                        }}>
-                            but what even happens on Slack?
+                            fontFamily: "var(--font-shantell-src)",
+
+                            textWrap: "nowrap",
+                            "--font-level": 2
+                        }} className="fluid">
+                            but what happens on Slack?
                         </Text>
 
                         <div style={{

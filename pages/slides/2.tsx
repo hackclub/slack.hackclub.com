@@ -216,7 +216,7 @@ export default function Page() {
                     position: "relative",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
+                    gap: "2rem", bg: 'white', color: 'black', padding: "3rem",
 
                     height: "fit-content",
                     width: "100%",

@@ -35,7 +35,7 @@ export default function Page() {
                     position: "relative",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
+                    gap: "2rem", bg: 'white', color: 'black', padding: "3rem",
 
                     height: "fit-content",
                     backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this

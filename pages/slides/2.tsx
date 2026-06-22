@@ -412,7 +412,8 @@ export default function Page() {
                             </Box>
                             <Box sx={{
                                 display: "flex",
-                                flexDirection: "column"
+                                flexDirection: "column",
+                                gap: "1rem"
                             }}>
                                 <Text sx={{ fontSize: '24px', alignSelf: "center", color: "var(--foreground)" }}>
                                     and we physically ship you prizes like...

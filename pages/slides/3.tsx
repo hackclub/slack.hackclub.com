@@ -340,7 +340,6 @@ export default function Page() {
                                     }}>
                                     <a href="https://lapse.hackclub.com/" target="_blank">
                                         <Image sx={{
-                                            filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
                                             height: "64px",
                                             width: "64px",
                                         }}

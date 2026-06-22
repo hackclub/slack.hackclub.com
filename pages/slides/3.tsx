@@ -23,6 +23,8 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
 
                 backgroundImage:
                     "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
@@ -48,6 +50,8 @@ export default function Page() {
                             position: 'relative',
                             display: 'block',
                             color: "var(--foreground)",
+                            alignSelf: "center",
+
                             fontFamily: "var(--font-zarathustra-src)",
                             "--font-level": 4
                         }}
@@ -55,7 +59,7 @@ export default function Page() {
                         as="h1"
                     >We have developer tools!</Text>
 
-                    <Text sx={{ fontSize: '2rem', color: "var(--foreground)" }}>
+                    <Text sx={{ fontSize: '2rem', color: "var(--foreground)", alignSelf: "center", }}>
                         Not all teens have access to the tools they need to create, so Hack Club offers developer tools and services for free!</Text>
 
                     <Marquee style={{

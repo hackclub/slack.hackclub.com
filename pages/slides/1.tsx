@@ -42,6 +42,8 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
 
                 backgroundImage:
                     "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
@@ -77,6 +79,7 @@ export default function Page() {
                                 color: 'var(--foreground)',
                                 position: 'relative',
                                 display: 'block',
+                                alignSelf: "center",
 
                                 lineHeight: "1",
                                 fontFamily: "var(--font-zarathustra-src)",
@@ -87,7 +90,7 @@ export default function Page() {
                             as="h1"
                         >The community is on Slack</Text>
 
-                        <Text sx={{ fontSize: '24px', color: 'var(--foreground)' }}>
+                        <Text sx={{ fontSize: '24px', color: 'var(--foreground)', alignSelf: "center", }}>
                             Hack Club hosts its community on Slack!
 
                             Slack is a chat app like Discord, but better and trusted by thousands of businesses.

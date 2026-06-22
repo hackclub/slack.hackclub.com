@@ -202,6 +202,8 @@ export default function Page() {
         <>
             <Box sx={{
                 display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
 
                 backgroundImage:
                     "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
@@ -234,6 +236,7 @@ export default function Page() {
                             sx={{
                                 position: 'relative',
                                 display: 'block',
+                                alignSelf: "center",
 
                                 color: "var(--foreground)",
                                 fontFamily: "var(--font-zarathustra-src)",
@@ -252,9 +255,9 @@ export default function Page() {
                         }}>
                             <Box sx={{
                                 display: "flex",
-                                flexDirection: "column"
+                                flexDirection: "column",
                             }}>
-                                <Text sx={{ fontSize: '24px', alignSelf: "center", paddingBottom: "2rem", color: "var(--foreground)" }}>
+                                <Text sx={{ fontSize: '24px', alignSelf: "center", paddingBottom: "2rem", color: "var(--foreground)", alignSelf: "center", }}>
                                     <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship</Link> (YSWS) is a family of programs ran by Hack Club where you ship (create) anything you want (hardware or software) like...
                                 </Text>
 

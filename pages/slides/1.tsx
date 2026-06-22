@@ -105,7 +105,8 @@ export default function Page() {
 
                         backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
                     }}>
-                        <Text sx={{ fontSize: '1.5rem', color: 'var(--foreground)', textAlign: "center" }}>
+                        {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
+                        <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center" }}>
                             Don't know how to use Slack? Watch this quick 2 minute video!
                         </Text>
 

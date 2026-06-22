@@ -46,7 +46,7 @@ export default function NextButton({ slide, email, text }) {
             }}
         >
             <Text sx={{
-                fontSize: "clamp(16px, 7vw, 36px)"
+                fontSize: "clamp(16px, 5vw, 36px)"
             }}>{text}</Text>
         </Button >
     )

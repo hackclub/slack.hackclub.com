@@ -90,7 +90,9 @@ export default function Page() {
                             as="h1"
                         >The community is on Slack</Text>
 
-                        <Text sx={{ fontSize: '24px', color: 'var(--foreground)', alignSelf: "center", }}>
+                        <Text sx={{
+                            color: 'var(--foreground)', alignSelf: "center", fontSize: "2rem"
+                        }}>
                             Hack Club hosts its community on Slack!
 
                             Slack is a chat app like Discord, but better and trusted by thousands of businesses.
@@ -221,8 +223,6 @@ export default function Page() {
                             return (<div style={{
                                 display: "flex",
                                 flexDirection: "column",
-
-                                height: "500px",
 
                                 borderRadius: "16px",
                                 background: "#10141d",

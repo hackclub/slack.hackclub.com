@@ -20,7 +20,7 @@ const thingsToDoInTheSlackAndStuff: {
         },
         {
             title: "Interviews with influential figures!",
-            description: "We host AMA (Ask-me-anything) interviews with leaders in tech and business, including Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!"
+            description: "We host interviews with leaders in tech and business like Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!"
         },
         {
             title: "Participate in You Ship, We Ship programs!",

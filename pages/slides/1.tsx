@@ -242,7 +242,7 @@ export default function Page() {
                     })}
                 </Box>
 
-                <NextButton text="Wait, tell me more about You Ship, We Ship!" slide={2} email={email} />
+                <NextButton text="Wait, what's You Ship, We Ship!" slide={2} email={email} />
             </Box>
         </>
     )

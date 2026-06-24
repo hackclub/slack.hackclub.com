@@ -244,7 +244,7 @@ export default function Page() {
                     See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
                 </Text>
 
-                <NextButton text="oh wow! I can't wait to start!" slide={4} email={email} />
+                <NextButton text="Tools go brrr" slide={4} email={email} />
             </Box>
 
             <style>

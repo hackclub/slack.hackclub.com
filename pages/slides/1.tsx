@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
+import { isMobile } from 'react-device-detect';
 import { Box, Text, Image } from 'theme-ui'
 
 import Emoji from "../../components/emoji"
@@ -105,7 +106,7 @@ export default function Page() {
                             marginBottom: 32,
                         }}
                     >
-                        <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" />
+                        {!isMobile ? <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" /> : <YouTubeEmbed id="q3UPkLdogl0" title="Partners in crime" />}
                     </div>
                 </Box>
 

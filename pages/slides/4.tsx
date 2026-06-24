@@ -13,69 +13,54 @@ export default function Page() {
 
     return (
         <>
-            <Box sx={{
+            <Box as="main" sx={{
+                position: "relative",
                 display: "flex",
-                flexDirection: "column",
                 justifyContent: "center",
+                flexDirection: "column",
+                width: "100%",
+                gap: "2rem", bg: 'white', color: 'black', padding: "2rem",
 
-                backgroundImage:
-                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
-                backgroundPosition: "0px 0px, 32px 32px",
-                backgroundSize: "64px 64px",
-                backgroundColor: "rgb(23, 23, 29)",
-
-                minHeight: '100vh'
+                height: "fit-content",
+                backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
             }}>
-                <Box as="main" sx={{
-                    position: "relative",
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    width: "100%",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "3rem",
+                <Text
+                    variant="title"
+                    sx={{
+                        color: 'var(--foreground)',
+                        position: 'relative',
+                        display: 'block',
+                        alignSelf: "center",
 
-                    height: "fit-content",
-                    backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
+                        fontFamily: "var(--font-zarathustra-src)",
+                        fontSize: "40px"
+                    }}
+
+                    as="h1"
+                >Want to learn more about Hack&nbsp;Club?</Text>
+
+                <Box sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center"
                 }}>
                     <Text
-                        variant="title"
                         sx={{
                             color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
-                            fontFamily: "var(--font-zarathustra-src)",
-
-                            "--font-level": 4
+                            fontSize: "2rem"
                         }}
-                        className="fluid"
-
-                        as="h1"
-                    >Want to learn more about Hack&nbsp;Club?</Text>
-
-                    <Box sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center"
-                    }}>
-                        <Text
-                            sx={{
-                                color: 'var(--foreground)',
-                                position: 'relative',
-                                display: 'block',
-                                alignSelf: "center",
-                                fontSize: "2rem"
-                            }}
-                        >Read <Link href="https://readme.hackclub.com/slack">
-                                readme
-                            </Link> - a detailed explainer to Hack Club</Text>
-                    </Box>
-
-                    <NextButton text="Next" slide={5} email={email} />
+                    >Read <Link href="https://readme.hackclub.com/slack">
+                            readme
+                        </Link> - a detailed explainer to Hack Club</Text>
                 </Box>
 
-                <NavFooterThing />
-            </Box >
+                <NextButton text="Next" slide={5} email={email} />
+            </Box>
+
+            <NavFooterThing />
         </>
     )
 }

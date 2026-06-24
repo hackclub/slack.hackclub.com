@@ -29,6 +29,7 @@ import catChef from "../../public/slides/2/cat_chef_restaurant.png"
 
 import { BtnArrow } from "./../../components/btn-arrow";
 import NextButton from "../../components/nextButton"
+import Paragraph from "../../components/paragraph"
 
 const coolProjects: {
     name: string,
@@ -200,328 +201,310 @@ export default function Page() {
 
     return (
         <>
-            <Box sx={{
+            <Box as="main" sx={{
+                position: "relative",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                gap: "2rem", bg: 'white', color: 'black', padding: "2rem",
 
-                backgroundImage:
-                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
-                backgroundPosition: "0px 0px, 32px 32px",
-                backgroundSize: "64px 64px",
-                backgroundColor: "rgb(23, 23, 29)",
-
-                minHeight: '100vh'
+                height: "fit-content",
+                width: "100%",
+                backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
             }}>
-
-                <Box as="main" sx={{
-                    position: "relative",
+                <Box sx={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "3rem",
+                    gap: "2rem",
 
-                    height: "fit-content",
-                    width: "100%",
-                    backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
+                    background: "transparent"
                 }}>
+                    <Text
+                        variant="title"
+                        sx={{
+                            position: 'relative',
+                            display: 'block',
+                            color: "var(--foreground)",
+                            alignSelf: "center",
+
+                            fontFamily: "var(--font-zarathustra-src)",
+                            fontSize: "40px"
+                        }}
+                        as="h1"
+                    >I'm glad you asked!</Text>
+
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
-                        gap: "2rem",
-
-                        background: "transparent"
+                        gap: "2rem"
                     }}>
-                        <Text
-                            variant="title"
-                            sx={{
-                                position: 'relative',
-                                display: 'block',
-                                alignSelf: "center",
-
-                                color: "var(--foreground)",
-                                fontFamily: "var(--font-zarathustra-src)",
-                                textWrap: "balance",
-
-                                "--font-level": 4
-                            }}
-                            className="fluid"
-                            as="h1"
-                        >I'm glad you asked!</Text>
-
                         <Box sx={{
                             display: "flex",
                             flexDirection: "column",
                             gap: "2rem"
                         }}>
-                            <Box sx={{
-                                display: "flex",
-                                flexDirection: "column",
+                            <Paragraph>
+                                <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship</Link> (YSWS) is a family of programs ran by Hack Club where you ship (create) anything you want (hardware or software) like...
+                            </Paragraph>
+
+                            <div style={{
+                                position: "relative"
                             }}>
-                                <Text sx={{ fontSize: '24px', alignSelf: "center", paddingBottom: "2rem", color: "var(--foreground)", alignSelf: "center", }}>
-                                    <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship</Link> (YSWS) is a family of programs ran by Hack Club where you ship (create) anything you want (hardware or software) like...
-                                </Text>
+                                <Button className="prev-button" sx={{
+                                    position: "absolute",
+                                    left: "-20px",
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    zIndex: "555",
 
-                                <div style={{
-                                    position: "relative"
-                                }}>
-                                    <Button className="prev-button" sx={{
-                                        position: "absolute",
-                                        left: "-20px",
-                                        top: "50%",
+                                    "&:hover": {
                                         transform: "translateY(-50%)",
-                                        zIndex: "555",
+                                    },
+                                }}>&lt;</Button>
 
-                                        "&:hover": {
-                                            transform: "translateY(-50%)",
-                                        },
-                                    }}>&lt;</Button>
+                                <Swiper modules={[Navigation, Pagination]} navigation={{
+                                    nextEl: '.next-button',
+                                    prevEl: '.prev-button',
+                                }} pagination={{ clickable: true }} slidesPerView="auto" spaceBetween={slideGapOrSomethingIDKDontAskMeAAAAA} watchSlidesProgress={true}>
+                                    {
+                                        coolProjects.map(project => (
+                                            <SwiperSlide style={{
+                                                width: `${slideWidthOrSomethingIdk}px`,
+                                                height: "auto",
+                                                display: "flex",
 
-                                    <Swiper modules={[Navigation, Pagination]} navigation={{
-                                        nextEl: '.next-button',
-                                        prevEl: '.prev-button',
-                                    }} pagination={{ clickable: true }} slidesPerView="auto" spaceBetween={slideGapOrSomethingIDKDontAskMeAAAAA} watchSlidesProgress={true}>
-                                        {
-                                            coolProjects.map(project => (
-                                                <SwiperSlide style={{
-                                                    width: `${slideWidthOrSomethingIdk}px`,
-                                                    height: "auto",
+                                                boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
+                                            }}>
+                                                <div style={{
                                                     display: "flex",
+                                                    flexDirection: "column",
+                                                    height: "100%",
 
-                                                    boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
+                                                    textDecoration: "none",
+                                                    color: "black"
                                                 }}>
+                                                    <Image sx={{
+                                                        display: "block",
+                                                        aspectRatio: "3 / 2",
+                                                        objectFit: "cover",
+
+                                                        width: "290px",
+                                                        height: "200px",
+                                                        borderRadius: "16px 16px 0px 0px",
+
+                                                        userSelect: "none",
+                                                        pointerEvents: "none"
+                                                    }} draggable={false} src={project.imageSrc} />
+
                                                     <div style={{
                                                         display: "flex",
                                                         flexDirection: "column",
                                                         height: "100%",
+                                                        gap: "0.5rem",
 
-                                                        textDecoration: "none",
-                                                        color: "black"
+                                                        backgroundColor: "#1f1f27",
+                                                        padding: "16px 18px 18px",
+                                                        borderRadius: "0px 0px 16px 16px"
                                                     }}>
-                                                        <Image sx={{
-                                                            display: "block",
-                                                            aspectRatio: "3 / 2",
-                                                            objectFit: "cover",
-
-                                                            width: "290px",
-                                                            height: "200px",
-                                                            borderRadius: "16px 16px 0px 0px",
-
-                                                            userSelect: "none",
-                                                            pointerEvents: "none"
-                                                        }} draggable={false} src={project.imageSrc} />
-
                                                         <div style={{
                                                             display: "flex",
                                                             flexDirection: "column",
-                                                            height: "100%",
-                                                            gap: "0.5rem",
-
-                                                            backgroundColor: "#1f1f27",
-                                                            padding: "16px 18px 18px",
-                                                            borderRadius: "0px 0px 16px 16px"
                                                         }}>
-                                                            <div style={{
-                                                                display: "flex",
-                                                                flexDirection: "column",
-                                                            }}>
-                                                                <span style={{
-                                                                    alignSelf: "center",
-                                                                    color: "var(--foreground)",
-                                                                    fontWeight: "800"
-                                                                }}>{project.name}</span>
-                                                                <span style={{
-                                                                    alignSelf: "center",
-                                                                    color: "var(--foreground)"
-                                                                }}>Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
-                                                                    <><UserMention key={creator.id} username={creator.name} slackId={creator.id} />{" "}<span style={{
-                                                                        color: "var(--foreground)"
-                                                                    }}>{index == (project.creators.length - 1) ? "" : "and "}</span></>
-                                                                )) : project.creators.map(creator => (
-                                                                    <UserMention key={creator.id} username={creator.name} slackId={creator.id} />
-                                                                ))}</span>
-                                                            </div>
                                                             <span style={{
+                                                                alignSelf: "center",
                                                                 color: "var(--foreground)",
-                                                                height: "100%"
-                                                            }}>
-                                                                {project.description}
-                                                            </span>
+                                                                fontWeight: "800"
+                                                            }}>{project.name}</span>
+                                                            <span style={{
+                                                                alignSelf: "center",
+                                                                color: "var(--foreground)"
+                                                            }}>Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
+                                                                <><UserMention key={creator.id} username={creator.name} slackId={creator.id} />{" "}<span style={{
+                                                                    color: "var(--foreground)"
+                                                                }}>{index == (project.creators.length - 1) ? "" : "and "}</span></>
+                                                            )) : project.creators.map(creator => (
+                                                                <UserMention key={creator.id} username={creator.name} slackId={creator.id} />
+                                                            ))}</span>
+                                                        </div>
+                                                        <span style={{
+                                                            color: "var(--foreground)",
+                                                            height: "100%"
+                                                        }}>
+                                                            {project.description}
+                                                        </span>
 
-                                                            <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
-                                                                <a
-                                                                    href={project.demoURL}
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                    className="cta-btn"
-                                                                    style={{
-                                                                        fontSize: 20,
-                                                                        color: "var(--color-red)",
-                                                                        textDecoration: "none",
-                                                                        fontFamily: "var(--font-phantom)",
-                                                                        display: "inline-flex",
-                                                                        alignItems: "center",
-                                                                        fontWeight: 600,
-                                                                    }}
-                                                                >
-                                                                    Check out the demo <BtnArrow />
-                                                                </a>
+                                                        <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
+                                                            <a
+                                                                href={project.demoURL}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="cta-btn"
+                                                                style={{
+                                                                    fontSize: 20,
+                                                                    color: "var(--color-red)",
+                                                                    textDecoration: "none",
+                                                                    fontFamily: "var(--font-phantom)",
+                                                                    display: "inline-flex",
+                                                                    alignItems: "center",
+                                                                    fontWeight: 600,
+                                                                }}
+                                                            >
+                                                                Check out the demo <BtnArrow />
+                                                            </a>
 
-                                                                <a
-                                                                    href={project.repo}
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                    aria-label="View source code"
-                                                                    title="View source code"
-                                                                    style={{
-                                                                        color: "var(--foreground)",
-                                                                        textDecoration: "none",
-                                                                        display: "inline-flex",
-                                                                        alignItems: "center",
-                                                                        justifyContent: "center",
-                                                                        marginLeft: "auto",
-                                                                    }}
-                                                                >
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                                                        <path
-                                                                            fill="currentColor"
-                                                                            d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82"
-                                                                        />
-                                                                    </svg>
-                                                                </a>
-                                                            </div>
+                                                            <a
+                                                                href={project.repo}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                aria-label="View source code"
+                                                                title="View source code"
+                                                                style={{
+                                                                    color: "var(--foreground)",
+                                                                    textDecoration: "none",
+                                                                    display: "inline-flex",
+                                                                    alignItems: "center",
+                                                                    justifyContent: "center",
+                                                                    marginLeft: "auto",
+                                                                }}
+                                                            >
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                    <path
+                                                                        fill="currentColor"
+                                                                        d="M2.6 10.59L8.38 4.8l1.69 1.7c-.24.85.15 1.78.93 2.23v5.54c-.6.34-1 .99-1 1.73a2 2 0 0 0 2 2a2 2 0 0 0 2-2c0-.74-.4-1.39-1-1.73V9.41l2.07 2.09c-.07.15-.07.32-.07.5a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2c-.18 0-.35 0-.5.07L13.93 7.5a1.98 1.98 0 0 0-1.15-2.34c-.43-.16-.88-.2-1.28-.09L9.8 3.38l.79-.78c.78-.79 2.04-.79 2.82 0l7.99 7.99c.79.78.79 2.04 0 2.82l-7.99 7.99c-.78.79-2.04.79-2.82 0L2.6 13.41c-.79-.78-.79-2.04 0-2.82"
+                                                                    />
+                                                                </svg>
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                </SwiperSlide>
-                                            ))
-                                        }
-                                    </Swiper>
-                                    <Button className="next-button" sx={{
-                                        position: "absolute",
-                                        right: "-20px",
+                                                </div>
+                                            </SwiperSlide>
+                                        ))
+                                    }
+                                </Swiper>
+                                <Button className="next-button" sx={{
+                                    position: "absolute",
+                                    right: "-20px",
 
-                                        top: "50%",
-                                        zIndex: "555",
+                                    top: "50%",
+                                    zIndex: "555",
+                                    transform: "translateY(-50%)",
+
+                                    "&:hover": {
                                         transform: "translateY(-50%)",
-
-                                        "&:hover": {
-                                            transform: "translateY(-50%)",
-                                        },
-                                    }}>&gt;</Button>
-                                </div>
-
-                            </Box>
+                                    },
+                                }}>&gt;</Button>
+                            </div>
+                        </Box>
+                        <Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "1rem"
+                        }}>
+                            <Paragraph>
+                                and we physically ship you prizes like...
+                            </Paragraph>
                             <Box sx={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "1rem"
+                                display: "grid",
+                                gap: ["1em", "0.5em"],
+
+                                gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr"],
+
+                                alignItems: "flex-end",
+                                padding: "0.5rem 0",
+
+                                width: "fit-content",
+                                margin: "auto"
                             }}>
-                                <Text sx={{ fontSize: '24px', alignSelf: "center", color: "var(--foreground)" }}>
-                                    and we physically ship you prizes like...
-                                </Text>
                                 <Box sx={{
-                                    display: "grid",
-                                    gap: ["1em", "0.5em"],
+                                    display: "flex",
+                                    gap: "0.25rem",
+                                    flexDirection: "column",
 
-                                    gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr"],
-
-                                    alignItems: "flex-end",
-                                    padding: "0.5rem 0",
-
-                                    width: "fit-content",
-                                    margin: "auto"
+                                    alignItems: "center"
                                 }}>
-                                    <Box sx={{
-                                        display: "flex",
-                                        gap: "0.25rem",
-                                        flexDirection: "column",
+                                    <Image sx={{
+                                        height: "auto",
+                                        maxHeight: "180px",
+                                        width: "auto",
+                                        objectFit: "contain"
+                                    }}
+                                        src={bambuLabA1.src} />
 
-                                        alignItems: "center"
+                                    <span style={{
+                                        color: "var(--foreground)"
                                     }}>
-                                        <Image sx={{
-                                            height: "auto",
-                                            maxHeight: "180px",
-                                            width: "auto",
-                                            objectFit: "contain"
-                                        }}
-                                            src={bambuLabA1.src} />
+                                        Bambu A1 Mini
+                                    </span>
+                                </Box>
 
-                                        <span style={{
-                                            color: "var(--foreground)"
-                                        }}>
-                                            Bambu A1 Mini
-                                        </span>
-                                    </Box>
+                                <Box sx={{
+                                    display: "flex",
+                                    gap: "0.25rem",
+                                    flexDirection: "column",
 
-                                    <Box sx={{
-                                        display: "flex",
-                                        gap: "0.25rem",
-                                        flexDirection: "column",
+                                    alignItems: "center",
+                                }}>
+                                    <Image sx={{
+                                        height: "auto",
+                                        maxHeight: "180px",
+                                        width: "auto",
+                                        objectFit: "contain"
+                                    }} src={ipad.src} />
 
-                                        alignItems: "center",
+                                    <span style={{
+                                        color: "var(--foreground)"
                                     }}>
-                                        <Image sx={{
-                                            height: "auto",
-                                            maxHeight: "180px",
-                                            width: "auto",
-                                            objectFit: "contain"
-                                        }} src={ipad.src} />
+                                        Apple iPad
+                                    </span>
+                                </Box>
 
-                                        <span style={{
-                                            color: "var(--foreground)"
-                                        }}>
-                                            Apple iPad
-                                        </span>
-                                    </Box>
+                                <Box sx={{
+                                    display: "flex",
+                                    gap: "0.25rem",
+                                    flexDirection: "column",
 
-                                    <Box sx={{
-                                        display: "flex",
-                                        gap: "0.25rem",
-                                        flexDirection: "column",
+                                    alignItems: "center"
+                                }}>
+                                    <Image sx={{
+                                        height: "auto",
+                                        maxHeight: "180px",
+                                        width: "auto",
+                                        objectFit: "contain"
+                                    }} src={framework.src} />
 
-                                        alignItems: "center"
+                                    <span style={{
+                                        color: "var(--foreground)"
                                     }}>
-                                        <Image sx={{
-                                            height: "auto",
-                                            maxHeight: "180px",
-                                            width: "auto",
-                                            objectFit: "contain"
-                                        }} src={framework.src} />
+                                        Framework Laptop
+                                    </span>
+                                </Box>
 
-                                        <span style={{
-                                            color: "var(--foreground)"
-                                        }}>
-                                            Framework Laptop
-                                        </span>
-                                    </Box>
+                                <Box sx={{
+                                    display: "flex",
+                                    gap: "0.25rem",
+                                    flexDirection: "column",
 
-                                    <Box sx={{
-                                        display: "flex",
-                                        gap: "0.25rem",
-                                        flexDirection: "column",
+                                    alignItems: "center"
+                                }}>
+                                    <Image sx={{
+                                        height: "auto",
+                                        maxHeight: "180px",
+                                        width: "auto",
+                                        objectFit: "contain"
+                                    }} src={blahaj.src} />
 
-                                        alignItems: "center"
+                                    <span style={{
+                                        color: "var(--foreground)"
                                     }}>
-                                        <Image sx={{
-                                            height: "auto",
-                                            maxHeight: "180px",
-                                            width: "auto",
-                                            objectFit: "contain"
-                                        }} src={blahaj.src} />
-
-                                        <span style={{
-                                            color: "var(--foreground)"
-                                        }}>
-                                            Blahaj
-                                        </span>
-                                    </Box>
+                                        Blahaj
+                                    </span>
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
-
-                    <NextButton text="Oh! What else?" slide={3} email={email} />
                 </Box>
-            </Box >
+
+                <NextButton text="Oh! What else?" slide={3} email={email} />
+            </Box>
 
             <NavFooterThing />
         </>

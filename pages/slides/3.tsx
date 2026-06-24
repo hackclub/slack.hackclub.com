@@ -10,8 +10,8 @@ import confused from "../../public/slides/3/confused_dinosaur.png"
 
 import Marquee from "react-fast-marquee"
 
-import NavFooterThing from "../../components/slack/footerNav"
 import NextButton from "../../components/nextButton"
+import Paragraph from "../../components/paragraph"
 
 const cards: ({
     title: string,
@@ -139,127 +139,112 @@ export default function Page() {
 
     return (
         <>
-            <Box sx={{
+            <Box as="main" sx={{
+                position: "relative",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                gap: "2rem", bg: 'white', color: 'black', padding: "2rem",
 
-                backgroundImage:
-                    "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
-                backgroundPosition: "0px 0px, 32px 32px",
-                backgroundSize: "64px 64px",
-                backgroundColor: "rgb(23, 23, 29)",
-
-                minHeight: '100vh'
+                height: "fit-content",
+                width: "100%",
+                backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
             }}>
-                <Box as="main" sx={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "2rem", bg: 'white', color: 'black', padding: "4rem",
+                <Text
+                    variant="title"
+                    sx={{
+                        position: 'relative',
+                        display: 'block',
+                        color: "var(--foreground)",
+                        alignSelf: "center",
 
-                    height: "fit-content",
-                    width: "100%",
-                    backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
-                }}>
-                    <Text
-                        variant="title"
-                        sx={{
-                            position: 'relative',
-                            display: 'block',
-                            color: "var(--foreground)",
-                            alignSelf: "center",
-
-                            fontFamily: "var(--font-zarathustra-src)",
-                            "--font-level": 4
-                        }}
-                        className="fluid"
-                        as="h1"
-                    >We have developer tools!</Text>
-
-                    <Text sx={{ fontSize: '2rem', color: "var(--foreground)", alignSelf: "center", }}>
-                        Not all teens have access to the tools they need to create, so Hack Club offers developer tools and services for free!</Text>
-
-                    <Marquee style={{
-                        marginLeft: "-4rem",
-                        marginRight: "-4rem",
-                        width: "calc(100% + 8rem)"
+                        fontFamily: "var(--font-zarathustra-src)",
+                        fontSize: "40px"
                     }}
-                        speed={40} pauseOnHover={true} gradient={false}>
 
-                        {cards.map(c => {
-                            return (<Box sx={{
+                    as="h1"
+                >We have developer tools!</Text>
+
+                <Paragraph>
+                    Not all teens have access to the tools they need to create, so Hack Club offers developer tools and services for free!
+                </Paragraph>
+
+                <Marquee style={{
+                    marginLeft: "-4rem",
+                    marginRight: "-4rem",
+                    width: "calc(100% + 6rem)"
+                }}
+                    speed={40} pauseOnHover={true} gradient={false}>
+
+                    {cards.map(c => {
+                        return (<Box sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "2rem",
+
+                            height: "100%",
+                            width: "420px",
+                            marginRight: "24px",
+                            padding: "2rem",
+
+                            borderRadius: "12px",
+                            backgroundColor: "#03001c"
+                        }}>
+                            <header>
+                                {!!c.image ? <Box
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+
+                                        width: "6rem",
+                                        height: "6rem",
+
+                                        borderRadius: "2rem",
+                                        background: "transparent"
+                                    }}>
+                                    <a href={c.url} target="_blank">
+                                        <Image sx={{
+                                            height: "100%",
+                                            width: "100%",
+                                            borderRadius: "12px",
+                                        }} src={c.image} /></a>
+                                </Box> : c.customImage}
+                            </header>
+
+                            <Box sx={{
                                 display: "flex",
                                 flexDirection: "column",
-                                alignItems: "center",
-                                gap: "2rem",
-
-                                height: "100%",
-                                width: "420px",
-                                marginRight: "24px",
-                                padding: "2rem",
-
-                                borderRadius: "12px",
-                                backgroundColor: "#03001c"
+                                gap: "0.5rem"
                             }}>
-                                <header>
-                                    {!!c.image ? <Box
-                                        sx={{
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
+                                <Text
+                                    variant="title"
+                                    sx={{
+                                        color: 'white',
+                                        position: 'relative',
+                                        display: 'block',
+                                        fontSize: "48px !important",
+                                        alignSelf: "center"
+                                    }}
+                                    as="h1"
+                                ><a href={c.url} target="_blank">{c.title}</a></Text>
 
-                                            width: "6rem",
-                                            height: "6rem",
-
-                                            borderRadius: "2rem",
-                                            background: "transparent"
-                                        }}>
-                                        <a href={c.url} target="_blank">
-                                            <Image sx={{
-                                                height: "100%",
-                                                width: "100%",
-                                                borderRadius: "12px",
-                                            }} src={c.image} /></a>
-                                    </Box> : c.customImage}
-                                </header>
-
-                                <Box sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "0.5rem"
-                                }}>
-                                    <Text
-                                        variant="title"
-                                        sx={{
-                                            color: 'white',
-                                            position: 'relative',
-                                            display: 'block',
-                                            fontSize: "48px !important",
-                                            alignSelf: "center"
-                                        }}
-                                        as="h1"
-                                    ><a href={c.url} target="_blank">{c.title}</a></Text>
-
-                                    <Text sx={{
-                                        color: "#aeaeb2"
-                                    }}>{c.description}</Text>
-                                </Box>
+                                <Text sx={{
+                                    color: "#aeaeb2"
+                                }}>{c.description}</Text>
                             </Box>
-                            )
-                        })}
-                    </Marquee>
-                    <Text sx={{
-                        color: "var(--foreground)",
-                        fontSize: "1.25rem"
-                    }}>
-                        See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
-                    </Text>
+                        </Box>
+                        )
+                    })}
+                </Marquee>
+                <Text sx={{
+                    color: "var(--foreground)",
+                    fontSize: "1.25rem"
+                }}>
+                    See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
+                </Text>
 
-                    <NextButton text="oh wow! I can't wait to start!" slide={4} email={email} />
-                </Box>
-
-                <NavFooterThing />
+                <NextButton text="oh wow! I can't wait to start!" slide={4} email={email} />
             </Box>
 
             <style>

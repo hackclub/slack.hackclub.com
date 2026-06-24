@@ -7,6 +7,7 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 
 import { phantomSans, shantellSans, zarathustra } from "../lib/fonts"
 import "../styles/global.css"
+import NavFooterThing from "../components/slack/footerNav"
 
 const App = ({ Component, pageProps }) => (
   <ThemeUIProvider theme={theme}>
@@ -19,8 +20,23 @@ const App = ({ Component, pageProps }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Meta>
     <BalancerProvider>
-      <main className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`}>
+      <main className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`} style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+
+        backgroundImage:
+          "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
+        backgroundPosition: "0px 0px, 32px 32px",
+        backgroundSize: "64px 64px",
+        backgroundColor: "rgb(23, 23, 29)",
+
+        minHeight: '100vh',
+        width: "100vw",
+        maxWidth: "100%"
+      }}>
         <Component {...pageProps} />
+        <NavFooterThing />
       </main>
     </BalancerProvider>
   </ThemeUIProvider>

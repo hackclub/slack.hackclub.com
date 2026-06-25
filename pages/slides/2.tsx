@@ -204,9 +204,7 @@ export default function Page() {
             <Box sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "2rem",
-
-                background: "transparent"
+                gap: "2rem"
             }}>
                 <Text
                     variant="title"

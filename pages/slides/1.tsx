@@ -48,8 +48,7 @@ export default function Page() {
                 flexDirection: "column",
                 gap: "2rem",
 
-                width: "100%",
-                background: "transparent"
+                width: "100%"
             }}>
                 <Text
                     variant="title"
@@ -78,8 +77,6 @@ export default function Page() {
                 flexDirection: "column",
 
                 alignItems: "center",
-
-                backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
             }}>
                 {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
                 <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center" }}>

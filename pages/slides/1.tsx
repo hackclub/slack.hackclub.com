@@ -43,208 +43,197 @@ export default function Page() {
 
     return (
         <>
-            <Box as="main" sx={{
-                position: "relative",
+            <Box sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "2rem", bg: 'white', color: 'black', padding: "2rem",
+                gap: "2rem",
 
-                height: "fit-content",
                 width: "100%",
+                background: "transparent"
+            }}>
+                <Text
+                    variant="title"
+                    sx={{
+                        color: 'var(--foreground)',
+                        position: 'relative',
+                        display: 'block',
+                        alignSelf: "center",
+
+                        lineHeight: "1",
+                        fontFamily: "var(--font-zarathustra-src)",
+                        fontSize: "40px"
+                    }}
+                    as="h1"
+                >The community is on Slack</Text>
+
+                <Paragraph>
+                    Hack Club hosts its community on Slack!
+
+                    Slack is a chat app like Discord, but better and trusted by thousands of businesses.
+                </Paragraph>
+            </Box>
+
+            <Box sx={{
+                display: "flex",
+                flexDirection: "column",
+
+                alignItems: "center",
+
                 backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
             }}>
-                <Box sx={{
+                {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
+                <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center" }}>
+                    Don't know how to use Slack? Watch this quick 2 minute video!
+                </Text>
+
+                <div
+                    style={{
+                        width: "min(520px, calc(100vw - 96px))",
+                        borderRadius: 12,
+                        overflow: "hidden",
+                        aspectRatio: "16 / 9",
+                        background: "rgba(0,0,0,0.3)",
+                        marginBottom: 32,
+                    }}
+                >
+                    {!isMobile ? <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" /> : <YouTubeEmbed id="q3UPkLdogl0" title="Partners in crime" />}
+                </div>
+            </Box>
+
+            <div style={{
+                display: "flex",
+                gap: "0.5rem",
+
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                <div style={{
                     display: "flex",
-                    flexDirection: "column",
-                    gap: "2rem",
-
-                    width: "100%",
-                    background: "transparent"
-                }}>
-                    <Text
-                        variant="title"
-                        sx={{
-                            color: 'var(--foreground)',
-                            position: 'relative',
-                            display: 'block',
-                            alignSelf: "center",
-
-                            lineHeight: "1",
-                            fontFamily: "var(--font-zarathustra-src)",
-                            fontSize: "40px"
-                        }}
-                        as="h1"
-                    >The community is on Slack</Text>
-
-                    <Paragraph>
-                        Hack Club hosts its community on Slack!
-
-                        Slack is a chat app like Discord, but better and trusted by thousands of businesses.
-                    </Paragraph>
-                </Box>
-
-                <Box sx={{
-                    display: "flex",
+                    gap: "12px",
                     flexDirection: "column",
 
-                    alignItems: "center",
-
-                    backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
+                    alignItems: "flex-end"
                 }}>
-                    {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
-                    <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center" }}>
-                        Don't know how to use Slack? Watch this quick 2 minute video!
-                    </Text>
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "14px",
 
-                    <div
-                        style={{
-                            width: "min(520px, calc(100vw - 96px))",
-                            borderRadius: 12,
-                            overflow: "hidden",
-                            aspectRatio: "16 / 9",
-                            background: "rgba(0,0,0,0.3)",
-                            marginBottom: 32,
-                        }}
-                    >
-                        {!isMobile ? <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" /> : <YouTubeEmbed id="q3UPkLdogl0" title="Partners in crime" />}
-                    </div>
-                </Box>
+                        transform: "rotate(25deg)",
+                        borderRadius: "16px"
+                    }}></span>
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "18px",
+
+                        borderRadius: "16px"
+                    }}></span>
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "14px",
+
+                        transform: "rotate(-25deg)",
+                        borderRadius: "16px"
+                    }}></span>
+                </div>
+
+                <Text sx={{
+                    height: "fit-content",
+
+                    color: "var(--color-red)",
+                    fontSize: "36px",
+                    fontFamily: "var(--font-shantell-src)",
+
+                    textWrap: "nowrap",
+                    "--font-level": 2
+                }} className="fluid">
+                    but what happens on Slack?
+                </Text>
 
                 <div style={{
                     display: "flex",
-                    gap: "0.5rem",
-
-                    justifyContent: "center",
-                    alignItems: "center"
+                    gap: "12px",
+                    flexDirection: "column",
                 }}>
-                    <div style={{
-                        display: "flex",
-                        gap: "12px",
-                        flexDirection: "column",
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "14px",
 
-                        alignItems: "flex-end"
-                    }}>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "14px",
+                        transformOrigin: "mid left",
+                        transform: "rotate(155deg)",
+                        borderRadius: "16px"
+                    }}></span>
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "18px",
 
-                            transform: "rotate(25deg)",
-                            borderRadius: "16px"
-                        }}></span>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "18px",
+                        borderRadius: "16px"
+                    }}></span>
+                    <span style={{
+                        background: "var(--color-red)",
+                        height: "3px",
+                        width: "14px",
 
-                            borderRadius: "16px"
-                        }}></span>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "14px",
-
-                            transform: "rotate(-25deg)",
-                            borderRadius: "16px"
-                        }}></span>
-                    </div>
-
-                    <Text sx={{
-                        height: "fit-content",
-
-                        color: "var(--color-red)",
-                        fontSize: "36px",
-                        fontFamily: "var(--font-shantell-src)",
-
-                        textWrap: "nowrap",
-                        "--font-level": 2
-                    }} className="fluid">
-                        but what happens on Slack?
-                    </Text>
-
-                    <div style={{
-                        display: "flex",
-                        gap: "12px",
-                        flexDirection: "column",
-                    }}>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "14px",
-
-                            transformOrigin: "mid left",
-                            transform: "rotate(155deg)",
-                            borderRadius: "16px"
-                        }}></span>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "18px",
-
-                            borderRadius: "16px"
-                        }}></span>
-                        <span style={{
-                            background: "var(--color-red)",
-                            height: "3px",
-                            width: "14px",
-
-                            transformOrigin: "mid left",
-                            transform: "rotate(25deg)",
-                            borderRadius: "16px"
-                        }}></span>
-                    </div>
+                        transformOrigin: "mid left",
+                        transform: "rotate(25deg)",
+                        borderRadius: "16px"
+                    }}></span>
                 </div>
+            </div>
 
-                <Box sx={{
-                    display: "grid",
-                    gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr"],
+            <Box sx={{
+                display: "grid",
+                gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr"],
 
-                    gap: "2rem",
+                gap: "2rem",
 
-                    width: "100%"
-                }}>
-                    {thingsToDoInTheSlackAndStuff.map(item => {
-                        return (<div style={{
+                width: "100%"
+            }}>
+                {thingsToDoInTheSlackAndStuff.map(item => {
+                    return (<div style={{
+                        display: "flex",
+                        flexDirection: "column",
+
+                        borderRadius: "16px",
+                        background: "#10141d",
+                        flex: "1 1 0",
+                    }}>
+                        {!!item.image ? <Image src={item.image} /> : <></>}
+
+                        <div style={{
                             display: "flex",
                             flexDirection: "column",
+                            gap: "0.5em",
 
-                            borderRadius: "16px",
-                            background: "#10141d",
-                            flex: "1 1 0",
+                            padding: "1.5em"
                         }}>
-                            {!!item.image ? <Image src={item.image} /> : <></>}
+                            <Text sx={{
+                                fontSize: "2rem",
+                                fontWeight: "600",
 
-                            <div style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "0.5em",
+                                color: "var(--foreground)",
+                                alignSelf: "center",
+                                textAlign: "center"
+                            }}>{item.title}</Text>
 
-                                padding: "1.5em"
+                            <Text sx={{
+                                fontSize: "1.25rem",
+                                color: "var(--foreground)",
+                                textAlign: "center"
                             }}>
-                                <Text sx={{
-                                    fontSize: "2rem",
-                                    fontWeight: "600",
-
-                                    color: "var(--foreground)",
-                                    alignSelf: "center",
-                                    textAlign: "center"
-                                }}>{item.title}</Text>
-
-                                <Text sx={{
-                                    fontSize: "1.25rem",
-                                    color: "var(--foreground)",
-                                    textAlign: "center"
-                                }}>
-                                    {item.description}
-                                </Text>
-                            </div>
+                                {item.description}
+                            </Text>
                         </div>
-                        )
-                    })}
-                </Box>
-
-                <NextButton text="Wait, what's You Ship, We Ship!" slide={2} email={email} />
+                    </div>
+                    )
+                })}
             </Box>
+
+            <NextButton text="Wait, what's You Ship, We Ship!" slide={2} email={email} />
         </>
     )
 }

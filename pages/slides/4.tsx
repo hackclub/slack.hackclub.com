@@ -13,54 +13,40 @@ export default function Page() {
 
     return (
         <>
-            <Box as="main" sx={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                flexDirection: "column",
-                width: "100%",
-                gap: "2rem", bg: 'white', color: 'black', padding: "2rem",
+            <Text
+                variant="title"
+                sx={{
+                    color: 'var(--foreground)',
+                    position: 'relative',
+                    display: 'block',
+                    alignSelf: "center",
 
-                height: "fit-content",
-                backgroundColor: "transparent" // Theme UI sets a solid background color but I want the pokadots in the background to show through. So I gotta do this
+                    fontFamily: "var(--font-zarathustra-src)",
+                    fontSize: "40px"
+                }}
+
+                as="h1"
+            >Want to learn more about Hack&nbsp;Club?</Text>
+
+            <Box sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
             }}>
                 <Text
-                    variant="title"
                     sx={{
                         color: 'var(--foreground)',
                         position: 'relative',
                         display: 'block',
                         alignSelf: "center",
-
-                        fontFamily: "var(--font-zarathustra-src)",
-                        fontSize: "40px"
+                        fontSize: "2rem"
                     }}
-
-                    as="h1"
-                >Want to learn more about Hack&nbsp;Club?</Text>
-
-                <Box sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center"
-                }}>
-                    <Text
-                        sx={{
-                            color: 'var(--foreground)',
-                            position: 'relative',
-                            display: 'block',
-                            alignSelf: "center",
-                            fontSize: "2rem"
-                        }}
-                    >Read <Link href="https://readme.hackclub.com/slack">
-                            readme
-                        </Link> - a detailed explainer to Hack Club</Text>
-                </Box>
-
-                <NextButton text="Next" slide={5} email={email} />
+                >Read <Link href="https://readme.hackclub.com/slack">
+                        readme
+                    </Link> - a detailed explainer to Hack Club</Text>
             </Box>
 
-            <NavFooterThing />
+            <NextButton text="Next" slide={5} email={email} />
         </>
     )
 }

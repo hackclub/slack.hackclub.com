@@ -24,6 +24,8 @@ const App = ({ Component, pageProps }) => (
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        gap: "2rem",
+        padding: "2rem",
 
         backgroundImage:
           "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",

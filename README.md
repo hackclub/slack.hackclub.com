@@ -40,3 +40,6 @@ Anywayyyyyy
 
 # Wait, where did the pokadots come from?
 Credit to https://screenspan.net/polka/ for the pokadots yeahhhhhhhhh whoooo
+
+# Where did the fluid resizing text stuff come from?
+stolen from the codepen in https://x.com/jh3yy/status/1833871982078615924

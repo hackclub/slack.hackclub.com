@@ -37,9 +37,12 @@ const thingsToDoInTheSlackAndStuff: {
 
 export default function Page() {
     const [email, setEmail] = useState("")
+    const [mobile, setMobile] = useState(false)
+
     useEffect(() => {
         setEmail(getEmailQueryParam())
-    })
+        setMobile(isMobile)
+    }, [])
 
     return (
         <>
@@ -93,7 +96,7 @@ export default function Page() {
                         marginBottom: 32,
                     }}
                 >
-                    {!isMobile ? <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" /> : <YouTubeEmbed id="q3UPkLdogl0" title="Partners in crime" />}
+                    {mobile ? <YouTubeEmbed id="VrDD2GSNs_I" title="Red line" /> : <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" />}
                 </div>
             </Box>
 

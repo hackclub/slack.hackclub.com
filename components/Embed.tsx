@@ -2,8 +2,9 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import how2useslack from "../public/slides/1/how2useslack.png"
 
-export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; title?: string }) {
+export function Embed({ link }: { link: string }) {
     const [isMounted, setIsMounted] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -37,23 +38,23 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
         <>
             <button
                 onClick={open}
-                aria-label={`Play ${title}`}
+                aria-label={`Play 'How to use Slack'`}
                 style={{
                     position: "relative",
                     width: "100%",
-                    height: "100%",
                     border: "none",
+                    height: "100%",
                     padding: 0,
                     cursor: "pointer",
-                    background: "#000",
+                    background: "transparent",
                 }}
             >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                    src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-                    alt={title}
+                    src={how2useslack.src}
+                    alt="How to use Slack image"
                     loading="lazy"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "12px", border: "2px solid white" }}
                 />
                 <svg
                     viewBox="0 0 68 48"
@@ -116,9 +117,9 @@ export function YouTubeEmbed({ id, title = "Hack Club video" }: { id: string; ti
                             ✕
                         </button>
                         <iframe
-                            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
-                            title={title}
-                            aria-label={title}
+                            src={link}
+                            title="How to use Slack"
+                            aria-label="How to use Slack"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             style={{

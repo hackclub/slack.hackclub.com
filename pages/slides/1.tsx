@@ -6,7 +6,7 @@ import { Box, Text, Image } from 'theme-ui'
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
 
-import { YouTubeEmbed } from "../../components/YouTubeEmbed";
+import { Embed } from "../../components/Embed";
 
 import microphone from "../../public/slides/1/microphone.png"
 import Paragraph from "../../components/paragraph"
@@ -89,14 +89,12 @@ export default function Page() {
                 <div
                     style={{
                         width: "min(520px, calc(100vw - 96px))",
-                        borderRadius: 12,
                         overflow: "hidden",
                         aspectRatio: "16 / 9",
-                        background: "rgba(0,0,0,0.3)",
                         marginBottom: 32,
                     }}
                 >
-                    {mobile ? <YouTubeEmbed id="VrDD2GSNs_I" title="Red line" /> : <YouTubeEmbed id="dQw4w9WgXcQ" title="Rick Roll 4k" />}
+                    {!mobile ? <Embed link="https://user-cdn.hackclub-assets.com/019f13af-24c0-7955-9663-436012aff1ce/Timeline%201.mp4" /> : <Embed link="https://www.youtube.com/embed/YZ-WqzFMYxk?autoplay=1" />}
                 </div>
             </Box>
 

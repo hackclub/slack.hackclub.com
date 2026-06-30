@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, Fragment } from "react"
+import { useEffect, useState, Fragment } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Image, Link } from 'theme-ui'
 
@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import { Navigation, Pagination } from "swiper/modules"
 
-import NavFooterThing from "../../components/slack/footerNav"
 import UserMention from "../../components/userMention"
 
 import angelKeyboard from "../../public/slides/2/angel-keyboard-b850d653.png"

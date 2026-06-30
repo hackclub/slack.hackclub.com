@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, Fragment } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Image, Link } from 'theme-ui'
 
@@ -260,7 +260,7 @@ export default function Page() {
                                             display: "flex",
 
                                             boxShadow: "0 2px 16px rgba(0,0,0,0.10)",
-                                        }}>
+                                        }} key={project.name}>
                                             <div style={{
                                                 display: "flex",
                                                 flexDirection: "column",
@@ -305,9 +305,9 @@ export default function Page() {
                                                             alignSelf: "center",
                                                             color: "var(--foreground)"
                                                         }}>Created by {project.creators.length > 1 ? project.creators.map((creator, index) => (
-                                                            <><UserMention key={creator.id} username={creator.name} slackId={creator.id} />{" "}<span style={{
+                                                            <Fragment key={creator.id}><UserMention username={creator.name} slackId={creator.id} />{" "}<span style={{
                                                                 color: "var(--foreground)"
-                                                            }}>{index == (project.creators.length - 1) ? "" : "and "}</span></>
+                                                            }}>{index == (project.creators.length - 1) ? "" : "and "}</span></Fragment>
                                                         )) : project.creators.map(creator => (
                                                             <UserMention key={creator.id} username={creator.name} slackId={creator.id} />
                                                         ))}</span>

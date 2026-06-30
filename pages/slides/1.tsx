@@ -82,7 +82,7 @@ export default function Page() {
                 alignItems: "center",
             }}>
                 {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
-                <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center" }}>
+                <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center", marginBottom: "4px" }}>
                     Don't know how to use Slack? Watch this quick 2 minute video!
                 </Text>
 

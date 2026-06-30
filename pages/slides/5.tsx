@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Link } from 'theme-ui'
-import NavFooterThing from "../../components/slack/footerNav"
 
 export default function Page() {
     const [iAmAChild, setIAmAChild] = useState(false)

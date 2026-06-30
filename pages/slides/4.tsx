@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Link } from 'theme-ui'
-import NavFooterThing from "../../components/slack/footerNav"
+import { Box, Text, Link } from 'theme-ui'
 import NextButton from "../../components/nextButton"
 
 

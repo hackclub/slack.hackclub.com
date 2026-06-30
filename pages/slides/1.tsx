@@ -71,7 +71,7 @@ export default function Page() {
                 <Paragraph>
                     Hack Club hosts its community on Slack!
 
-                    Slack is a chat app like Discord, but better and trusted by thousands of businesses.
+                    Slack is a chat app like Discord, but better! It has unlimited custom emojis and uncapped file uploads.
                 </Paragraph>
             </Box>
 

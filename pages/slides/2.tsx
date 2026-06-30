@@ -193,7 +193,6 @@ export default function Page() {
         const amountOfCardsVisible = swiper.querySelectorAll(".swiper-slide-visible").length
 
         if (amountOfCardsVisible == 1) {
-            console.log(swiper.clientWidth)
             setSlideWidthOrSomethingIdk(swiper.clientWidth)
             setSlideGapOrSomethingIDKDontAskMeAAAAA(0)
         }

@@ -85,7 +85,7 @@ export default function Page() {
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
-
+                            //@ts-ignore
                             "--font-level": 3
                         }}
                         className="fluid"

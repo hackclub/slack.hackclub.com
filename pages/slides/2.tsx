@@ -65,7 +65,7 @@ const coolProjects: {
         },
         {
             name: "qWave",
-            demoURL: "idk yet",
+            demoURL: "https://qwave.qwik.top",
             description: "qWave is a locally hosted media server designed for music!",
             repo: "https://github.com/qwikster/qwave",
             imageSrc: qwave.src,

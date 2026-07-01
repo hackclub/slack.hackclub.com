@@ -117,7 +117,7 @@ const MakeFigure = (props) => {
   const imgDesc = props.imgDesc
   return (
     <figure
-      sx={{
+      style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -129,7 +129,7 @@ const MakeFigure = (props) => {
         src={imgUrl}
         alt={imgDesc}
         loading="lazy"
-        sx={{
+        style={{
           height: '22.5rem'
         }}
       />
@@ -352,6 +352,7 @@ export default function Page() {
                 mb: '1.5rem',
                 lineHeight: 'tight',
                 fontWeight: 800,
+                //@ts-ignore
                 backgroundImage: (t) => t.util.gx('orange', 'red'),
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -416,7 +417,7 @@ export default function Page() {
                   sense to you.
                 </p>
                 <div
-                  sx={{
+                  style={{
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
@@ -583,6 +584,7 @@ export default function Page() {
                 mb: 0,
                 lineHeight: 'tight',
                 fontWeight: 800,
+                //@ts-ignore
                 backgroundImage: (t) => t.util.gx('orange', 'red'),
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

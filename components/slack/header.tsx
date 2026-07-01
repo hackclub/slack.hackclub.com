@@ -37,7 +37,7 @@ const Content = ({ onJoinClick }) => (
       <Card
         sx={{
           variant: 'cards.translucent',
-          maxWidth: (t) => `calc(${t.sizes.narrow} * 1.2)`,
+          // maxWidth: (t) => `calc(${t.sizes[0].} * 1.2)`,
           mx: 'auto',
           textAlign: 'center'
         }}

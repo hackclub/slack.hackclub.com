@@ -10,6 +10,7 @@ import "../styles/global.css"
 import NavFooterThing from "../components/slack/footerNav"
 
 const App = ({ Component, pageProps }) => (
+  //@ts-ignore
   <ThemeUIProvider theme={theme}>
     <Meta as={Head}>
       <meta

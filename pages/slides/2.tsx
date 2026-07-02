@@ -387,7 +387,7 @@ export default function Page() {
                         gap: "1rem"
                     }}>
                         <Paragraph>
-                            and we physically ship you prizes like...
+                            and Hack Club ships you physically like...
                         </Paragraph>
                         <Box sx={{
                             display: "grid",

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { isMobile } from 'react-device-detect';
-import { Box, Text } from 'theme-ui'
-import Image from "next/image"
+import { Box, Text, Image } from 'theme-ui'
 
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
@@ -199,6 +198,7 @@ export default function Page() {
 
                         borderRadius: "16px",
                         background: "#10141d",
+                        width: "100%",
                         maxWidth: "calc(100vw - 4rem)"
                     }}>
                         {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} /> : <></>}

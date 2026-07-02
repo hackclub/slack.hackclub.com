@@ -199,6 +199,7 @@ export default function Page() {
 
                         borderRadius: "16px",
                         background: "#10141d",
+                        maxWidth: "calc(100vw - 4rem)"
                     }}>
                         {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} /> : <></>}
 

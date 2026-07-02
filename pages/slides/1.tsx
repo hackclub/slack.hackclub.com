@@ -69,8 +69,7 @@ export default function Page() {
                 >The community is on Slack</Text>
 
                 <Paragraph>
-                    Hack Club hosts its community on Slack!
-
+                    Slack is where the community hangs out!
                     Slack is a chat app like Discord, but better! It has unlimited custom emojis and uncapped file uploads.
                 </Paragraph>
             </Box>

@@ -1,6 +1,7 @@
 import { JSX, useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Link, Image } from 'theme-ui'
+import { Box, Text, Link } from 'theme-ui'
+import Image from "next/image"
 
 import spacesLogo from "../../public/slides/3/spaces.svg"
 import nestLogo from "../../public/slides/3/nest.png"
@@ -58,12 +59,12 @@ const cards: ({
             background: "transparent"
         }}>
         <a href="https://cdn.hackclub.com" target="_blank">
-            <Image sx={{
+            <Image style={{
                 filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
                 height: "64px",
                 width: "64px",
             }}
-                src={cdnLogo.src} />
+                src={cdnLogo.src} alt="Logo of Hack Club CDN" />
         </a>
     </Box>)
 },
@@ -121,12 +122,12 @@ const cards: ({
             background: "transparent"
         }}>
         <a href="https://spaces.hackclub.com" target="_blank">
-            <Image sx={{
+            <Image style={{
                 filter: "invert(40%) sepia(46%) saturate(6189%) hue-rotate(331deg) brightness(93%) contrast(98%)",
                 height: "64px",
                 width: "64px",
             }}
-                src={spacesLogo.src} />
+                src={spacesLogo.src} alt="Logo of Hack Club Spaces" />
         </a>
     </Box>)
 }]
@@ -194,11 +195,11 @@ export default function Page() {
                                     background: "transparent"
                                 }}>
                                 <a href={c.url} target="_blank">
-                                    <Image sx={{
+                                    <Image style={{
                                         height: "100%",
                                         width: "100%",
                                         borderRadius: "12px",
-                                    }} src={c.image} /></a>
+                                    }} src={c.image} alt={`Logo of Hack Club ${c.title}`} /></a>
                             </Box> : c.customImage}
                         </header>
 

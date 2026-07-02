@@ -1,6 +1,7 @@
 import { useEffect, useState, Fragment } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Image, Link } from 'theme-ui'
+import { Box, Text, Button, Link } from 'theme-ui'
+import Image from "next/image"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
@@ -268,7 +269,7 @@ export default function Page() {
                                                 textDecoration: "none",
                                                 color: "black"
                                             }}>
-                                                <Image sx={{
+                                                <Image style={{
                                                     display: "block",
                                                     aspectRatio: "3 / 2",
                                                     objectFit: "cover",
@@ -279,7 +280,7 @@ export default function Page() {
 
                                                     userSelect: "none",
                                                     pointerEvents: "none"
-                                                }} draggable={false} src={project.imageSrc} />
+                                                }} draggable={false} src={project.imageSrc} alt={`Image for ${project.name}`} />
 
                                                 <div style={{
                                                     display: "flex",
@@ -407,13 +408,13 @@ export default function Page() {
 
                                 alignItems: "center"
                             }}>
-                                <Image sx={{
+                                <Image style={{
                                     height: "auto",
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
                                 }}
-                                    src={bambuLabA1.src} />
+                                    src={bambuLabA1.src} alt="Picture of an A1 mini from Bambu Lab" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -429,12 +430,12 @@ export default function Page() {
 
                                 alignItems: "center",
                             }}>
-                                <Image sx={{
+                                <Image style={{
                                     height: "auto",
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={ipad.src} />
+                                }} src={ipad.src} alt="Picture of an iPad from Apple" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -450,12 +451,12 @@ export default function Page() {
 
                                 alignItems: "center"
                             }}>
-                                <Image sx={{
+                                <Image style={{
                                     height: "auto",
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={framework.src} />
+                                }} src={framework.src} alt="Picture of a Framework 13 laptop from Framework" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -471,12 +472,12 @@ export default function Page() {
 
                                 alignItems: "center"
                             }}>
-                                <Image sx={{
+                                <Image style={{
                                     height: "auto",
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={blahaj.src} />
+                                }} src={blahaj.src} alt="Picture of a shark plush named Blahaj from Ikea" />
 
                                 <span style={{
                                     color: "var(--foreground)"

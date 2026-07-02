@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { isMobile } from 'react-device-detect';
-import { Box, Text, Image } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
+import Image from "next/image"
 
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
@@ -94,7 +95,7 @@ export default function Page() {
                         marginBottom: 32,
                     }}
                 >
-                    {!mobile ? <Embed link="https://user-cdn.hackclub-assets.com/019f13af-24c0-7955-9663-436012aff1ce/Timeline%201.mp4" /> : <Embed link="https://www.youtube.com/embed/YZ-WqzFMYxk?autoplay=1" />}
+                    {!mobile ? <Embed link="https://user-cdn.hackclub-assets.com/019f13af-24c0-7955-9663-436012aff1ce/Timeline%201.mp4" /> : <Embed link="https://user-cdn.hackclub-assets.com/019f23dd-f8b9-7646-bd16-6b2c6674d9ef/mobile.mp4" />}
                 </div>
             </Box>
 
@@ -200,7 +201,7 @@ export default function Page() {
                         background: "#10141d",
                         flex: "1 1 0",
                     }}>
-                        {!!item.image ? <Image src={item.image} /> : <></>}
+                        {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} /> : <></>}
 
                         <div style={{
                             display: "flex",

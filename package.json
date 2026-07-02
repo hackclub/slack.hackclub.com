@@ -28,6 +28,7 @@
     "react-fast-marquee": "^1.6.5",
     "react-scrolllock": "^5.0.1",
     "react-wrap-balancer": "^1.1.1",
+    "sharp": "^0.35.3",
     "swiper": "^12.2.0",
     "theme-ui": "^0.17.4"
   },

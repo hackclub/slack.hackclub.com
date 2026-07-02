@@ -1,7 +1,7 @@
 import { useEffect, useState, Fragment } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { Box, Text, Button, Link } from 'theme-ui'
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
@@ -36,7 +36,7 @@ const coolProjects: {
     description: string,
     demoURL: string,
     repo: string,
-    imageSrc: string,
+    imageSrc: StaticImageData,
     creators: {
         name: string,
         id: string
@@ -47,7 +47,7 @@ const coolProjects: {
             description: "This is a custom, 3d-printed keyboard made to resemble a biblically accurate angel, powered by a Raspberry Pi Pico RP2040.",
             repo: "https://github.com/geg-tech/biblicallyaccuratekeyboard",
             demoURL: "https://www.youtube.com/watch?v=EbvpPsTKe3c",
-            imageSrc: angelKeyboard.src,
+            imageSrc: angelKeyboard,
             creators: [{
                 name: "egg_splats",
                 id: "U081WN0MA56"
@@ -58,7 +58,7 @@ const coolProjects: {
             description: "Crooked Rails is a multiplayer game where you work for a suspicious company. Defend your cargo from monsters and complete jobs between stations",
             repo: "https://github.com/AllInTw0/CrookedRailsPrototypeHDRP",
             demoURL: "https://github.com/AllInTw0/CrookedRailsPrototypeHDRP/releases/",
-            imageSrc: crookedRails.src,
+            imageSrc: crookedRails,
             creators: [{
                 name: "Raivo",
                 id: "U0A5PH25V70"
@@ -69,7 +69,7 @@ const coolProjects: {
             demoURL: "https://qwave.qwik.top",
             description: "qWave is a locally hosted media server designed for music!",
             repo: "https://github.com/qwikster/qwave",
-            imageSrc: qwave.src,
+            imageSrc: qwave,
             creators: [{
                 name: "qwik",
                 id: "U091JJ2JF8E"
@@ -80,7 +80,7 @@ const coolProjects: {
             description: "One of those cool looking gravtiy sand things built in C and raylib",
             repo: "https://github.com/nikoi008/Falling-sand-sim/",
             demoURL: "https://nikoi008.github.io/Falling-sand-sim/",
-            imageSrc: sandFalling.src,
+            imageSrc: sandFalling,
             creators: [{
                 name: "nmsoukmandjiev007",
                 id: "U0A71TWUM7D"
@@ -91,7 +91,7 @@ const coolProjects: {
             description: "Generate a GitHub-style contribution heatmap for your Hackatime activity!",
             repo: "https://github.com/ImShyMike/hackatime-heatmap",
             demoURL: "https://hackatime-heatmap.shymike.dev",
-            imageSrc: hackatimeHeatmap.src,
+            imageSrc: hackatimeHeatmap,
             creators: [{
                 name: "miggy",
                 id: "U07VC9705D4"
@@ -102,7 +102,7 @@ const coolProjects: {
             description: "Convert images, audio, and documents to various file formats - all on-device and locally!",
             repo: "https://github.com/VERT-sh/VERT",
             demoURL: "https://vert.sh",
-            imageSrc: vertSh.src,
+            imageSrc: vertSh,
             creators: [{
                 name: "maya",
                 id: "U0826R42R98"
@@ -117,7 +117,7 @@ const coolProjects: {
             description: "A 2D stage-based rhythm game where the players movements are bound to the light.",
             repo: "https://github.com/FireEntity1/lightbound-demo",
             demoURL: "https://fire-entity.itch.io/lightbound",
-            imageSrc: lightBound.src,
+            imageSrc: lightBound,
             creators: [{
                 name: "fireentity",
                 id: "U07A0D5K3T2"
@@ -128,7 +128,7 @@ const coolProjects: {
             description: "Share files quickly with encryption!",
             repo: "https://github.com/rip-super/stash",
             demoURL: "https://stash.sahildash.dev/",
-            imageSrc: stash.src,
+            imageSrc: stash,
             creators: [{
                 name: "rip_super",
                 id: "U0A3584269Z"
@@ -139,7 +139,7 @@ const coolProjects: {
             description: "A Minecraft inspired lantern with bluetooth!",
             repo: "https://github.com/notaroomba/luma",
             demoURL: "https://github.com/notaroomba/luma",
-            imageSrc: luma.src,
+            imageSrc: luma,
             creators: [{
                 name: "NotARoomba",
                 id: "U05EZRFKRV4"
@@ -150,7 +150,7 @@ const coolProjects: {
             description: "A gesture-based launcher for Wayland. Launch apps by casting spells!",
             repo: "https://github.com/m31-galaxy/Hexecute",
             demoURL: "https://github.com/m31-galaxy/Hexecute/releases",
-            imageSrc: hexecute.src,
+            imageSrc: hexecute,
             creators: [{
                 name: "andromeda",
                 id: "U074K2VPP62"
@@ -161,7 +161,7 @@ const coolProjects: {
             description: "An automatic turret inspired by Engineer's sentry gun from TF2. It detects and shoots threats.",
             repo: "https://github.com/takshcpatel/automatic-turret",
             demoURL: "https://github.com/takshcpatel/automatic-turret",
-            imageSrc: bobTheGun.src,
+            imageSrc: bobTheGun,
             creators: [{
                 name: "Crazy Taxi",
                 id: "U0A7QRVE0EB"
@@ -172,7 +172,7 @@ const coolProjects: {
             description: "A cozy game when you can just relax and serve customers",
             repo: "https://github.com/Kajmix/Godot-Cat-Chef-Game",
             demoURL: "https://kajmix.itch.io/cat-chef-restaurant",
-            imageSrc: catChef.src,
+            imageSrc: catChef,
             creators: [{
                 name: "Kajmix",
                 id: "U0A7ZD20DSL"
@@ -288,7 +288,7 @@ export default function Page() {
                                                     height: "100%",
                                                     gap: "0.5rem",
 
-                                                    backgroundColor: "#1f1f27",
+                                                    backgroundColor: "rgb(3, 0, 28)",
                                                     padding: "16px 18px 18px",
                                                     borderRadius: "0px 0px 16px 16px"
                                                 }}>
@@ -414,7 +414,7 @@ export default function Page() {
                                     width: "auto",
                                     objectFit: "contain"
                                 }}
-                                    src={bambuLabA1.src} alt="Picture of an A1 mini from Bambu Lab" />
+                                    src={bambuLabA1} alt="Picture of an A1 mini from Bambu Lab" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -435,7 +435,7 @@ export default function Page() {
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={ipad.src} alt="Picture of an iPad from Apple" />
+                                }} src={ipad} alt="Picture of an iPad from Apple" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -456,7 +456,7 @@ export default function Page() {
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={framework.src} alt="Picture of a Framework 13 laptop from Framework" />
+                                }} src={framework} alt="Picture of a Framework 13 laptop from Framework" />
 
                                 <span style={{
                                     color: "var(--foreground)"
@@ -477,7 +477,7 @@ export default function Page() {
                                     maxHeight: "180px",
                                     width: "auto",
                                     objectFit: "contain"
-                                }} src={blahaj.src} alt="Picture of a shark plush named Blahaj from Ikea" />
+                                }} src={blahaj} alt="Picture of a shark plush named Blahaj from Ikea" />
 
                                 <span style={{
                                     color: "var(--foreground)"

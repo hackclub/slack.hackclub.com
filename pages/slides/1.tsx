@@ -196,7 +196,7 @@ export default function Page() {
                         flexDirection: "column",
 
                         borderRadius: "16px",
-                        background: "#10141d",
+                        background: "rgb(3, 0, 28)",
                         width: "100%",
                         maxWidth: "calc(100vw - 4rem)"
                     }}>

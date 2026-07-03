@@ -8,7 +8,6 @@ import NextButton from "../../components/nextButton"
 
 import { Embed } from "../../components/Embed";
 
-import microphone from "../../public/slides/1/microphone.png"
 import Paragraph from "../../components/paragraph"
 
 const thingsToDoInTheSlackAndStuff: {
@@ -23,7 +22,6 @@ const thingsToDoInTheSlackAndStuff: {
         {
             title: "Interviews with influential figures!",
             description: "We host interviews with leaders in tech and business like Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!",
-            image: microphone.src
         },
         {
             title: "Participate in You Ship, We Ship programs!",

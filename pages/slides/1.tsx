@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { isMobile } from 'react-device-detect';
-import { Box, Text, Image } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
+import Image, { StaticImageData } from "next/image"
 
 import Emoji from "../../components/emoji"
 import NextButton from "../../components/nextButton"
+import games from "../../public/slides/1/games.png"
+import globe from "../../public/slides/1/globe.png"
+import mic from "../../public/slides/1/mic.png"
+import laptop from "../../public/slides/1/laptop.png"
 
 import { Embed } from "../../components/Embed";
 
@@ -13,23 +18,27 @@ import Paragraph from "../../components/paragraph"
 const thingsToDoInTheSlackAndStuff: {
     title: string,
     description: string,
-    image?: string
+    image?: StaticImageData
 }[] = [
         {
             title: "Game Nights!",
-            description: "We host game nights where we play Minecraft, Among Us, Monopoly, and other silly games :P"
+            description: "We host game nights where we play Minecraft, Among Us, Monopoly, and other silly games :P",
+            image: games
         },
         {
             title: "Interviews with influential figures!",
             description: "We host interviews with leaders in tech and business like Michael Dell (founder and CEO of Dell), Howard Shultz (former CEO at Starbucks) and many others!",
+            image: mic
         },
         {
             title: "Participate in You Ship, We Ship programs!",
-            description: "Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!"
+            description: "Build a project, track your time with Hackatime, submit it, and get prizes shipped to your doorstep!",
+            image: laptop
         },
         {
             title: "Connect with other teens!",
-            description: "Make friends and connect with other teens with the same interests!"
+            description: "Make friends and connect with other teens with the same interests!",
+            image: globe
         }
     ]
 
@@ -198,7 +207,7 @@ export default function Page() {
                         width: "100%",
                         maxWidth: "calc(100vw - 4rem)"
                     }}>
-                        {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} /> : <></>}
+                        {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} width={256} style={{ marginTop: "2rem", alignSelf: "center" }} /> : <></>}
 
                         <div style={{
                             display: "flex",

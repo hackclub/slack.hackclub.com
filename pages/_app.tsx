@@ -8,9 +8,10 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 import { phantomSans, shantellSans, zarathustra } from "../lib/fonts"
 import "../styles/global.css"
 import NavFooterThing from "../components/slack/footerNav"
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const App = ({ Component, pageProps }) => {
+  const [overflow, setOverflow] = useState(false)
   const mainRef = useRef<HTMLElement>(null)
   useEffect(() => {
     const main = mainRef.current
@@ -29,9 +30,24 @@ const App = ({ Component, pageProps }) => {
     observer.observe(document.body)
     window.addEventListener("resize", updatePadding)
 
+
+    const code = () => {
+      if (window.innerHeight + window.scrollY + 120 >= document.documentElement.scrollHeight) {
+        setOverflow(false)
+      } else {
+        setOverflow(true)
+      }
+    }
+    const w = new ResizeObserver(code);
+
+    w.observe(document.body)
+    window.addEventListener("scroll", code)
+
     return () => {
       observer.disconnect()
+      w.disconnect()
       window.removeEventListener("resize", updatePadding)
+      window.removeEventListener("scroll", code)
     }
   }, [])
 
@@ -66,6 +82,36 @@ const App = ({ Component, pageProps }) => {
         }}>
           <Component {...pageProps} />
           <NavFooterThing />
+          {overflow ? <><svg className="animated-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24" >
+            { /* <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free--> */}
+            <path d="M19 7H5c-.37 0-.71.21-.89.54a1 1 0 0 0 .07 1.04l7 10a.997.997 0 0 0 1.64 0l7-10c.21-.31.24-.7.07-1.04A1 1 0 0 0 19 7m-7 9.26L6.92 9h10.16z"></path>
+          </svg></> : undefined}
+
+          <style>
+            {`.animated-arrow{
+            position: fixed;
+            bottom: 20px;
+            color: yellow;
+            height: 30px;
+            width: 30px;
+              animation: scrollBounce 1.4s cubic-bezier(.22,1.01,.36,.83) infinite;
+        }
+        
+        @keyframes scrollBounce {
+          0% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(12px);
+          }
+
+          100% {
+            transform: translateY(0);
+          }
+        }`}
+          </style>
         </main>
       </BalancerProvider>
     </ThemeUIProvider>

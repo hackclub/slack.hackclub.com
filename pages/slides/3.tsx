@@ -9,7 +9,6 @@ import confused from "../../public/slides/3/confused_dinosaur.png"
 
 import Marquee from "react-fast-marquee"
 
-import NextButton from "../../components/nextButton"
 import Paragraph from "../../components/paragraph"
 
 const cards: ({
@@ -154,7 +153,7 @@ export default function Page() {
                 }}
 
                 as="h1"
-            >We have developer tools!</Text>
+            >Use Hack Club tools!</Text>
 
             <Paragraph>
                 Not all teens have access to the tools they need to create, so Hack Club offers developer tools and services for free!
@@ -235,8 +234,6 @@ export default function Page() {
             }}>
                 See the full list on <Link href="https://toolbox.hackclub.com/" target="_blank">Toolbox</Link>
             </Text>
-
-            <NextButton text="Tools go brrr" slide={4} email={email} />
 
             <style>
                 {`a {

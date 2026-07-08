@@ -224,7 +224,7 @@ export default function Page() {
             <Button
               variant="ctaLg"
               as="a"
-              {...({ href: '/slides/1' } as any)}
+              {...({ href: '/slides/0' } as any)}
 
               sx={{
                 position: "relative",

@@ -9,8 +9,15 @@ import { phantomSans, shantellSans, zarathustra } from "../lib/fonts"
 import "../styles/global.css"
 import NavFooterThing from "../components/slack/footerNav"
 import { useEffect, useRef, useState } from 'react'
+import NextButton from '../components/nextButton'
+import { getEmailQueryParam } from "../lib/getEmailQueryParam"
 
 const App = ({ Component, pageProps }) => {
+  const [email, setEmail] = useState("")
+  useEffect(() => {
+    setEmail(getEmailQueryParam())
+  }, [])
+
   const [overflow, setOverflow] = useState(false)
   const mainRef = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -52,44 +59,45 @@ const App = ({ Component, pageProps }) => {
   }, [])
 
   return (
-    //@ts-ignore
-    <ThemeUIProvider theme={theme}>
-      <Meta as={Head}>
-        <meta
-          name="google-site-verification"
-          content="7zE7h5foPaxIcnv5Frq6BkcUb9-3UzVc8q3P_cexf9I"
-        />
-        {/* Look. This fixes whatever the heck I was dealing with. I don't know why NextJS didn't add this to begin with but I'm just happy it's over */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Meta>
-      <BalancerProvider>
-        <main ref={mainRef} className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`} style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "2rem",
-          padding: "2rem",
+    <>
+      {/*@ts-ignore */}
+      <ThemeUIProvider theme={theme}>
+        <Meta as={Head}>
+          <meta
+            name="google-site-verification"
+            content="7zE7h5foPaxIcnv5Frq6BkcUb9-3UzVc8q3P_cexf9I"
+          />
+          {/* Look. This fixes whatever the heck I was dealing with. I don't know why NextJS didn't add this to begin with but I'm just happy it's over */}
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Meta>
+        <BalancerProvider>
+          <main ref={mainRef} className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`} style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "2rem",
+            padding: "2rem",
 
-          backgroundImage:
-            "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
-          backgroundPosition: "0px 0px, 32px 32px",
-          backgroundSize: "64px 64px",
-          backgroundColor: "rgb(23, 23, 29)",
+            backgroundImage:
+              "radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%), radial-gradient(rgb(29, 29, 37) 22.8%, transparent 22.8%)",
+            backgroundPosition: "0px 0px, 32px 32px",
+            backgroundSize: "64px 64px",
+            backgroundColor: "rgb(23, 23, 29)",
 
-          minHeight: '100vh',
-          width: "100vw",
-          maxWidth: "100%"
-        }}>
-          <Component {...pageProps} />
-          <NavFooterThing />
-          {overflow ? <><svg className="animated-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-            fill="currentColor" viewBox="0 0 24 24" >
-            { /* <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free--> */}
-            <path d="M19 7H5c-.37 0-.71.21-.89.54a1 1 0 0 0 .07 1.04l7 10a.997.997 0 0 0 1.64 0l7-10c.21-.31.24-.7.07-1.04A1 1 0 0 0 19 7m-7 9.26L6.92 9h10.16z"></path>
-          </svg></> : undefined}
+            minHeight: '100vh',
+            width: "100vw",
+            maxWidth: "100%"
+          }}>
+            <Component {...pageProps} />
+            <NavFooterThing />
+            {overflow ? <><svg className="animated-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="currentColor" viewBox="0 0 24 24" >
+              { /* <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free--> */}
+              <path d="M19 7H5c-.37 0-.71.21-.89.54a1 1 0 0 0 .07 1.04l7 10a.997.997 0 0 0 1.64 0l7-10c.21-.31.24-.7.07-1.04A1 1 0 0 0 19 7m-7 9.26L6.92 9h10.16z"></path>
+            </svg></> : undefined}
 
-          <style>
-            {`.animated-arrow{
+            <style>
+              {`.animated-arrow{
             position: fixed;
             bottom: 20px;
             color: yellow;
@@ -111,10 +119,12 @@ const App = ({ Component, pageProps }) => {
             transform: translateY(0);
           }
         }`}
-          </style>
-        </main>
-      </BalancerProvider>
-    </ThemeUIProvider>
+            </style>
+          </main>
+        </BalancerProvider>
+      </ThemeUIProvider>
+      <NextButton email={email} />
+    </>
   )
 }
 

@@ -29,7 +29,7 @@ export default function Page() {
                     fontSize: "40px"
                 }}
                 as="h1"
-            >One more thing...</Text>
+            >Ready to start?</Text>
 
             <Box sx={{
                 position: "relative",
@@ -132,40 +132,38 @@ export default function Page() {
                     onMouseLeave={() => setPressed(false)}
 
                     sx={{
-                        position: "relative",
+                        position: "fixed",
                         transformOrigin: 'center center',
                         whiteSpace: 'nowrap',
                         borderRadius: "12px",
-                        background: "#ec3750",
+                        background: "none",
                         transition: "none !important",
+
+                        bottom: "0px",
+                        right: "10px",
 
                         textTransform: "initial",
                         paddingRight: "16px",
                         paddingLeft: "16px",
                         alignSelf: "center",
 
-                        boxShadow: pressed ? "none" : "0 4px 0 #871026 !important",
                         transform: pressed ? "translateY(4px) !important" : "none",
 
                         marginTop: "2rem", //I don't like using margin but I'm lazy
                         textWrap: "balance",
                         minWidth: "30vw",
-
-                        "&:focus": {
-                            transform: "none",
-                        },
-
-                        "&:hover": {
-                            transform: "none",
-                        },
                     }}
                 >
 
                     <Text sx={{
                         fontSize: "clamp(16px, 5vw, 36px)"
-                    }}>Hack Club, here I come!</Text>
+                    }}>To Slack! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24" >
+                            { /*<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->*/}
+                            <path d="M6 13h6v4l6-5-6-5v4H6z"></path>
+                        </svg></Text>
                 </Button>
-            </Box>
+            </Box >
         </>
     )
 }

@@ -12,12 +12,12 @@ export default function nav() {
     return (
         <>
             <nav className="nav-footer-idk-what-im-doing">
-                <a className={(slide == 1) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/1" aria-label="Click me to get directed to the first slide"></a>
-                <a className={(slide == 2) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/2" aria-label="Click me to get directed to the second slide"></a>
+                <a className={(slide == 0) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/0" aria-label="Click me to get directed to the first slide"></a>
+                <a className={(slide == 1) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/1" aria-label="Click me to get directed to the second slide"></a>
 
-                <a className={(slide == 3) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/3" aria-label="Click me to get directed to the third slide"></a>
-                <a className={(slide == 4) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/4" aria-label="Click me to get directed to the fourth slide"></a>
-                <a className={(slide == 5) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/5" aria-label="Click me to get directed to the fifth slide"></a>
+                <a className={(slide == 2) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/2" aria-label="Click me to get directed to the third slide"></a>
+                <a className={(slide == 3) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/3" aria-label="Click me to get directed to the fourth slide"></a>
+                <a className={(slide == 4) ? "nav-element-item-thing active" : "nav-element-item-thing"} href="/slides/4" aria-label="Click me to get directed to the fifth slide"></a>
             </nav>
 
             <style>
@@ -30,6 +30,7 @@ export default function nav() {
                         
                         display: flex;
                         justify-content: center;
+                        z-index: 99;
                         gap: 1rem;
                     }
                 

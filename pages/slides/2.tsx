@@ -28,7 +28,6 @@ import bobTheGun from "../../public/slides/2/bob_the_gun.png"
 import catChef from "../../public/slides/2/cat_chef_restaurant.png"
 
 import { BtnArrow } from "./../../components/btn-arrow";
-import NextButton from "../../components/nextButton"
 import Paragraph from "../../components/paragraph"
 
 const coolProjects: {
@@ -187,7 +186,7 @@ export default function Page() {
     })
 
     const [slideWidthOrSomethingIdk, setSlideWidthOrSomethingIdk] = useState(290) //default value is 290px
-    const [slideGapOrSomethingIDKDontAskMeAAAAA, setSlideGapOrSomethingIDKDontAskMeAAAAA] = useState(50)
+    const [slideGapOrSomethingIDKDontAskMeAAAAA, setSlideGapOrSomethingIDKDontAskMeAAAAA] = useState(40)
     useEffect(() => {
         const swiper = document.querySelector(".swiper")
         const amountOfCardsVisible = swiper.querySelectorAll(".swiper-slide-visible").length
@@ -217,7 +216,7 @@ export default function Page() {
                         fontSize: "40px"
                     }}
                     as="h1"
-                >I'm glad you asked!</Text>
+                >Get prizes!</Text>
 
                 <Box sx={{
                     display: "flex",
@@ -489,8 +488,6 @@ export default function Page() {
                     </Box>
                 </Box>
             </Box>
-
-            <NextButton text="Oh! What else?" slide={3} email={email} />
         </>
     )
 }

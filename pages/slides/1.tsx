@@ -5,7 +5,6 @@ import { Box, Text } from 'theme-ui'
 import Image, { StaticImageData } from "next/image"
 
 import Emoji from "../../components/emoji"
-import NextButton from "../../components/nextButton"
 import games from "../../public/slides/1/games.png"
 import globe from "../../public/slides/1/globe.png"
 import mic from "../../public/slides/1/mic.png"
@@ -43,11 +42,10 @@ const thingsToDoInTheSlackAndStuff: {
     ]
 
 export default function Page() {
-    const [email, setEmail] = useState("")
+    const [open, setOpen] = useState(false)
     const [mobile, setMobile] = useState(false)
 
     useEffect(() => {
-        setEmail(getEmailQueryParam())
         setMobile(isMobile)
     }, [])
 
@@ -73,7 +71,7 @@ export default function Page() {
                         fontSize: "40px"
                     }}
                     as="h1"
-                >The community is on Slack</Text>
+                >Hang out on Slack!</Text>
 
                 <Paragraph>
                     Slack is where the community hangs out!
@@ -87,22 +85,14 @@ export default function Page() {
 
                 alignItems: "center",
             }}>
+
                 {/* Color value of "hsla(0,0%,100%,.45)" stolen from stardance signup flow*/}
                 <Text sx={{ fontSize: '1.25rem', color: 'hsla(0,0%,100%,.45)', textAlign: "center", marginBottom: "4px" }}>
-                    Don't know how to use Slack? Watch this quick 2 minute video!
+                    Don't know how to use Slack? Watch this quick 2 minute <Text onClick={() => setOpen(true)} style={{ textDecoration: "underline wavy", textUnderlineOffset: "4px", color: "var(--color-red)" }}>video!</Text>
                 </Text>
 
-                <div
-                    style={{
-                        width: "min(520px, calc(100vw - 96px))",
-                        overflow: "hidden",
-                        aspectRatio: "16 / 9",
-                        marginBottom: 32,
-                    }}
-                >
-                    {!mobile ? <Embed link="https://user-cdn.hackclub-assets.com/019f13af-24c0-7955-9663-436012aff1ce/Timeline%201.mp4" /> : <Embed link="https://user-cdn.hackclub-assets.com/019f23dd-f8b9-7646-bd16-6b2c6674d9ef/mobile.mp4" />}
-                </div>
-            </Box>
+                {!mobile ? <Embed isOpen={open} onClose={() => setOpen(false)} link="https://user-cdn.hackclub-assets.com/019f13af-24c0-7955-9663-436012aff1ce/Timeline%201.mp4" /> : <Embed isOpen={open} onClose={() => setOpen(false)} link="https://user-cdn.hackclub-assets.com/019f23dd-f8b9-7646-bd16-6b2c6674d9ef/mobile.mp4" />}
+            </Box >
 
             <div style={{
                 display: "flex",
@@ -111,87 +101,22 @@ export default function Page() {
                 justifyContent: "center",
                 alignItems: "center"
             }}>
-                <div style={{
-                    display: "flex",
-                    gap: "12px",
-                    flexDirection: "column",
+                <Text sx={{ fontSize: "24px", lineHeight: "1.5em", color: "var(--foreground)", alignSelf: "center" }}>
+                    <Text sx={{
+                        height: "fit-content",
 
-                    alignItems: "flex-end"
-                }}>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "14px",
-
-                        transform: "rotate(25deg)",
-                        borderRadius: "16px"
-                    }}></span>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "18px",
-
-                        borderRadius: "16px"
-                    }}></span>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "14px",
-
-                        transform: "rotate(-25deg)",
-                        borderRadius: "16px"
-                    }}></span>
-                </div>
-
-                <Text sx={{
-                    height: "fit-content",
-
-                    color: "var(--color-red)",
-                    fontSize: "36px",
-                    fontFamily: "var(--font-shantell-src)",
-
-                    textWrap: "nowrap",
-                    "--font-level": 2
-                }} className="fluid">
-                    but what happens on Slack?
+                        color: "var(--color-red)",
+                        fontSize: "24px",
+                        fontFamily: "var(--font-shantell-src)",
+                    }}>
+                        "but what happens on Slack?"
+                    </Text>, you ask. Well, we have...
                 </Text>
-
-                <div style={{
-                    display: "flex",
-                    gap: "12px",
-                    flexDirection: "column",
-                }}>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "14px",
-
-                        transformOrigin: "mid left",
-                        transform: "rotate(155deg)",
-                        borderRadius: "16px"
-                    }}></span>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "18px",
-
-                        borderRadius: "16px"
-                    }}></span>
-                    <span style={{
-                        background: "var(--color-red)",
-                        height: "3px",
-                        width: "14px",
-
-                        transformOrigin: "mid left",
-                        transform: "rotate(25deg)",
-                        borderRadius: "16px"
-                    }}></span>
-                </div>
             </div>
 
             <Box sx={{
                 display: "grid",
-                gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr"],
+                gridTemplateColumns: ["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
 
                 gap: "2rem",
 
@@ -207,7 +132,7 @@ export default function Page() {
                         width: "100%",
                         maxWidth: "calc(100vw - 4rem)"
                     }}>
-                        {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} width={256} style={{ marginTop: "2rem", alignSelf: "center" }} /> : <></>}
+                        {!!item.image ? <Image alt={`Image for ${item.title}`} src={item.image} height={180} style={{ marginTop: "2rem", alignSelf: "center" }} /> : <></>}
 
                         <div style={{
                             display: "flex",
@@ -237,8 +162,6 @@ export default function Page() {
                     )
                 })}
             </Box>
-
-            <NextButton text="Wait, what's You Ship, We Ship!" slide={2} email={email} />
         </>
     )
 }

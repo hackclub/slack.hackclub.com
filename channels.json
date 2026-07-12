@@ -461,5 +461,33 @@
     "type": "country",
     "url": "https://app.slack.com/client/E09V59WQY1E/C0B9V9ZQT3M",
     "id": "C0B9V9ZQT3M"
+  },
+  {
+    "channel": "ethiopia",
+    "match": "ethiopia",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B1LUD1XKK",
+    "id": "C0B1LUD1XKK"
+  },
+  {
+    "channel": "hackclubmauritius",
+    "match": "mauritius",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C01CSUFH38D",
+    "id": "C01CSUFH38D"
+  },
+  {
+    "channel": "moldova-main",
+    "match": "moldova",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B493WP206",
+    "id": "C0B493WP206"
+  },
+  {
+    "channel": "hackbahamas",
+    "match": "bahamas",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C045HML0Q86",
+    "id": "C045HML0Q86"
   }
 ]

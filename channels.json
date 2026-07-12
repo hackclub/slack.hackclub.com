@@ -413,25 +413,26 @@
     "id": "C0B7H73EU7L"
   },
   {
-    "channel": "kerala",
-    "match": "kerala",
-    "type": "indian-state",
+    "channel":"kerala",
+    "match":"kerala",
+    "type":"indian-state",
     "url": "https://app.slack.com/client/E09V59WQY1E/C08D8B0STPE",
-    "id": "C08D8B0STPE"
+    "id":"C08D8B0STPE"
+
   },
   {
-    "channel": "tamil-nadu",
-    "match": "tamil-nadu",
-    "type": "indian-state",
-    "url": "https://app.slack.com/client/E09V59WQY1E/C0AU3ELADMK",
+    "channel":"tamil-nadu",
+    "match":"tamil-nadu",
+    "type":"indian-state",
+    "url":"https://app.slack.com/client/E09V59WQY1E/C0AU3ELADMK",
     "id": "C0AU3ELADMK"
   },
   {
-    "channel": "vietnamese",
-    "match": "vietnam",
-    "type": "country",
-    "url": "https://hackclub.enterprise.slack.com/archives/C0839KBC9R7",
-    "id": "C0839KBC9R7"
+    "channel":"vietnamese",
+    "match":"vietnam",
+    "type":"country",
+    "url":"https://hackclub.enterprise.slack.com/archives/C0839KBC9R7",
+    "id":"C0839KBC9R7"
   },
   {
     "channel": "méxico",

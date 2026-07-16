@@ -48,7 +48,7 @@ export default function Page() {
 
                     fontSize: "24px", lineHeight: "1.5em", color: "var(--foreground)", alignSelf: "center"
                 }}>
-                    <Paragraph><p style={{ textAlign: "center" }}>You might wonder</p></Paragraph>
+                    <Paragraph><p style={{ textAlign: "center" }}>You might ask</p></Paragraph>
                     <div style={{
                         display: "flex",
                         gap: "0.5rem",

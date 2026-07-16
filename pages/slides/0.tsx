@@ -48,7 +48,7 @@ export default function Page() {
 
                     fontSize: "24px", lineHeight: "1.5em", color: "var(--foreground)", alignSelf: "center"
                 }}>
-                    <p style={{ textAlign: "center" }}>You might wonder</p>
+                    <Paragraph><p style={{ textAlign: "center" }}>You might wonder</p></Paragraph>
                     <div style={{
                         display: "flex",
                         gap: "0.5rem",
@@ -63,14 +63,13 @@ export default function Page() {
                             fontSize: "36px",
                             fontFamily: "var(--font-shantell-src)",
 
-                            "--font-level": 2
-                        }} className="fluid">
+                            textAlign: "center"
+                        }}>
                             "but what do I actually do here?"
                         </Text>
                     </div>
                 </Box>
-                <Paragraph>
-                    Well, let's find out!</Paragraph>
+                <Paragraph><p style={{ textAlign: "center" }}>Well, let's find out!</p></Paragraph>
             </Box>
         </>
     )

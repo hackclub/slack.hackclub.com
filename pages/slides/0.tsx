@@ -31,7 +31,12 @@ export default function Page() {
                     as="h1"
                 >Welcome to Hack Club!</Text>
 
-                <Image src={welcome} alt="Welcome to the Club" />
+                <Image src={welcome} alt="Welcome to the Club" style={{
+                    maxWidth: "100%",
+                    height: "auto",
+
+                    borderRadius: 8
+                }} />
 
                 <Paragraph>
                     Thanks for showing interest in Hack Club! Hack Club is a nonprofit founded by Zach Latta to help teenagers create more hardware and software!

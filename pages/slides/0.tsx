@@ -44,7 +44,6 @@ export default function Page() {
                 <Box sx={{
                     display: "flex",
                     flexDirection: ["column", "column", "row"],
-                    gap: "1rem",
 
                     fontSize: "24px", lineHeight: "1.5em", color: "var(--foreground)", alignSelf: "center"
                 }}>

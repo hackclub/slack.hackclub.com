@@ -19,25 +19,7 @@ const App = ({ Component, pageProps }) => {
   }, [])
 
   const [overflow, setOverflow] = useState(false)
-  const mainRef = useRef<HTMLElement>(null)
   useEffect(() => {
-    const main = mainRef.current
-
-    const updatePadding = () => {
-      if (document.documentElement.scrollHeight > window.innerHeight) {
-        main.style.paddingBottom = "6rem"
-      } else {
-        main.style.paddingBottom = "2rem"
-      }
-    }
-
-    updatePadding()
-
-    const observer = new ResizeObserver(updatePadding);
-    observer.observe(document.body)
-    window.addEventListener("resize", updatePadding)
-
-
     const code = () => {
       if (window.innerHeight + window.scrollY + 120 >= document.documentElement.scrollHeight) {
         setOverflow(false)
@@ -51,9 +33,7 @@ const App = ({ Component, pageProps }) => {
     window.addEventListener("scroll", code)
 
     return () => {
-      observer.disconnect()
       w.disconnect()
-      window.removeEventListener("resize", updatePadding)
       window.removeEventListener("scroll", code)
     }
   }, [])
@@ -71,7 +51,7 @@ const App = ({ Component, pageProps }) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </Meta>
         <BalancerProvider>
-          <main ref={mainRef} className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`} style={{
+          <main className={`${phantomSans.variable} ${shantellSans.variable} ${zarathustra.variable}`} style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -89,7 +69,6 @@ const App = ({ Component, pageProps }) => {
             maxWidth: "100%"
           }}>
             <Component {...pageProps} />
-            <NavFooterThing />
             {overflow ? <><svg className="animated-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
               fill="currentColor" viewBox="0 0 24 24" >
               { /* <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free--> */}

@@ -39,7 +39,7 @@ export default function Page() {
                 }} />
 
                 <Paragraph>
-                    Thanks for showing interest in Hack Club! Hack Club is a nonprofit founded by Zach Latta to help teenagers create more hardware and software!
+                    Hack Club is a nonprofit founded by Zach Latta to help teenagers create more hardware and software!
                 </Paragraph>
                 <Box sx={{
                     display: "flex",

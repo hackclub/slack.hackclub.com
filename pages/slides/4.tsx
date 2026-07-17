@@ -53,7 +53,8 @@ export default function Page() {
                             display: 'block',
                             alignSelf: "center",
                             //@ts-ignore oh hush, TypeScript. This is for the .fluid class stuff defined in global.css
-                            "--font-level": 3
+                            "--font-level": 3,
+                            textAlign: "center"
                         }}
                         className="fluid"
                     >Hack Club is for teenagers</label>
@@ -88,7 +89,8 @@ export default function Page() {
                             display: 'block',
                             alignSelf: "center",
                             //@ts-ignore
-                            "--font-level": 3
+                            "--font-level": 3,
+                            textAlign: "center"
                         }}
                         className="fluid"
                     >Hack Club expects respect in its community</label>

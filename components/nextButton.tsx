@@ -18,7 +18,7 @@ export default function NextButton({ email }) {
                     transformOrigin: 'center center',
                     whiteSpace: 'nowrap',
                     borderRadius: "12px",
-                    background: "#1f1f27",
+                    background: "var(--color-red)",
                     transition: "none !important",
                     width: "fit-content",
 

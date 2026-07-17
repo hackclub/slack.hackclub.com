@@ -48,15 +48,15 @@ export default function Page() {
                 }}>
                     <label htmlFor="im-a-child"
                         style={{
+                            fontSize: "20px",
                             color: 'var(--foreground)',
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
-                            //@ts-ignore oh hush, TypeScript. This is for the .fluid class stuff defined in global.css
-                            "--font-level": 3,
+
                             textAlign: "center"
                         }}
-                        className="fluid"
+
                     >Hack Club is for teenagers</label>
                     <Box sx={{
                         display: "flex",
@@ -88,11 +88,10 @@ export default function Page() {
                             position: 'relative',
                             display: 'block',
                             alignSelf: "center",
-                            //@ts-ignore
-                            "--font-level": 3,
+                            fontSize: "20px",
                             textAlign: "center"
                         }}
-                        className="fluid"
+
                     >Hack Club expects respect in its community</label>
                     <Box sx={{
                         display: "flex",

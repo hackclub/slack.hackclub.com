@@ -232,7 +232,7 @@ export default function Page() {
                             <Link href="https://hackclub.com/programs" target='_blank'>You ship, We ship</Link> (YSWS) is a family of programs ran by Hack Club where you ship (create) anything you want related to technology
                         </Paragraph>
 
-                        <span style={{ fontSize: "24px", fontWeight: 800, textAlign: "left", lineHeight: "1rem" }}>Examples</span>
+                        <span style={{ color: "var(--foreground)", fontSize: "24px", fontWeight: 800, textAlign: "left", lineHeight: "1rem" }}>Examples</span>
                         <div style={{
                             position: "relative"
                         }}>

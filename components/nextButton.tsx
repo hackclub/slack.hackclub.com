@@ -24,7 +24,7 @@ export default function NextButton({ email }) {
 
                     alignItems: "center",
 
-                    bottom: "10px",
+                    bottom: "50%",
                     right: "10px",
 
                     textDecoration: "none",
@@ -34,7 +34,9 @@ export default function NextButton({ email }) {
 
                     textWrap: "balance",
                     zIndex: 99,
-                    color: "var(--foreground)"
+                    color: "var(--foreground)",
+
+                    transform: "translateY(-50%)"
                 }}
             >
                 <Text sx={{
@@ -42,7 +44,7 @@ export default function NextButton({ email }) {
                     fontSize: "clamp(16px, 5vw, 36px)",
                     alignItems: "center",
                     gap: "4px"
-                }}>Next slide <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                }}><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
                     fill="currentColor" viewBox="0 0 24 24" >
                         { /*<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->*/}
                         <path d="M6 13h6v4l6-5-6-5v4H6z"></path>

@@ -60,7 +60,9 @@ export default function Page() {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "row",
-                        gap: "12px"
+                        gap: "12px",
+
+                        alignItems: "center"
                     }}>
                         <input id="child" type="checkbox" checked={iAmAChild} onChange={() => setIAmAChild(!iAmAChild)} />
                         <label htmlFor="child"
@@ -93,7 +95,9 @@ export default function Page() {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "row",
-                        gap: "12px"
+                        gap: "12px",
+
+                        alignItems: "center"
                     }}>
                         <input id="read" type="checkbox" checked={agreeToCoc} onChange={() => setAgreeToCoc(!agreeToCoc)} />
                         <label htmlFor="read"
@@ -164,6 +168,34 @@ export default function Page() {
                         </svg></Text>
                 </Button>
             </Box >
+
+            <style>
+                {`
+input[type="checkbox"] {
+position: relative;
+appearance: none;
+
+width: 20px;
+height: 20px;
+
+background-color: #17171d;
+border: 2px solid #454549;
+border-radius: 4px;
+                }
+    
+
+input[type="checkbox"]:checked::after {
+content: '';
+position: absolute;
+top: 0px;
+left: 5px;
+width: 4px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}`}
+            </style>
         </>
     )
 }

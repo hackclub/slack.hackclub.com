@@ -396,6 +396,7 @@ export default function Page() {
 
                             alignItems: "flex-end",
                             padding: "0.5rem 0",
+                            paddingBottom: "2rem",
 
                             width: "fit-content",
                             margin: "auto"
@@ -409,7 +410,7 @@ export default function Page() {
                             }}>
                                 <Image style={{
                                     height: "auto",
-                                    maxHeight: "180px",
+                                    maxHeight: "160px",
                                     width: "auto",
                                     objectFit: "contain"
                                 }}
@@ -431,7 +432,7 @@ export default function Page() {
                             }}>
                                 <Image style={{
                                     height: "auto",
-                                    maxHeight: "180px",
+                                    maxHeight: "140px",
                                     width: "auto",
                                     objectFit: "contain"
                                 }} src={ipad} alt="Picture of an iPad from Apple" />
@@ -452,12 +453,13 @@ export default function Page() {
                             }}>
                                 <Image style={{
                                     height: "auto",
-                                    maxHeight: "180px",
+                                    maxHeight: "140px",
                                     width: "auto",
                                     objectFit: "contain"
                                 }} src={framework} alt="Picture of a Framework 13 laptop from Framework" />
 
                                 <span style={{
+                                    paddingTop: "1rem",
                                     color: "var(--foreground)"
                                 }}>
                                     Framework Laptop
@@ -473,7 +475,7 @@ export default function Page() {
                             }}>
                                 <Image style={{
                                     height: "auto",
-                                    maxHeight: "180px",
+                                    maxHeight: "160px",
                                     width: "auto",
                                     objectFit: "contain"
                                 }} src={blahaj} alt="Picture of a shark plush named Blahaj from Ikea" />

@@ -123,53 +123,52 @@ export default function Page() {
                     fontWeight: "600",
                     color: `${(attemptedClickBeforeAgreeing) ? "var(--foreground)" : "transparent"}`
                 }}>You must agree to both provisions before continuing</Text>
-
-                <Button
-                    onClick={() => {
-                        if (!(iAmAChild && agreeToCoc)) {
-                            setAttemptedClickBeforeAgreeing(true)
-                            return
-                        }
-                        window.location.href = `https://auth.hackclub.com/slack${(email !== null ? "?email=" + email : "")}`
-                    }}
-
-                    onMouseDown={() => setPressed(true)}
-                    onMouseUp={() => setPressed(false)}
-                    onMouseLeave={() => setPressed(false)}
-
-                    sx={{
-                        position: "fixed",
-                        transformOrigin: 'center center',
-                        whiteSpace: 'nowrap',
-                        borderRadius: "12px",
-                        background: "none",
-                        transition: "none !important",
-
-                        bottom: "0px",
-                        right: "10px",
-
-                        textTransform: "initial",
-                        paddingRight: "16px",
-                        paddingLeft: "16px",
-                        alignSelf: "center",
-
-                        transform: pressed ? "translateY(4px) !important" : "none",
-
-                        marginTop: "2rem", //I don't like using margin but I'm lazy
-                        textWrap: "balance",
-                        minWidth: "30vw",
-                    }}
-                >
-
-                    <Text sx={{
-                        fontSize: "clamp(16px, 5vw, 36px)"
-                    }}>To Slack! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="currentColor" viewBox="0 0 24 24" >
-                            { /*<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->*/}
-                            <path d="M6 13h6v4l6-5-6-5v4H6z"></path>
-                        </svg></Text>
-                </Button>
             </Box >
+
+            <Link
+                onClick={() => {
+                    if (!(iAmAChild && agreeToCoc)) {
+                        setAttemptedClickBeforeAgreeing(true)
+                        return
+                    }
+                    window.location.href = `https://auth.hackclub.com/slack${(email !== null ? "?email=" + email : "")}`
+                }}
+
+                style={{
+                    position: "fixed",
+                    transformOrigin: 'center center',
+                    whiteSpace: 'nowrap',
+                    borderRadius: "12px",
+                    background: "var(--color-red)",
+                    transition: "none !important",
+                    width: "fit-content",
+
+                    alignItems: "center",
+
+                    bottom: "10px",
+                    right: "10px",
+
+                    textDecoration: "none",
+                    padding: "8px 16px",
+
+                    alignSelf: "center",
+
+                    textWrap: "balance",
+                    zIndex: 99,
+                    color: "var(--foreground)"
+                }}
+            >
+                <Text sx={{
+                    display: "flex",
+                    fontSize: "clamp(16px, 5vw, 36px)",
+                    alignItems: "center",
+                    gap: "4px"
+                }}>To Slack <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="currentColor" viewBox="0 0 24 24" >
+                        { /*<!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->*/}
+                        <path d="M6 13h6v4l6-5-6-5v4H6z"></path>
+                    </svg></Text>
+            </Link>
 
             <style>
                 {`

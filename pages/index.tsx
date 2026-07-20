@@ -43,7 +43,7 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
           px: '0.5rem',
           fontWeight: 600,
           fontSize: '1.5rem',
-          color: 'steel',
+          color: 'white',
           cursor: 'pointer',
           background: 'none',
           border: 'none',
@@ -55,10 +55,10 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
           borderRadius: '8px',
           transition: 'all 0.2s ease',
           '&:hover': {
-            color: 'primary',
+            color: 'white',
             bg: 'rgba(236, 55, 80, 0.05)'
           },
-          '&:hover .guide-icon': { color: 'primary' }
+          '&:hover .guide-icon': { color: 'white' }
         }}
       >
         {title}
@@ -67,7 +67,7 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
           sx={{
             fontSize: '1.5rem',
             fontWeight: 400,
-            color: 'muted',
+            color: 'white',
             transition: 'transform 0.3s ease, color 0.2s ease',
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
           }}
@@ -92,10 +92,10 @@ const GuideItem = ({ title, children, isOpen, onToggle }) => {
             pt: isOpen ? '0.5rem' : 0,
             px: '0.5rem',
             transition: 'padding 0.3s ease',
-            '& p': { mb: '0.75rem', color: 'slate', lineHeight: '1.6' },
+            '& p': { mb: '0.75rem', color: 'white', lineHeight: '1.6' },
             '& p:last-child, & ul:last-child': { mb: 0 },
             '& ul': { pl: '1.5rem' },
-            '& li': { mb: '0.5rem', color: 'slate' },
+            '& li': { mb: '0.5rem', color: 'white' },
             '& code': {
               bg: 'sunken',
               px: '0.3em',
@@ -133,7 +133,7 @@ const MakeFigure = (props) => {
           height: '22.5rem'
         }}
       />
-      <figcaption>{imgDesc}</figcaption>
+      <figcaption style={{ color: "white" }}>{imgDesc}</figcaption>
     </figure>
   )
 }
@@ -183,7 +183,7 @@ export default function Page() {
     <>
       <ForceTheme theme="light" />
       <Nav />
-      <Box as="main" sx={{ bg: 'white', color: 'black', minHeight: '100vh' }}>
+      <Box as="main" sx={{ bg: 'dark', color: 'black', minHeight: '100vh' }}>
         <Box
           as="header"
           sx={{
@@ -255,9 +255,10 @@ export default function Page() {
             gridTemplateColumns: "1fr"
           },
           height: "fit-content",
-          marginTop: ["1rem", "2rem"]
+          paddingTop: ["1rem", "2rem"],
+          bg: 'dark',
         }}>
-          <Box sx={{ padding: "1rem" }}>
+          <Box sx={{ padding: "1rem", bg: 'dark' }}>
             <Box
               sx={{
                 display: "flex",
@@ -277,7 +278,8 @@ export default function Page() {
               }} src={hangOut.src} />
               <Text sx={{
                 fontSize: "3rem",
-                fontWeight: "800"
+                fontWeight: "800",
+                color: "white"
               }}>Hang out</Text>
             </Box>
           </Box>
@@ -303,7 +305,8 @@ export default function Page() {
               }} src={makeFriends.src} />
               <Text sx={{
                 fontSize: "3rem",
-                fontWeight: "800"
+                fontWeight: "800",
+                color: "white"
               }}>Make friends</Text>
             </Box>
           </Box>
@@ -328,7 +331,8 @@ export default function Page() {
               }} src={buildStuff.src} />
               <Text sx={{
                 fontSize: "3rem",
-                fontWeight: "800"
+                fontWeight: "800",
+                color: "white"
               }}>Build projects</Text>
             </Box>
           </Box>
@@ -339,7 +343,8 @@ export default function Page() {
             display: "grid",
             gridTemplateColumns: ["1fr", "1fr", "1fr 1fr"],
             paddingTop: ["0rem", "2rem"],
-            gap: ["1rem", "2rem"]
+            gap: ["1rem", "2rem"],
+            bg: 'dark',
           }}>
           <Box sx={{
             padding: ["1rem", "2rem"],
@@ -348,14 +353,10 @@ export default function Page() {
               as="h2"
               sx={{
                 fontSize: ['2.5rem', '3.5rem'],
-                color: 'primary',
                 mb: '1.5rem',
                 lineHeight: 'tight',
                 fontWeight: 800,
-                //@ts-ignore
-                backgroundImage: (t) => t.util.gx('orange', 'red'),
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: "primary",
                 display: 'inline-block'
               }}
             >
@@ -373,7 +374,7 @@ export default function Page() {
                 guide to help you.
               </p>
               <div>
-                <Heading as="h3">Channels</Heading>
+                <Heading as="h3" sx={{ color: "white" }}>Channels</Heading>
                 <p>
                   The best place to meet new people and have interesting
                   conversations. When you want to talk about something, you find
@@ -386,7 +387,7 @@ export default function Page() {
                 />
               </div>
               <div>
-                <Heading as="h3">DMs</Heading>
+                <Heading as="h3" sx={{ color: "white" }}>DMs</Heading>
                 <p>
                   You can also DM individual users or groups of users. This is
                   another way to connect with members of our community!
@@ -397,7 +398,7 @@ export default function Page() {
                 />
               </div>
               <div>
-                <Heading as="h3">Search</Heading>
+                <Heading as="h3" sx={{ color: "white" }}>Search</Heading>
                 <p>
                   The search bar at the top of your Slack is how you find channels
                   to join, find people to DM, and look up messages. It has so many
@@ -410,7 +411,7 @@ export default function Page() {
                 />
               </div>
               <div>
-                <Heading as="h3">The Sidebar</Heading>
+                <Heading as="h3" sx={{ color: "white" }}>The Sidebar</Heading>
                 <p>
                   Once you join a channel or start a DM, it lives in your sidebar.
                   You can play around and reorganize it in the way that makes
@@ -580,20 +581,16 @@ export default function Page() {
               as="h2"
               sx={{
                 fontSize: ['2.5rem', '3.5rem'],
-                color: 'primary',
                 mb: 0,
                 lineHeight: 'tight',
                 fontWeight: 800,
-                //@ts-ignore
-                backgroundImage: (t) => t.util.gx('orange', 'red'),
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: "primary",
                 display: 'inline-block'
               }}
             >
               Find your regional channel
             </Heading>
-            <Text sx={{ fontSize: '1.15rem', color: 'slate' }}>
+            <Text sx={{ fontSize: '1.15rem', color: 'white' }}>
               Feel like sharing something random from your life? Check out{' '}
               <ChannelName href="https://hackclub.enterprise.slack.com/archives/C0AL2BXLB7V">
                 #self

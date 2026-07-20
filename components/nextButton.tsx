@@ -8,6 +8,11 @@ export default function NextButton({ email }) {
     const pathname = usePathname()
     const slide = parseInt(pathname.split("/").at(-1))
 
+    console.log(pathname)
+    if (pathname === "/") {
+        return <></>
+    }
+
     return (
         <>
             {(slide !== 4) ? (<Link
@@ -28,7 +33,7 @@ export default function NextButton({ email }) {
                     right: "10px",
 
                     textDecoration: "none",
-                    padding: "8px 16px",
+                    padding: "6px 12px",
 
                     alignSelf: "center",
 

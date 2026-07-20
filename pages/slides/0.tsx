@@ -31,7 +31,7 @@ export default function Page() {
                     as="h1"
                 >Welcome to Hack Club!</Text>
 
-                <Image src={welcome} alt="Welcome to the Club" style={{
+                <Image unoptimized src={welcome} alt="Welcome to the Club" style={{
                     maxWidth: "100%",
                     height: "auto",
 

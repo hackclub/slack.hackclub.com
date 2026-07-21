@@ -7,7 +7,7 @@ import { Provider as BalancerProvider } from 'react-wrap-balancer'
 
 import { phantomSans, shantellSans, zarathustra } from "../lib/fonts"
 import "../styles/global.css"
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import NextButton from '../components/nextButton'
 import { getEmailQueryParam } from "../lib/getEmailQueryParam"
 import { usePathname } from 'next/navigation'

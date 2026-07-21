@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Text } from 'theme-ui'
+import { Text } from 'theme-ui'
 import Link from 'next/link'
 import { usePathname } from "next/navigation"
 

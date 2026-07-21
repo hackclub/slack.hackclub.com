@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
 import { isMobile } from 'react-device-detect';
 import { Box, Text } from 'theme-ui'
 import Image, { StaticImageData } from "next/image"
 
-import Emoji from "../../components/emoji"
 import games from "../../public/slides/1/games.png"
 import globe from "../../public/slides/1/globe.png"
 import mic from "../../public/slides/1/mic.png"

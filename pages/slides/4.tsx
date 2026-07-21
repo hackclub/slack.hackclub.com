@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getEmailQueryParam } from "../../lib/getEmailQueryParam"
-import { Box, Text, Button, Link } from 'theme-ui'
+import { Box, Text, Link } from 'theme-ui'
 
 export default function Page() {
     const [iAmAChild, setIAmAChild] = useState(false)

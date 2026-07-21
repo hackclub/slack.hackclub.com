@@ -130,7 +130,7 @@ const NavBar = styled(Box, {
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || props.color};
+      color: #e0e6ed;
     }
   }
 `
@@ -225,7 +225,7 @@ export default function Header({
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
-      ? 'slate'
+      ? color || 'snow'
       : color
 
   return (
@@ -235,7 +235,7 @@ export default function Header({
       scrolled={scrolled}
       toggled={toggled}
       dark={dark}
-      bgColor={bgColor || (dark ? [32, 34, 36] : [255, 255, 255])}
+      bgColor={bgColor || (dark ? [32, 34, 36] : [32, 34, 36])}
       as="header"
     >
       <Content>

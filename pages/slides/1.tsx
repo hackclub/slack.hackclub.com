@@ -116,7 +116,7 @@ export default function Page() {
 
             <Box sx={{
                 display: "grid",
-                gridTemplateColumns: ["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
+                gridTemplateColumns: ["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
 
                 gap: "2rem",
 

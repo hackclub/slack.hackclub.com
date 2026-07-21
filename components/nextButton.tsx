@@ -9,7 +9,7 @@ export default function NextButton({ email }) {
     const slide = parseInt(pathname.split("/").at(-1))
 
     console.log(pathname)
-    if (pathname === "/") {
+    if (!pathname.includes("slides")) {
         return <></>
     }
 
@@ -38,7 +38,7 @@ export default function NextButton({ email }) {
                     alignSelf: "center",
 
                     textWrap: "balance",
-                    zIndex: 99,
+                    zIndex: 9999,
                     color: "var(--foreground)",
 
                     transform: "translateY(-50%)"

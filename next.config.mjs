@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -10,7 +9,16 @@ const nextConfig = {
       },
       { protocol: 'https', hostname: 'assets.hackclub.com' }
     ]
-  }
+  },
+
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
 }
 
 export default nextConfig

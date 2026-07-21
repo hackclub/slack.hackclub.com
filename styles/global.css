@@ -1,0 +1,61 @@
+:root {
+    --foreground: #fff;
+
+    --color-red: #ec3750;
+
+    --font-size-min: 10;
+    --font-size-max: 20;
+    --font-ratio-min: 1.2;
+    --font-ratio-max: 1.33;
+    --font-width-min: 320;
+    --font-width-max: 1500;
+    --variable-unit: 100cqi;
+}
+
+* {
+    font-family: var(--font-phantom-src);
+}
+
+/*  Code stolen from hackclub/site */
+/* ── CTA button hover ─────────────────────────────────────────── */
+.cta-btn {
+    transition:
+        background 0.4s ease,
+        color 0.4s ease;
+}
+
+.cta-btn:hover {
+    filter: brightness(1.15);
+}
+
+/* ── CTA button arrow animation ──────────────────────────────── */
+.cta-btn .btn-arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.cta-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+
+
+
+
+
+/* stolen from the codepen in https://x.com/jh3yy/status/1833871982078615924 */
+:where(.fluid) {
+    --fluid-min: calc(var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0)));
+    --fluid-max: calc(var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0)));
+    --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max) - var(--font-width-min)));
+    --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,
+            ((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+            (var(--fluid-max) / 16) * 1rem);
+    font-size: var(--fluid-type) !important;
+}

@@ -404,5 +404,90 @@
     "type": "us-state",
     "url": "https://app.slack.com/client/E09V59WQY1E/C099PTJM5FF",
     "id": "C099PTJM5FF"
+  },
+  {
+    "channel": "reunion-island",
+    "match": "reunion-island",
+    "type": "island",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B7H73EU7L",
+    "id": "C0B7H73EU7L"
+  },
+  {
+    "channel":"kerala",
+    "match":"kerala",
+    "type":"indian-state",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C08D8B0STPE",
+    "id":"C08D8B0STPE"
+
+  },
+  {
+    "channel":"tamil-nadu",
+    "match":"tamil-nadu",
+    "type":"indian-state",
+    "url":"https://app.slack.com/client/E09V59WQY1E/C0AU3ELADMK",
+    "id": "C0AU3ELADMK"
+  },
+  {
+    "channel":"vietnamese",
+    "match":"vietnam",
+    "type":"country",
+    "url":"https://hackclub.enterprise.slack.com/archives/C0839KBC9R7",
+    "id":"C0839KBC9R7"
+  },
+  {
+    "channel": "méxico",
+    "match": "mexico",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B74659GE7",
+    "id": "C0B74659GE7"
+  },
+  {
+    "channel": "hackclubperu",
+    "match": "peru",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0BF86PBZ33",
+    "id": "C0BF86PBZ33"
+  },
+  {
+    "channel": "czech",
+    "match": "czech",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B0ACT2DJA",
+    "id": "C0B0ACT2DJA"
+  },
+  {
+    "channel": "costa-rica",
+    "match": "costa-rica",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B9V9ZQT3M",
+    "id": "C0B9V9ZQT3M"
+  },
+  {
+    "channel": "ethiopia",
+    "match": "ethiopia",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B1LUD1XKK",
+    "id": "C0B1LUD1XKK"
+  },
+  {
+    "channel": "hackclubmauritius",
+    "match": "mauritius",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C01CSUFH38D",
+    "id": "C01CSUFH38D"
+  },
+  {
+    "channel": "moldova-main",
+    "match": "moldova",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0B493WP206",
+    "id": "C0B493WP206"
+  },
+  {
+    "channel": "hackbahamas",
+    "match": "bahamas",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C045HML0Q86",
+    "id": "C045HML0Q86"
   }
 ]

@@ -624,6 +624,21 @@ export default function Page() {
                 </>
               )
             }
+
+            <Link
+              href="/channels"
+              sx={{
+                display: 'inline-block',
+                mt: 2,
+                color: 'primary',
+                fontWeight: 700,
+                fontSize: '1rem',
+                textDecoration: 'none',
+                '&:hover': { textDecoration: 'underline' }
+              }}
+            >
+              Browse all regional channels →
+            </Link>
           </Box>
         </Box>
       </Box >

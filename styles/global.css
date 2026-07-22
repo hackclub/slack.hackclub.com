@@ -1,7 +1,17 @@
 :root {
     --foreground: #fff;
-
+    --background: #17171d;
+    --muted: #888;
+    --border: rgba(255, 255, 255, 0.08);
+    --nav-bg: rgba(23, 23, 29, 0.96);
+    --surface: #232329;
+    --surface-hover: #2a2a32;
+    --shadow-dd: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --cream: #fff6eb;
+    --ink: #17171d;
+    --paper: #fff;
     --color-red: #ec3750;
+    --font-phantom: var(--font-phantom-src);
 
     --font-size-min: 10;
     --font-size-max: 20;

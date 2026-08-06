@@ -133,7 +133,7 @@ export default function Page() {
                         setAttemptedClickBeforeAgreeing(true)
                         return
                     }
-                    window.location.href = `https://auth.hackclub.com/slack${(email !== null ? "?email=" + email : "")}`
+                    window.location.href = `https://auth.hackclub.com/slack${(email !== null ? "?email=" + email.replaceAll("+", `%2B`) : "")}`
                 }}
 
                 style={{

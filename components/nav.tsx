@@ -126,27 +126,27 @@ export function Navbar({ invertColors = false }: { invertColors?: boolean }) {
   const desktop = useMediaQuery("(min-width: 1024px)");
 
   const about = [
-    { label: "Philosophy", href: "/philosophy" },
-    { label: "Philanthropy", href: "/philanthropy" },
-    { label: "Team & Board", href: "/team" },
-    { label: "Jobs", href: "/jobs" },
-    { label: "Branding Guide", href: "/brand" },
-    { label: "Press Inquiries", href: "/press" },
+    { label: "Philosophy", href: "https://hackclub.com/philosophy" },
+    { label: "Philanthropy", href: "https://hackclub.com/philanthropy" },
+    { label: "Team & Board", href: "https://hackclub.com/team" },
+    { label: "Jobs", href: "https://hackclub.com/jobs" },
+    { label: "Branding Guide", href: "https://hackclub.com/brand" },
+    { label: "Press Inquiries", href: "https://hackclub.com/press" },
   ];
   const resources = [
-    { label: "HCB", href: "/fiscal-sponsorship" },
+    { label: "HCB", href: "https://hackclub.com/fiscal-sponsorship" },
     { label: "Toolbox", href: "https://toolbox.hackclub.com" },
-    { label: "Code of Conduct", href: "/conduct" },
-    { label: "Privacy & Terms", href: "/privacy-and-terms" },
-    { label: "Safety", href: "/safety" },
+    { label: "Code of Conduct", href: "https://hackclub.com/conduct" },
+    { label: "Privacy & Terms", href: "https://hackclub.com/privacy-and-terms" },
+    { label: "Safety", href: "https://hackclub.com/safety" },
   ];
   const links: Array<{ label: string; href?: string; dropdown?: Item[] }> = [
     { label: "About", dropdown: about },
-    { label: "Programs", href: "/programs" },
-    { label: "Clubs", href: "/clubs" },
+    { label: "Programs", href: "https://hackclub.com/programs" },
+    { label: "Clubs", href: "https://hackclub.com/clubs" },
     { label: "Hackathons", href: "https://hackathons.hackclub.com" },
     { label: "Resources", dropdown: resources },
-    { label: "Donate", href: "/philanthropy" },
+    { label: "Donate", href: "https://hackclub.com/philanthropy" },
   ];
 
   useEffect(() => {

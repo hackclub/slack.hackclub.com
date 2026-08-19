@@ -26,6 +26,7 @@ import luma from "../../public/slides/2/luma.jpg"
 import hexecute from "../../public/slides/2/hexecute.png"
 import bobTheGun from "../../public/slides/2/bob_the_gun.png"
 import catChef from "../../public/slides/2/cat_chef_restaurant.png"
+import ultraPortal from "../../public/slides/2/ultraportal.webp"
 
 import { BtnArrow } from "./../../components/btn-arrow";
 import Paragraph from "../../components/paragraph"
@@ -175,6 +176,17 @@ const coolProjects: {
             creators: [{
                 name: "Kajmix",
                 id: "U0A7ZD20DSL"
+            }]
+        },
+        {
+            name: "UltraPortal",
+            description: "ULTRAKILL's FRAUD layer has introduced us to portals, so why not make a portal gun?",
+            repo: "https://github.com/averyocean65/UltraPortal",
+            demoURL: "https://thunderstore.io/c/ultrakill/p/averyocean65/UltraPortal/",
+            imageSrc: ultraPortal,
+            creators: [{
+                name: "averyocean65",
+                id: "U0A7JAWQJ7K"
             }]
         }
     ]

@@ -20,6 +20,13 @@
     "url": "https://app.slack.com/client/E09V59WQY1E/C09UT0U2VSR",
     "id": "C09UT0U2VSR"
   },
+    {
+    "channel": "belarus",
+    "match": "belarus",
+    "type": "country",
+    "url": "https://app.slack.com/client/E09V59WQY1E/C0BTQN9T998",
+    "id": "C0BTQN9T998"
+  },
   {
     "channel": "belgium",
     "match": "belgium",
